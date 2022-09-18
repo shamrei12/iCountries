@@ -7,23 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D87E409828D4C5020050B5DF /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87E409628D4C5020050B5DF /* CountryViewController.swift */; };
+		D87E409928D4C5020050B5DF /* CountryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87E409728D4C5020050B5DF /* CountryViewController.xib */; };
+		D87E409B28D4CE320050B5DF /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87E409A28D4CE320050B5DF /* CountryView.swift */; };
+		D87E409D28D4D00F0050B5DF /* UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87E409C28D4D00F0050B5DF /* UIExtension.swift */; };
 		D894B9D828D0DE7200ACB289 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9D728D0DE7200ACB289 /* AppDelegate.swift */; };
 		D894B9DA28D0DE7200ACB289 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9D928D0DE7200ACB289 /* SceneDelegate.swift */; };
-		D894B9DC28D0DE7200ACB289 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9DB28D0DE7200ACB289 /* ViewController.swift */; };
-		D894B9DF28D0DE7200ACB289 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D894B9DD28D0DE7200ACB289 /* Main.storyboard */; };
 		D894B9E128D0DE7400ACB289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D894B9E028D0DE7400ACB289 /* Assets.xcassets */; };
 		D894B9E428D0DE7400ACB289 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D894B9E228D0DE7400ACB289 /* LaunchScreen.storyboard */; };
+		D894B9EC28D0DED100ACB289 /* WelcomeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9EB28D0DED100ACB289 /* WelcomeElement.swift */; };
+		D894B9EE28D0DF1500ACB289 /* CountriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D894B9ED28D0DF1500ACB289 /* CountriesViewController.xib */; };
+		D894B9F028D0DF5D00ACB289 /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9EF28D0DF5D00ACB289 /* CountriesViewController.swift */; };
+		D894B9F428D0E7CE00ACB289 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9F328D0E7CE00ACB289 /* SessionManager.swift */; };
+		D894B9F628D0EA4200ACB289 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9F528D0EA4200ACB289 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D87E409628D4C5020050B5DF /* CountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
+		D87E409728D4C5020050B5DF /* CountryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryViewController.xib; sourceTree = "<group>"; };
+		D87E409A28D4CE320050B5DF /* CountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryView.swift; sourceTree = "<group>"; };
+		D87E409C28D4D00F0050B5DF /* UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtension.swift; sourceTree = "<group>"; };
 		D894B9D428D0DE7200ACB289 /* iCountries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCountries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D894B9D728D0DE7200ACB289 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D894B9D928D0DE7200ACB289 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D894B9DB28D0DE7200ACB289 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D894B9DE28D0DE7200ACB289 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D894B9E028D0DE7400ACB289 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D894B9E328D0DE7400ACB289 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D894B9E528D0DE7400ACB289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D894B9EB28D0DED100ACB289 /* WelcomeElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeElement.swift; sourceTree = "<group>"; };
+		D894B9ED28D0DF1500ACB289 /* CountriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountriesViewController.xib; sourceTree = "<group>"; };
+		D894B9EF28D0DF5D00ACB289 /* CountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
+		D894B9F328D0E7CE00ACB289 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		D894B9F528D0EA4200ACB289 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +51,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D87E409528D245660050B5DF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D894B9F528D0EA4200ACB289 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D87E409E28D4D1A10050B5DF /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				D894B9E228D0DE7400ACB289 /* LaunchScreen.storyboard */,
+				D894B9ED28D0DF1500ACB289 /* CountriesViewController.xib */,
+				D894B9EF28D0DF5D00ACB289 /* CountriesViewController.swift */,
+				D87E409628D4C5020050B5DF /* CountryViewController.swift */,
+				D87E409728D4C5020050B5DF /* CountryViewController.xib */,
+				D87E409A28D4CE320050B5DF /* CountryView.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		D87E409F28D4D1C10050B5DF /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D894B9F328D0E7CE00ACB289 /* SessionManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		D894B9CB28D0DE7200ACB289 = {
 			isa = PBXGroup;
 			children = (
@@ -58,11 +101,13 @@
 			children = (
 				D894B9D728D0DE7200ACB289 /* AppDelegate.swift */,
 				D894B9D928D0DE7200ACB289 /* SceneDelegate.swift */,
-				D894B9DB28D0DE7200ACB289 /* ViewController.swift */,
-				D894B9DD28D0DE7200ACB289 /* Main.storyboard */,
+				D87E409528D245660050B5DF /* Model */,
+				D87E409E28D4D1A10050B5DF /* UIView */,
 				D894B9E028D0DE7400ACB289 /* Assets.xcassets */,
-				D894B9E228D0DE7400ACB289 /* LaunchScreen.storyboard */,
 				D894B9E528D0DE7400ACB289 /* Info.plist */,
+				D894B9EB28D0DED100ACB289 /* WelcomeElement.swift */,
+				D87E409F28D4D1C10050B5DF /* Manager */,
+				D87E409C28D4D00F0050B5DF /* UIExtension.swift */,
 			);
 			path = iCountries;
 			sourceTree = "<group>";
@@ -126,8 +171,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D894B9E428D0DE7400ACB289 /* LaunchScreen.storyboard in Resources */,
+				D87E409928D4C5020050B5DF /* CountryViewController.xib in Resources */,
 				D894B9E128D0DE7400ACB289 /* Assets.xcassets in Resources */,
-				D894B9DF28D0DE7200ACB289 /* Main.storyboard in Resources */,
+				D894B9EE28D0DF1500ACB289 /* CountriesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +184,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D894B9DC28D0DE7200ACB289 /* ViewController.swift in Sources */,
+				D894B9F628D0EA4200ACB289 /* Model.swift in Sources */,
+				D87E409828D4C5020050B5DF /* CountryViewController.swift in Sources */,
 				D894B9D828D0DE7200ACB289 /* AppDelegate.swift in Sources */,
+				D87E409D28D4D00F0050B5DF /* UIExtension.swift in Sources */,
+				D87E409B28D4CE320050B5DF /* CountryView.swift in Sources */,
+				D894B9F428D0E7CE00ACB289 /* SessionManager.swift in Sources */,
+				D894B9EC28D0DED100ACB289 /* WelcomeElement.swift in Sources */,
 				D894B9DA28D0DE7200ACB289 /* SceneDelegate.swift in Sources */,
+				D894B9F028D0DF5D00ACB289 /* CountriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D894B9DD28D0DE7200ACB289 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D894B9DE28D0DE7200ACB289 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D894B9E228D0DE7400ACB289 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +336,6 @@
 				INFOPLIST_FILE = iCountries/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +363,6 @@
 				INFOPLIST_FILE = iCountries/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
