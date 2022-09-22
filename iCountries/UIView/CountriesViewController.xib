@@ -16,28 +16,45 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0AP-3a-E6Q">
-                        <rect key="frame" x="0.0" y="48" width="414" height="814"/>
+                    <tableView clipsSubviews="YES" contentMode="center" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0AP-3a-E6Q">
+                        <rect key="frame" x="0.0" y="92" width="414" height="770"/>
+                        <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" systemColor="systemFillColor"/>
                         <connections>
                             <outlet property="dataSource" destination="o7F-6D-V30" id="HWV-cE-Q1s"/>
                             <outlet property="delegate" destination="o7F-6D-V30" id="uIY-6s-3Qh"/>
                         </connections>
                     </tableView>
+                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAp-ET-EkS">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <items>
+                            <navigationItem title="Список" id="ytb-vp-4pt">
+                                <barButtonItem key="leftBarButtonItem" title="Назад" id="Tk9-Zx-XYB">
+                                    <connections>
+                                        <action selector="tappedBack:" destination="o7F-6D-V30" id="wDb-Jm-a0c"/>
+                                    </connections>
+                                </barButtonItem>
+                            </navigationItem>
+                        </items>
+                    </navigationBar>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="hHQ-OU-ld8"/>
                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 <constraints>
+                    <constraint firstItem="TAp-ET-EkS" firstAttribute="top" secondItem="hHQ-OU-ld8" secondAttribute="top" id="3b3-RS-so9"/>
                     <constraint firstItem="0AP-3a-E6Q" firstAttribute="leading" secondItem="hHQ-OU-ld8" secondAttribute="leading" id="70A-s1-1W8"/>
                     <constraint firstItem="hHQ-OU-ld8" firstAttribute="trailing" secondItem="0AP-3a-E6Q" secondAttribute="trailing" id="Mh0-SR-wG6"/>
-                    <constraint firstItem="0AP-3a-E6Q" firstAttribute="top" secondItem="hHQ-OU-ld8" secondAttribute="top" id="Oag-5O-lqI"/>
+                    <constraint firstItem="0AP-3a-E6Q" firstAttribute="top" secondItem="TAp-ET-EkS" secondAttribute="bottom" id="WfN-52-tjB"/>
+                    <constraint firstItem="TAp-ET-EkS" firstAttribute="trailing" secondItem="0AP-3a-E6Q" secondAttribute="trailing" id="ioa-Hp-PQU"/>
+                    <constraint firstItem="TAp-ET-EkS" firstAttribute="leading" secondItem="0AP-3a-E6Q" secondAttribute="leading" id="jjZ-7j-AaG"/>
                     <constraint firstItem="hHQ-OU-ld8" firstAttribute="bottom" secondItem="0AP-3a-E6Q" secondAttribute="bottom" id="wRw-FA-6Sd"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="tableView" destination="0AP-3a-E6Q" id="jw3-5d-jHw"/>
             </connections>
-            <point key="canvasLocation" x="-136" y="133"/>
+            <point key="canvasLocation" x="-136.23188405797103" y="132.58928571428572"/>
         </viewController>
     </objects>
     <resources>

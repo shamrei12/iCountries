@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        let homeVC = CountriesViewController.instantiate()
+        let homeVC = MenuViewController.instantiate()
         window?.rootViewController = homeVC
         window?.makeKeyAndVisible()
     }

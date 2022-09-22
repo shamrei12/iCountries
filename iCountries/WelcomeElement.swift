@@ -16,7 +16,7 @@ struct WelcomeElement: Codable {
     let independent: Bool?
     let status: Status
     let unMember: Bool
-    let currencies: Currencies?
+    let currencies: [String: [String:String]]?
     let idd: Idd
     let capital: [String]?
     let altSpellings: [String]

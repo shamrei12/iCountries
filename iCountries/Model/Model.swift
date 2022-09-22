@@ -25,8 +25,4 @@ struct Countries: CountriesProtocol {
     var common: String
 }
 
-struct Country {
-   var common: String
-}
-
     

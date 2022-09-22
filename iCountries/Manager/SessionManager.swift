@@ -28,14 +28,14 @@ class SessionManager {
         
       let urlString = "https://restcountries.com/v3.1/name/"
         var baseURL = URL(string: urlString)
-        baseURL!.appendPathComponent("/\(common)")
-
+        baseURL!.appendPathComponent("\(common)")
         let sessionConfiguration = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfiguration)
         let dataTask = session.dataTask(with: baseURL!) { (data, response, error) in
             guard error == nil else { return }
             guard let data = data else { return }
             let responseData = self.parseJSON(data: data)
+
             DispatchQueue.main.async {
                 dataResponse(responseData!)
             }
