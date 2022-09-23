@@ -23,6 +23,13 @@ class MenuViewController: UIViewController {
         present(countryVC, animated: false)
     }
     
+    @IBAction func tappedQuiz(_ sender: UIButton) {
+        let quizVC = QuizViewController.instantiate()
+        quizVC.modalPresentationStyle = .fullScreen
+        present(quizVC, animated: false)
+    }
+    
+    
     /*
     // MARK: - Navigation
 

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController" customModule="iCountries" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <viewController id="jxc-bL-K7M" customClass="MenuViewController" customModule="iCountries" customModuleProvider="target">
             <view key="view" contentMode="scaleToFill" id="0Ml-9b-sUe">
@@ -36,9 +36,12 @@
                                 <color key="backgroundColor" red="0.0093485666438937187" green="0.61726593971252441" blue="0.98572248220443726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Викторина">
+                                <buttonConfiguration key="configuration" style="plain" title="ВИКТОРИНА">
                                     <fontDescription key="titleFontDescription" name="Impact" family="Impact" pointSize="39"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="tappedQuiz:" destination="jxc-bL-K7M" eventType="touchUpInside" id="aFX-Gc-TaX"/>
+                                </connections>
                             </button>
                         </subviews>
                     </stackView>

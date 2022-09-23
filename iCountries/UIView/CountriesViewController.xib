@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <tableView clipsSubviews="YES" contentMode="center" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0AP-3a-E6Q">
-                        <rect key="frame" x="0.0" y="92" width="414" height="770"/>
+                        <rect key="frame" x="0.0" y="102" width="414" height="760"/>
                         <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" systemColor="systemFillColor"/>
                         <connections>
@@ -27,6 +27,7 @@
                     </tableView>
                     <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAp-ET-EkS">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <items>
                             <navigationItem title="Список" id="ytb-vp-4pt">
@@ -45,7 +46,7 @@
                     <constraint firstItem="TAp-ET-EkS" firstAttribute="top" secondItem="hHQ-OU-ld8" secondAttribute="top" id="3b3-RS-so9"/>
                     <constraint firstItem="0AP-3a-E6Q" firstAttribute="leading" secondItem="hHQ-OU-ld8" secondAttribute="leading" id="70A-s1-1W8"/>
                     <constraint firstItem="hHQ-OU-ld8" firstAttribute="trailing" secondItem="0AP-3a-E6Q" secondAttribute="trailing" id="Mh0-SR-wG6"/>
-                    <constraint firstItem="0AP-3a-E6Q" firstAttribute="top" secondItem="TAp-ET-EkS" secondAttribute="bottom" id="WfN-52-tjB"/>
+                    <constraint firstItem="0AP-3a-E6Q" firstAttribute="top" secondItem="TAp-ET-EkS" secondAttribute="bottom" constant="10" id="WfN-52-tjB"/>
                     <constraint firstItem="TAp-ET-EkS" firstAttribute="trailing" secondItem="0AP-3a-E6Q" secondAttribute="trailing" id="ioa-Hp-PQU"/>
                     <constraint firstItem="TAp-ET-EkS" firstAttribute="leading" secondItem="0AP-3a-E6Q" secondAttribute="leading" id="jjZ-7j-AaG"/>
                     <constraint firstItem="hHQ-OU-ld8" firstAttribute="bottom" secondItem="0AP-3a-E6Q" secondAttribute="bottom" id="wRw-FA-6Sd"/>
@@ -58,6 +59,9 @@
         </viewController>
     </objects>
     <resources>
+        <systemColor name="secondarySystemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
