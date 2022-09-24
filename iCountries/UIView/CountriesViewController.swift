@@ -51,12 +51,17 @@ extension CountriesViewController: UITableViewDataSource {
 //        configuration.text = countries[indexPath.row].name
 //        configuration.secondaryText = "Столица: \(countries[indexPath.row].capital)"
 //        cell.contentConfiguration = configuration
+        spinner.stopAnimating()
+        spinner.hidesWhenStopped = true
         return cell
     }
     
 }
 
 class CountriesViewController: UIViewController {
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     
     @IBOutlet weak var tableView: UITableView!
     private var countries: [CountriesProtocol] = [] {
@@ -66,9 +71,10 @@ class CountriesViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.register(UINib(nibName: "CountryTableViewCell", bundle: nil), forCellReuseIdentifier: "CountryTableViewCell")
         showCountries()
+        spinner.startAnimating()
     }
     
     

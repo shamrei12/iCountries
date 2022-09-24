@@ -13,6 +13,7 @@
 		D82C8C1F28DDC5740059795C /* QuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D82C8C1D28DDC5740059795C /* QuizViewController.xib */; };
 		D87063B528D75B3E009F224A /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87063B328D75B3E009F224A /* CountryTableViewCell.swift */; };
 		D87063B628D75B3E009F224A /* CountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87063B428D75B3E009F224A /* CountryTableViewCell.xib */; };
+		D875DF2228DE06B9009EDE1D /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D875DF2128DE06B9009EDE1D /* QuizView.swift */; };
 		D87E409828D4C5020050B5DF /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87E409628D4C5020050B5DF /* CountryViewController.swift */; };
 		D87E409928D4C5020050B5DF /* CountryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87E409728D4C5020050B5DF /* CountryViewController.xib */; };
 		D87E409B28D4CE320050B5DF /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87E409A28D4CE320050B5DF /* CountryView.swift */; };
@@ -35,6 +36,7 @@
 		D82C8C1D28DDC5740059795C /* QuizViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizViewController.xib; sourceTree = "<group>"; };
 		D87063B328D75B3E009F224A /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		D87063B428D75B3E009F224A /* CountryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryTableViewCell.xib; sourceTree = "<group>"; };
+		D875DF2128DE06B9009EDE1D /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		D87E409628D4C5020050B5DF /* CountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
 		D87E409728D4C5020050B5DF /* CountryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryViewController.xib; sourceTree = "<group>"; };
 		D87E409A28D4CE320050B5DF /* CountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryView.swift; sourceTree = "<group>"; };
@@ -79,13 +81,14 @@
 				D894B9E228D0DE7400ACB289 /* LaunchScreen.storyboard */,
 				D894B9ED28D0DF1500ACB289 /* CountriesViewController.xib */,
 				D87E409728D4C5020050B5DF /* CountryViewController.xib */,
+				D82C8C1D28DDC5740059795C /* QuizViewController.xib */,
 				D87063B328D75B3E009F224A /* CountryTableViewCell.swift */,
 				D82C8C1828DCB1E80059795C /* MenuViewController.swift */,
 				D894B9EF28D0DF5D00ACB289 /* CountriesViewController.swift */,
 				D87E409628D4C5020050B5DF /* CountryViewController.swift */,
 				D87E409A28D4CE320050B5DF /* CountryView.swift */,
 				D82C8C1C28DDC5740059795C /* QuizViewController.swift */,
-				D82C8C1D28DDC5740059795C /* QuizViewController.xib */,
+				D875DF2128DE06B9009EDE1D /* QuizView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				D87E409828D4C5020050B5DF /* CountryViewController.swift in Sources */,
 				D894B9D828D0DE7200ACB289 /* AppDelegate.swift in Sources */,
 				D82C8C1E28DDC5740059795C /* QuizViewController.swift in Sources */,
+				D875DF2228DE06B9009EDE1D /* QuizView.swift in Sources */,
 				D87E409D28D4D00F0050B5DF /* UIExtension.swift in Sources */,
 				D82C8C1A28DCB1E80059795C /* MenuViewController.swift in Sources */,
 				D87063B528D75B3E009F224A /* CountryTableViewCell.swift in Sources */,

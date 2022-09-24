@@ -39,6 +39,11 @@
                             </navigationItem>
                         </items>
                     </navigationBar>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="HeX-Uy-mQF">
+                        <rect key="frame" x="189" y="430" width="37" height="37"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </activityIndicatorView>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="hHQ-OU-ld8"/>
                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -53,6 +58,7 @@
                 </constraints>
             </view>
             <connections>
+                <outlet property="spinner" destination="HeX-Uy-mQF" id="Sp9-c8-jBO"/>
                 <outlet property="tableView" destination="0AP-3a-E6Q" id="jw3-5d-jHw"/>
             </connections>
             <point key="canvasLocation" x="-136.23188405797103" y="132.58928571428572"/>
