@@ -16,22 +16,32 @@ class QuizView: UIView {
     @IBOutlet weak var buttonThree: UIButton!
     @IBOutlet weak var buttonFour: UIButton!
     @IBOutlet weak var score: UILabel!
-    var scoreGame: Int = 0
-    var trueАnswer: String = ""
+    @IBOutlet weak var timer: UILabel!
+    var stopwatch = Timer()
+    var seconds: Int = 0
+    
+    
+    var quizGame: QuizGame?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        quizGame = QuizGame()
         downloadQuiz()
     }
     
+
     func radomiser(count: Int) -> Int {
+        
         return Int.random(in: 0...count - 1)
+        
     }
+    
     func downloadQuiz() {
         spinner.startAnimating()
         SessionManager.shared.countriesRequest { countries in
             let country = self.radomiser(count: countries.count)
             let countryTrue = countries[country].translations["rus"]?.common ?? ""
-            self.trueАnswer = countryTrue
+            self.quizGame?.answer = countryTrue
             DispatchQueue.global().async { [self] in
                 let url = URL(string: countries[country].flags.png!)
                 let data = try! Data(contentsOf: url!)
@@ -41,25 +51,79 @@ class QuizView: UIView {
                     self.countryFlags.image = image
                     self.spinner.stopAnimating()
                     self.spinner.hidesWhenStopped = true
-                    self.makeChoiceCountry(countryOne: countries[radomiser(count: countries.count)].translations["rus"]?.common ?? "", countryTwo: countries[radomiser(count: countries.count)].translations["rus"]?.common ?? "", countryThree: countries[radomiser(count: countries.count)].translations["rus"]?.common ?? "", countryTrue: countryTrue)
+                    let countriesToQuiz = quizGame?.makeChoiceCountry(countryOne: countries[radomiser(count: countries.count)].translations["rus"]?.common ?? "", countryTwo: countries[radomiser(count: countries.count)].translations["rus"]?.common ?? "", countryThree: countries[radomiser(count: countries.count)].translations["rus"]?.common ?? "", countryTrue: countryTrue)
+                    makeScene()
+                    makeChoice(countries: countriesToQuiz!)
+                    createTimer()
                 }
             }
         }
         
     }
-    func makeChoiceCountry(countryOne: String, countryTwo: String, countryThree: String, countryTrue: String) {
-        let reshuflCoutries = [countryOne,countryTwo, countryThree, countryTrue].shuffled()
-        makeChoice(countries: reshuflCoutries)
+    
+    func createTimer() {
+         stopwatch = Timer.scheduledTimer(timeInterval: 1,
+                                          target: self,
+                                          selector: #selector(updateTimer),
+                                          userInfo: nil,
+                                          repeats: true)
+     }
+     
+     @objc func updateTimer() {
+         seconds += 1
+         timer.text = TimeManager.shared.convertToMinutes(seconds: seconds)
+         
+     }
+    
+    func makeScene() {
+        buttonOne.layer.borderWidth = 2
+        buttonOne.layer.borderColor = UIColor.white.cgColor
+        buttonOne.isEnabled = true
+        buttonTwo.layer.borderWidth = 2
+        buttonTwo.layer.borderColor = UIColor.white.cgColor
+        buttonTwo.isEnabled = true
+        buttonThree.layer.borderWidth = 2
+        buttonThree.layer.borderColor = UIColor.white.cgColor
+        buttonThree.isEnabled = true
+        buttonFour.layer.borderWidth = 2
+        buttonFour.layer.borderColor = UIColor.white.cgColor
+        buttonFour.isEnabled = true
+    }
+    
+    func cancelScene() {
+        buttonOne.isEnabled = false
+        buttonTwo.isEnabled = false
+        buttonThree.isEnabled = false
+        buttonFour.isEnabled = false
+        
+
+    }
+    
+    func greenBorder(button: UIButton) {
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.green.cgColor
+    }
+    
+    func redBorder(button: UIButton) {
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.red.cgColor
     }
 
     @IBAction func clickedButton(_ sender: UIButton) {
-        if sender.currentTitle == trueАnswer {
-            scoreGame += 1
-            score.text = "\(scoreGame)"
+        
+        if sender.currentTitle == quizGame?.answer {
+            quizGame?.trueAnswer()
+            score.text = "\(quizGame?.scoreGame ?? 0)"
+            greenBorder(button: sender)
+            cancelScene()
+            stopwatch.invalidate()
             
         } else {
-            scoreGame -= 1
-            score.text = "\(scoreGame)"
+            quizGame?.falseAnswer()
+            score.text = "\(quizGame?.scoreGame ?? 0)"
+            redBorder(button: sender)
+            cancelScene()
+            stopwatch.invalidate()
         }
         downloadQuiz()
     }

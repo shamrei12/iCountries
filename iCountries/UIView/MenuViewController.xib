@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -47,7 +46,7 @@
                     </stackView>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="e9u-Wj-OEm"/>
-                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <color key="backgroundColor" red="0.98186905690000004" green="0.98640179269999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
                     <constraint firstItem="e9u-Wj-OEm" firstAttribute="bottom" secondItem="AhA-Rd-h6l" secondAttribute="bottom" constant="100" id="4ez-tf-rwl"/>
                     <constraint firstItem="AhA-Rd-h6l" firstAttribute="leading" secondItem="e9u-Wj-OEm" secondAttribute="leading" id="UL8-7l-Q5T"/>
@@ -57,9 +56,4 @@
             <point key="canvasLocation" x="-64.615384615384613" y="42.654028436018955"/>
         </viewController>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

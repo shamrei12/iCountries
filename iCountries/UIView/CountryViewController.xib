@@ -24,8 +24,6 @@
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ac8-6G-ShA">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                        <color key="backgroundColor" systemColor="labelColor"/>
-                                        <color key="barTintColor" systemColor="opaqueSeparatorColor"/>
                                         <items>
                                             <navigationItem title="Информация о стране" id="FVy-Ed-IbS">
                                                 <barButtonItem key="leftBarButtonItem" title="Назад" id="vrl-xN-6nc">
@@ -49,55 +47,55 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UbR-kk-Usb">
                                 <rect key="frame" x="0.0" y="312" width="414" height="270"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="НАЗВАНИЕ СТРАНЫ" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHY-vp-s5O">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="НАЗВАНИЕ СТРАНЫ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHY-vp-s5O">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="TrA-Ba-24d"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="TrA-Ba-24d"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СТОЛИЦА" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEy-OZ-9k8">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СТОЛИЦА" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEy-OZ-9k8">
                                         <rect key="frame" x="0.0" y="50" width="414" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="ojn-KG-FUR"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="ojn-KG-FUR"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВАЛЮТА" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbf-HX-9aQ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВАЛЮТА" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbf-HX-9aQ">
                                         <rect key="frame" x="0.0" y="100" width="414" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="PkA-2R-JGV"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="PkA-2R-JGV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЯЗЫКИ" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPy-tR-cgM">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЯЗЫКИ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPy-tR-cgM">
                                         <rect key="frame" x="0.0" y="150" width="414" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="fe5-bq-m6Q"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="fe5-bq-m6Q"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="МАТЕРИК" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFr-iW-QEm">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="МАТЕРИК" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFr-iW-QEm">
                                         <rect key="frame" x="0.0" y="200" width="414" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="rfc-Tb-SDZ"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="rfc-Tb-SDZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="НАСЕЛЕНИЕ" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXE-4j-HAH">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="НАСЕЛЕНИЕ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXE-4j-HAH">
                                         <rect key="frame" x="0.0" y="250" width="414" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="fLy-ez-h1z"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="fLy-ez-h1z"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                         <nil key="textColor"/>
@@ -129,12 +127,6 @@
         </viewController>
     </objects>
     <resources>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

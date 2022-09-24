@@ -9,8 +9,10 @@ import UIKit
 
 class QuizViewController: UIViewController {
 
+    @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: false)
+    }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }

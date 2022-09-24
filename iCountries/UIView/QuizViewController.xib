@@ -17,19 +17,19 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guc-c1-V8y">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <rect key="frame" x="0.0" y="47" width="390" height="45.333333333333343"/>
                         <items>
                             <navigationItem title="Викторина" id="fz2-Bf-QC1">
-                                <barButtonItem key="leftBarButtonItem" title="назад" id="lat-Aw-kft">
+                                <barButtonItem key="leftBarButtonItem" title="Назад" id="lat-Aw-kft">
                                     <connections>
-                                        <action selector="tappedBack:" destination="Ndq-nI-IRw" id="f5O-py-EZZ"/>
+                                        <action selector="cancelTapped:" destination="Ndq-nI-IRw" id="8PU-2O-GVB"/>
                                     </connections>
                                 </barButtonItem>
                             </navigationItem>
                         </items>
                     </navigationBar>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Nog-cZ-aW7">
-                        <rect key="frame" x="0.0" y="111" width="390" height="20.333333333333343"/>
+                        <rect key="frame" x="0.0" y="112.33333333333333" width="390" height="20.333333333333329"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Очки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbJ-ud-Sp3">
                                 <rect key="frame" x="0.0" y="0.0" width="195" height="20.333333333333332"/>
@@ -46,70 +46,66 @@
                         </subviews>
                     </stackView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Tr-fN-DqF">
-                        <rect key="frame" x="10" y="139.33333333333334" width="370" height="200.00000000000003"/>
+                        <rect key="frame" x="10" y="140.66666666666666" width="370" height="199.99999999999997"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="200" id="cM7-P5-xXK"/>
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="fTb-nY-K7a">
-                        <rect key="frame" x="0.0" y="459.66666666666669" width="390" height="241.33333333333331"/>
+                        <rect key="frame" x="0.0" y="461" width="390" height="240"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Re6-JH-c2a">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPm-5o-BzW">
                                         <rect key="frame" x="0.0" y="0.0" width="195" height="70"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="rGm-CO-Aqx"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="1">
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
+                                        <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
                                             <action selector="clickedButton:" destination="1cT-Od-ivO" eventType="touchUpInside" id="sbA-VC-vCo"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nx9-xq-I4Y">
                                         <rect key="frame" x="195" y="0.0" width="195" height="70"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="VtW-kG-bL8"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="2">
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
+                                        <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
                                             <action selector="clickedButton:" destination="1cT-Od-ivO" eventType="touchUpInside" id="DTe-8f-pAX"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jiF-c2-xqQ">
-                                <rect key="frame" x="0.0" y="169.99999999999994" width="390" height="71.333333333333314"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jiF-c2-xqQ">
+                                <rect key="frame" x="0.0" y="170" width="390" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2q3-gN-qgp">
-                                        <rect key="frame" x="0.0" y="0.66666666666674246" width="195" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="195" height="70"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="ADW-0I-9Cc"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="3">
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
+                                        <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
                                             <action selector="clickedButton:" destination="1cT-Od-ivO" eventType="touchUpInside" id="KKq-nU-bYt"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxm-GW-nFT">
-                                        <rect key="frame" x="195" y="0.66666666666674246" width="195" height="70"/>
+                                        <rect key="frame" x="195" y="0.0" width="195" height="70"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="cQ8-ZJ-vv4"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="4">
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
+                                        <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
                                             <action selector="clickedButton:" destination="1cT-Od-ivO" eventType="touchUpInside" id="GCh-ZM-Mpj"/>
                                         </connections>
@@ -119,9 +115,9 @@
                         </subviews>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="E29-B1-98R">
-                        <rect key="frame" x="0.0" y="409.33333333333331" width="390" height="20.333333333333314"/>
+                        <rect key="frame" x="0.0" y="410.66666666666669" width="390" height="20.333333333333314"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="У какой страны данный флаг?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fin-cL-2UF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Флаг какой страны изображен на картинке?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fin-cL-2UF">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="20.333333333333332"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -167,6 +163,7 @@
                     <outlet property="countryFlags" destination="1Tr-fN-DqF" id="EVH-rs-loW"/>
                     <outlet property="score" destination="gbJ-ud-Sp3" id="GTo-Pa-pbL"/>
                     <outlet property="spinner" destination="E4z-uw-ljc" id="0rL-QH-Yum"/>
+                    <outlet property="timer" destination="Nu6-BE-vyK" id="dUV-nW-3oD"/>
                 </connections>
             </view>
             <point key="canvasLocation" x="-9.2307692307692299" y="15.639810426540283"/>

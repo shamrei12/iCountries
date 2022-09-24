@@ -28,6 +28,7 @@
 		D894B9F028D0DF5D00ACB289 /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9EF28D0DF5D00ACB289 /* CountriesViewController.swift */; };
 		D894B9F428D0E7CE00ACB289 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9F328D0E7CE00ACB289 /* SessionManager.swift */; };
 		D894B9F628D0EA4200ACB289 /* ShowCountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9F528D0EA4200ACB289 /* ShowCountryModel.swift */; };
+		D898CD2B28DF63B7000C5024 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898CD2A28DF63B7000C5024 /* TimeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		D894B9EF28D0DF5D00ACB289 /* CountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
 		D894B9F328D0E7CE00ACB289 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		D894B9F528D0EA4200ACB289 /* ShowCountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCountryModel.swift; sourceTree = "<group>"; };
+		D898CD2A28DF63B7000C5024 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				D894B9F328D0E7CE00ACB289 /* SessionManager.swift */,
+				D898CD2A28DF63B7000C5024 /* TimeManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				D87E409D28D4D00F0050B5DF /* UIExtension.swift in Sources */,
 				D82C8C1A28DCB1E80059795C /* MenuViewController.swift in Sources */,
 				D87063B528D75B3E009F224A /* CountryTableViewCell.swift in Sources */,
+				D898CD2B28DF63B7000C5024 /* TimeManager.swift in Sources */,
 				D87E409B28D4CE320050B5DF /* CountryView.swift in Sources */,
 				D894B9F428D0E7CE00ACB289 /* SessionManager.swift in Sources */,
 				D894B9EC28D0DED100ACB289 /* WelcomeElement.swift in Sources */,
@@ -368,8 +372,7 @@
 				INFOPLIST_FILE = iCountries/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -395,8 +398,7 @@
 				INFOPLIST_FILE = iCountries/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
