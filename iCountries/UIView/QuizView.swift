@@ -77,16 +77,16 @@ class QuizView: UIView {
     
     func makeScene() {
         buttonOne.layer.borderWidth = 2
-        buttonOne.layer.borderColor = UIColor.white.cgColor
+        buttonOne.layer.borderColor = UIColor.clear.cgColor
         buttonOne.isEnabled = true
         buttonTwo.layer.borderWidth = 2
-        buttonTwo.layer.borderColor = UIColor.white.cgColor
+        buttonTwo.layer.borderColor = UIColor.clear.cgColor
         buttonTwo.isEnabled = true
         buttonThree.layer.borderWidth = 2
-        buttonThree.layer.borderColor = UIColor.white.cgColor
+        buttonThree.layer.borderColor = UIColor.clear.cgColor
         buttonThree.isEnabled = true
         buttonFour.layer.borderWidth = 2
-        buttonFour.layer.borderColor = UIColor.white.cgColor
+        buttonFour.layer.borderColor = UIColor.clear.cgColor
         buttonFour.isEnabled = true
     }
     

@@ -27,8 +27,6 @@
                     </tableView>
                     <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAp-ET-EkS">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
-                        <color key="backgroundColor" red="0.98186905690000004" green="0.98640179269999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <items>
                             <navigationItem title="Список" id="ytb-vp-4pt">
                                 <barButtonItem key="leftBarButtonItem" title="Назад" id="Tk9-Zx-XYB">

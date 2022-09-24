@@ -15,12 +15,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="AhA-Rd-h6l">
-                        <rect key="frame" x="0.0" y="535.33333333333337" width="390" height="174.66666666666663"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="AhA-Rd-h6l">
+                        <rect key="frame" x="0.0" y="520" width="390" height="190"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLT-BU-imj">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="63"/>
+                                <rect key="frame" x="45" y="0.0" width="300" height="70"/>
                                 <color key="backgroundColor" red="0.0093485666438937187" green="0.61726593971252441" blue="0.98572248220443726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="6UZ-FA-1XG"/>
+                                    <constraint firstAttribute="width" constant="300" id="Ery-Tb-IEK"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="СПИСОК СТРАН">
@@ -31,8 +35,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kae-ep-kyH">
-                                <rect key="frame" x="0.0" y="113.00000000000001" width="390" height="61.666666666666671"/>
+                                <rect key="frame" x="45" y="120" width="300" height="70"/>
                                 <color key="backgroundColor" red="0.0093485666438937187" green="0.61726593971252441" blue="0.98572248220443726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="XPp-gc-jp9"/>
+                                    <constraint firstAttribute="width" constant="300" id="rBg-jt-4zP"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="ВИКТОРИНА">
@@ -46,11 +54,10 @@
                     </stackView>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="e9u-Wj-OEm"/>
-                <color key="backgroundColor" red="0.98186905690000004" green="0.98640179269999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
-                    <constraint firstItem="e9u-Wj-OEm" firstAttribute="bottom" secondItem="AhA-Rd-h6l" secondAttribute="bottom" constant="100" id="4ez-tf-rwl"/>
-                    <constraint firstItem="AhA-Rd-h6l" firstAttribute="leading" secondItem="e9u-Wj-OEm" secondAttribute="leading" id="UL8-7l-Q5T"/>
-                    <constraint firstItem="AhA-Rd-h6l" firstAttribute="trailing" secondItem="e9u-Wj-OEm" secondAttribute="trailing" id="svB-HN-J4f"/>
+                    <constraint firstItem="e9u-Wj-OEm" firstAttribute="bottom" secondItem="AhA-Rd-h6l" secondAttribute="bottom" constant="100" id="HxZ-SO-5gV"/>
+                    <constraint firstItem="e9u-Wj-OEm" firstAttribute="trailing" secondItem="AhA-Rd-h6l" secondAttribute="trailing" id="W6q-gm-KIn"/>
+                    <constraint firstItem="AhA-Rd-h6l" firstAttribute="leading" secondItem="e9u-Wj-OEm" secondAttribute="leading" id="pWi-GQ-Hpc"/>
                 </constraints>
             </view>
             <point key="canvasLocation" x="-64.615384615384613" y="42.654028436018955"/>
