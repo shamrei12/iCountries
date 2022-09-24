@@ -66,6 +66,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="1">
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="clickedButton:" destination="1cT-Od-ivO" eventType="touchUpInside" id="sbA-VC-vCo"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nx9-xq-I4Y">
                                         <rect key="frame" x="195" y="0.0" width="195" height="70"/>
@@ -76,6 +79,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="2">
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="clickedButton:" destination="1cT-Od-ivO" eventType="touchUpInside" id="DTe-8f-pAX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -91,6 +97,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="3">
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="clickedButton:" destination="1cT-Od-ivO" eventType="touchUpInside" id="KKq-nU-bYt"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxm-GW-nFT">
                                         <rect key="frame" x="195" y="0.66666666666674246" width="195" height="70"/>
@@ -101,6 +110,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="4">
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="clickedButton:" destination="1cT-Od-ivO" eventType="touchUpInside" id="GCh-ZM-Mpj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -148,7 +160,12 @@
                     <constraint firstItem="z5f-Tf-RSy" firstAttribute="bottom" secondItem="fTb-nY-K7a" secondAttribute="bottom" constant="109" id="x7O-hw-fwE"/>
                 </constraints>
                 <connections>
+                    <outlet property="buttonFour" destination="vxm-GW-nFT" id="cES-87-xmy"/>
+                    <outlet property="buttonOne" destination="rPm-5o-BzW" id="Xer-bF-StA"/>
+                    <outlet property="buttonThree" destination="2q3-gN-qgp" id="YJa-oN-TCa"/>
+                    <outlet property="buttonTwo" destination="nx9-xq-I4Y" id="Suo-y8-Kqs"/>
                     <outlet property="countryFlags" destination="1Tr-fN-DqF" id="EVH-rs-loW"/>
+                    <outlet property="score" destination="gbJ-ud-Sp3" id="GTo-Pa-pbL"/>
                     <outlet property="spinner" destination="E4z-uw-ljc" id="0rL-QH-Yum"/>
                 </connections>
             </view>

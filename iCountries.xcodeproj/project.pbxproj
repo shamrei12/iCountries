@@ -11,6 +11,7 @@
 		D82C8C1B28DCB1E80059795C /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D82C8C1928DCB1E80059795C /* MenuViewController.xib */; };
 		D82C8C1E28DDC5740059795C /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C8C1C28DDC5740059795C /* QuizViewController.swift */; };
 		D82C8C1F28DDC5740059795C /* QuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D82C8C1D28DDC5740059795C /* QuizViewController.xib */; };
+		D83F128E28DF361F000D2859 /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F128D28DF361F000D2859 /* QuizModel.swift */; };
 		D87063B528D75B3E009F224A /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87063B328D75B3E009F224A /* CountryTableViewCell.swift */; };
 		D87063B628D75B3E009F224A /* CountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87063B428D75B3E009F224A /* CountryTableViewCell.xib */; };
 		D875DF2228DE06B9009EDE1D /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D875DF2128DE06B9009EDE1D /* QuizView.swift */; };
@@ -26,7 +27,7 @@
 		D894B9EE28D0DF1500ACB289 /* CountriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D894B9ED28D0DF1500ACB289 /* CountriesViewController.xib */; };
 		D894B9F028D0DF5D00ACB289 /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9EF28D0DF5D00ACB289 /* CountriesViewController.swift */; };
 		D894B9F428D0E7CE00ACB289 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9F328D0E7CE00ACB289 /* SessionManager.swift */; };
-		D894B9F628D0EA4200ACB289 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9F528D0EA4200ACB289 /* Model.swift */; };
+		D894B9F628D0EA4200ACB289 /* ShowCountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9F528D0EA4200ACB289 /* ShowCountryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		D82C8C1928DCB1E80059795C /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		D82C8C1C28DDC5740059795C /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		D82C8C1D28DDC5740059795C /* QuizViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizViewController.xib; sourceTree = "<group>"; };
+		D83F128D28DF361F000D2859 /* QuizModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
 		D87063B328D75B3E009F224A /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		D87063B428D75B3E009F224A /* CountryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryTableViewCell.xib; sourceTree = "<group>"; };
 		D875DF2128DE06B9009EDE1D /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
@@ -51,7 +53,7 @@
 		D894B9ED28D0DF1500ACB289 /* CountriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountriesViewController.xib; sourceTree = "<group>"; };
 		D894B9EF28D0DF5D00ACB289 /* CountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
 		D894B9F328D0E7CE00ACB289 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
-		D894B9F528D0EA4200ACB289 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D894B9F528D0EA4200ACB289 /* ShowCountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCountryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +70,8 @@
 		D87E409528D245660050B5DF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D894B9F528D0EA4200ACB289 /* Model.swift */,
+				D894B9F528D0EA4200ACB289 /* ShowCountryModel.swift */,
+				D83F128D28DF361F000D2859 /* QuizModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,7 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D894B9F628D0EA4200ACB289 /* Model.swift in Sources */,
+				D894B9F628D0EA4200ACB289 /* ShowCountryModel.swift in Sources */,
 				D87E409828D4C5020050B5DF /* CountryViewController.swift in Sources */,
 				D894B9D828D0DE7200ACB289 /* AppDelegate.swift in Sources */,
 				D82C8C1E28DDC5740059795C /* QuizViewController.swift in Sources */,
@@ -220,6 +223,7 @@
 				D894B9F428D0E7CE00ACB289 /* SessionManager.swift in Sources */,
 				D894B9EC28D0DED100ACB289 /* WelcomeElement.swift in Sources */,
 				D894B9DA28D0DE7200ACB289 /* SceneDelegate.swift in Sources */,
+				D83F128E28DF361F000D2859 /* QuizModel.swift in Sources */,
 				D894B9F028D0DF5D00ACB289 /* CountriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
