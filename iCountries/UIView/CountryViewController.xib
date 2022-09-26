@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,6 +23,7 @@
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ac8-6G-ShA">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <items>
                                             <navigationItem title="Информация о стране" id="FVy-Ed-IbS">
                                                 <barButtonItem key="leftBarButtonItem" title="Назад" id="vrl-xN-6nc">
@@ -39,7 +39,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IGe-sq-aLW">
                                 <rect key="frame" x="0.0" y="78" width="414" height="200"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BFy-1u-Lgf">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BFy-1u-Lgf">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                     </imageView>
                                 </subviews>
@@ -107,7 +107,7 @@
                     </stackView>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="2IA-My-eSL"/>
-                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="dud-Cm-rrk" firstAttribute="top" secondItem="p1D-wK-ULl" secondAttribute="top" constant="47" id="3Rs-xR-qPQ"/>
                     <constraint firstItem="dud-Cm-rrk" firstAttribute="leading" secondItem="2IA-My-eSL" secondAttribute="leading" id="EV1-HL-Aq3"/>
@@ -126,9 +126,4 @@
             <point key="canvasLocation" x="798.46153846153845" y="132.93838862559241"/>
         </viewController>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

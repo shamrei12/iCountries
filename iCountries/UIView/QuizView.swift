@@ -53,8 +53,12 @@ class QuizView: UIView {
                     self.spinner.hidesWhenStopped = true
                     let countriesToQuiz = quizGame?.makeChoiceCountry(countryOne: countries[radomiser(count: countries.count)].translations["rus"]?.common ?? "", countryTwo: countries[radomiser(count: countries.count)].translations["rus"]?.common ?? "", countryThree: countries[radomiser(count: countries.count)].translations["rus"]?.common ?? "", countryTrue: countryTrue)
                     makeScene()
+                    countryFlags.layer.borderWidth = 5
+                    countryFlags.layer.borderColor = UIColor.black.cgColor
+                    countryFlags.layer.cornerRadius = 20
                     makeChoice(countries: countriesToQuiz!)
                     createTimer()
+                    
                 }
             }
         }
@@ -109,6 +113,24 @@ class QuizView: UIView {
         button.layer.borderColor = UIColor.red.cgColor
     }
 
+    func checkTrueAnswer() {
+        if buttonOne.currentTitle == quizGame?.answer {
+            buttonOne.layer.borderWidth = 2
+            buttonOne.layer.borderColor = UIColor.green.cgColor
+        }
+        else if buttonTwo.currentTitle == quizGame?.answer {
+            buttonTwo.layer.borderWidth = 2
+            buttonTwo.layer.borderColor = UIColor.green.cgColor
+        }
+        else if buttonThree.currentTitle == quizGame?.answer {
+            buttonThree.layer.borderWidth = 2
+            buttonThree.layer.borderColor = UIColor.green.cgColor
+        }
+        else if buttonFour.currentTitle == quizGame?.answer {
+            buttonFour.layer.borderWidth = 2
+            buttonFour.layer.borderColor = UIColor.green.cgColor
+        }
+    }
     @IBAction func clickedButton(_ sender: UIButton) {
         
         if sender.currentTitle == quizGame?.answer {
@@ -123,6 +145,7 @@ class QuizView: UIView {
             score.text = "\(quizGame?.scoreGame ?? 0)"
             redBorder(button: sender)
             cancelScene()
+            checkTrueAnswer()
             stopwatch.invalidate()
         }
         downloadQuiz()

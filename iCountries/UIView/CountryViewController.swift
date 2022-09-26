@@ -33,30 +33,23 @@ class CountryViewController: UIViewController {
                 }
             }
             
-            let (name, capital, languages,
-                 population, subregion, currencies) = stringFormation(nameCountry: welcomeElement[0].translations["rus"]?.official ?? "", capitalName: welcomeElement[0].capital?[0] ?? "", languages: welcomeElement[0].languages ?? ["":""], population: welcomeElement[0].population ?? 0, subregion: welcomeElement[0].subregion ?? "", currencies: welcomeElement[0].currencies!)
 
-            self.nameCountry.text = name
-            self.capitalName.text = capital
-            self.languagesName.text = languages
-            self.population.text = population
-            self.subregionName.text = subregion
-            self.currencyName.text = currencies
+            setupCountryInformation(country: welcomeElement.first)
         })
     }
     
-    func stringFormation(nameCountry: String, capitalName: String, languages: [String: String],
-                         population: Int, subregion: String, currencies: [String: [String:String]]) -> (String, String, String, String, String, String) {
-        let name: String = "Название страны: \(nameCountry)"
-        let capital: String = "Столица: \(capitalName)"
-        let languages = "Языки: \(stringFormationLanguage(languages: languages))"
-        let pop: String = "Население: \(population)"
-        let subregion: String = "Субрегион: \(subregion)"
-        let currencies: String = "Валюта: \(stringFormatingCurrencies(currencies: currencies))"
-        return (name, capital, languages, pop, subregion, currencies)
+    func setupCountryInformation(country: WelcomeElement?) {
+        guard let country = country else { return }
+        self.nameCountry.text = "Название страны: \(country.translations["rus"]?.official ?? "Неизвестно")"
+        self.capitalName.text = "Столица: \(country.capital?[0] ?? "NO")"
+        self.languagesName.text = "Языки: \(stringFormationLanguage(languages: country.languages))"
+        self.population.text = "Население: \(country.population)"
+        self.subregionName.text = "Субрегион: \(country.subregion ?? "No")"
+        self.currencyName.text = "Валюта: \(stringFormatingCurrencies(currencies: country.currencies))"
     }
     
-    func stringFormationLanguage(languages: [String: String]) -> String {
+    func stringFormationLanguage(languages: [String: String]?) -> String {
+        guard let languages = languages else { return "Неизвестно" }
         var stringLanguages: String = ""
         if languages.isEmpty {
             stringLanguages = "Неизвестно"
@@ -71,7 +64,8 @@ class CountryViewController: UIViewController {
         
     }
     
-    func stringFormatingCurrencies(currencies: [String: [String:String]]) -> String {
+    func stringFormatingCurrencies(currencies: [String: [String:String]]?) -> String {
+        guard let currencies = currencies else { return "NO"}
         var stringCurrencies: String = ""
         for value in currencies {
             stringCurrencies += "\(value.value["name"]!)(\(value.value["symbol"]!)) "

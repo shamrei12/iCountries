@@ -9,10 +9,14 @@ import UIKit
 
 class MenuViewController: UIViewController {
 
+    @IBOutlet var buttonCountries: UIButton!
+    @IBOutlet var buttonQuiz: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        buttonCountries.layer.cornerRadius = 10
+        buttonQuiz.layer.cornerRadius = 10
     }
 
     @IBAction func tappedListCountry(_ sender: UIButton) {
