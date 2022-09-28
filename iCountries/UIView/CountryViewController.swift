@@ -29,6 +29,7 @@ class CountryViewController: UIViewController {
                 let data = try! Data(contentsOf: url!)
                 let image = UIImage(data: data)
                 DispatchQueue.main.async {
+                    
                     self.picturesCountry.image = image
                 }
             }

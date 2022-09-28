@@ -8,12 +8,16 @@
 import UIKit
 
 extension CountriesViewController: UITableViewDelegate {
-
+    
 }
 
 extension CountriesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countries.count
+        if isSearching {
+            return filterCountries.count
+        } else {
+            return countries.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -32,48 +36,95 @@ extension CountriesViewController: UITableViewDataSource {
         //        var name = countries[indexPath.row].common
         //        countryVC.country = name
         countryVC.modalPresentationStyle = .fullScreen
-        countryVC.updateUIElements(country: countries[indexPath.row].common)
+        if isSearching {
+            countryVC.updateUIElements(country: filterCountries[indexPath.row].common)
+        } else {
+            countryVC.updateUIElements(country: countries[indexPath.row].common)
+        }
         present(countryVC, animated: false)
     }
     
     private func configure(cell: CountryTableViewCell, for indexPath: IndexPath) -> CountryTableViewCell {
-//        var configuration = cell.defaultContentConfiguration()
-        DispatchQueue.global().async { [self] in
-            let url = URL(string: countries[indexPath.row].picture)
-            let data = try! Data(contentsOf: url!)
-            let image = UIImage(data: data, scale: 5.0)
-            
-            DispatchQueue.main.async {
-                cell.countryFlags.image = image
+        if isSearching {
+            DispatchQueue.global().async { [self] in
+                let url = URL(string: filterCountries[indexPath.row].picture)
+                let data = try! Data(contentsOf: url!)
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data, scale: 5.0)
+                    cell.countryFlags.image = image
+                }
             }
+            cell.countryName.text = filterCountries[indexPath.row].name
+        } else {
+            DispatchQueue.global().async { [self] in
+                let url = URL(string: countries[indexPath.row].picture)
+                let data = try! Data(contentsOf: url!)
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data, scale: 5.0)
+                    cell.countryFlags.image = image
+                }
+            }
+            cell.countryName.text = countries[indexPath.row].name
         }
-        cell.countryName.text = countries[indexPath.row].name
-//        configuration.text = countries[indexPath.row].name
-//        configuration.secondaryText = "Столица: \(countries[indexPath.row].capital)"
-//        cell.contentConfiguration = configuration
         spinner.stopAnimating()
         spinner.hidesWhenStopped = true
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+}
+extension CountriesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filterCountries.removeAll()
+        guard searchText != "" || searchText != " " else {
+            print("Empty")
+            return
+        }
+        
+        for item in countries {
+            let text = searchText.lowercased()
+            let isArrayContain = item.name.lowercased().range(of: text)
+            if isArrayContain != nil {
+                print("Search Complite")
+                filterCountries.append(item)
+            }
+        }
+        
+        if searchBar.text == "" {
+            isSearching = false
+            tableView.reloadData()
+        } else {
+            isSearching = true
+            tableView.reloadData()
+        }
+                
     }
 }
 
 class CountriesViewController: UIViewController {
     
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
-    
     @IBOutlet weak var tableView: UITableView!
+    
+    
     private var countries: [CountriesProtocol] = [] {
         didSet {
             countries.sort{ $0.name < $1.name }
         }
     }
+    private var filterCountries: [CountriesProtocol] = [] {
+        didSet {
+            countries.sort{ $0.name < $1.name }
+        }
+    }
+    var isSearching = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.searchBar.delegate = self
         tableView.register(UINib(nibName: "CountryTableViewCell", bundle: nil), forCellReuseIdentifier: "CountryTableViewCell")
         showCountries()
         spinner.startAnimating()
