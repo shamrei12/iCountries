@@ -10,7 +10,7 @@ import AVFoundation
 import AudioToolbox
 
 class QuizView: UIView, UIAlertViewDelegate {
-     
+    
     @IBOutlet weak var countryFlags: UIImageView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var buttonOne: UIButton!
@@ -23,7 +23,7 @@ class QuizView: UIView, UIAlertViewDelegate {
     @IBOutlet weak var showNameCountry: UIButton!
     
     var stopwatch = Timer()
-    var seconds: Int = 0    
+    var seconds: Int = 0
     var quizGame: QuizGame?
     
     override func awakeFromNib() {
@@ -69,25 +69,25 @@ class QuizView: UIView, UIAlertViewDelegate {
     }
     
     func createTimer() {
-         stopwatch = Timer.scheduledTimer(timeInterval: 1,
-                                          target: self,
-                                          selector: #selector(updateTimer),
-                                          userInfo: nil,
-                                          repeats: true)
-     }
-     
-     @objc func updateTimer() {
-         seconds += 1
-         timer.text = TimeManager.shared.convertToMinutes(seconds: seconds)
-         
-     }
+        stopwatch = Timer.scheduledTimer(timeInterval: 1,
+                                         target: self,
+                                         selector: #selector(updateTimer),
+                                         userInfo: nil,
+                                         repeats: true)
+    }
+    
+    @objc func updateTimer() {
+        seconds += 1
+        timer.text = TimeManager.shared.convertToMinutes(seconds: seconds)
+        
+    }
     
     func makeScene() {
         buttonOne.layer.backgroundColor = UIColor.systemBlue.cgColor
         buttonOne.isEnabled = true
         buttonOne.isHidden = false
-
-
+        
+        
         buttonTwo.layer.backgroundColor = UIColor.systemBlue.cgColor
         buttonTwo.isEnabled = true
         buttonTwo.isHidden = false
@@ -95,7 +95,7 @@ class QuizView: UIView, UIAlertViewDelegate {
         buttonThree.layer.backgroundColor = UIColor.systemBlue.cgColor
         buttonThree.isEnabled = true
         buttonThree.isHidden = false
-
+        
         buttonFour.layer.backgroundColor = UIColor.systemBlue.cgColor
         buttonFour.isEnabled = true
         buttonFour.isHidden = false
@@ -107,7 +107,7 @@ class QuizView: UIView, UIAlertViewDelegate {
         buttonThree.isEnabled = false
         buttonFour.isEnabled = false
         
-
+        
     }
     @IBAction func dropOne() {
         for _ in 0...3 {
@@ -133,27 +133,35 @@ class QuizView: UIView, UIAlertViewDelegate {
     
     func greenBackground(button: UIButton) {
         button.layer.backgroundColor = UIColor.systemGreen.cgColor
-        button.titleLabel?.textColor = UIColor.white
+        button.titleLabel?.textColor = UIColor.black
     }
     
     func redBackground(button: UIButton) {
         button.layer.backgroundColor = UIColor.systemRed.cgColor
-        button.titleLabel?.textColor = UIColor.white
+        button.titleLabel?.textColor = UIColor.black
     }
-
+    
     func checkTrueAnswer() {
         
         if buttonOne.currentTitle == quizGame?.answer {
-            buttonOne.layer.backgroundColor = UIColor.green.cgColor
+            buttonOne.layer.backgroundColor = UIColor.systemGreen.cgColor
+            buttonOne.titleLabel?.textColor = UIColor.black
+            
         }
         else if buttonTwo.currentTitle == quizGame?.answer {
-            buttonTwo.layer.backgroundColor = UIColor.green.cgColor
+            buttonTwo.layer.backgroundColor = UIColor.systemGreen.cgColor
+            buttonTwo.titleLabel?.textColor = UIColor.black
+            
         }
         else if buttonThree.currentTitle == quizGame?.answer {
-            buttonThree.layer.backgroundColor = UIColor.green.cgColor
+            buttonThree.layer.backgroundColor = UIColor.systemGreen.cgColor
+            buttonThree.titleLabel?.textColor = UIColor.black
+            
         }
         else if buttonFour.currentTitle == quizGame?.answer {
-            buttonFour.layer.backgroundColor = UIColor.green.cgColor
+            buttonFour.layer.backgroundColor = UIColor.systemGreen.cgColor
+            buttonFour.titleLabel?.textColor = UIColor.black
+            
         }
     }
     
@@ -178,8 +186,8 @@ class QuizView: UIView, UIAlertViewDelegate {
             quizGame?.falseAnswer()
             falseScore.text = "\(quizGame?.scoreFalse ?? 0)"
             redBackground(button: sender)
-            cancelScene()
             checkTrueAnswer()
+            cancelScene()
             AudioServicesPlaySystemSound(1109)
             stopwatch.invalidate()
         }
@@ -192,6 +200,4 @@ class QuizView: UIView, UIAlertViewDelegate {
         buttonThree.setTitle("\(countries[2])", for: .normal)
         buttonFour.setTitle("\(countries[3])", for: .normal)
     }
-    
-    
 }
