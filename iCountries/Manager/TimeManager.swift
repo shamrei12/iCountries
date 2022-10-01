@@ -24,7 +24,6 @@ class TimeManager {
         formatter.unitsStyle = .full
         
         let formattedString = formatter.string(from: TimeInterval(seconds))!
-        print(formattedString)
         return formattedString
     }
 }

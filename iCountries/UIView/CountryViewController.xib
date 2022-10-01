@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -12,99 +12,75 @@
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <viewController id="ceH-2n-5h1" customClass="CountryViewController" customModule="iCountries" customModuleProvider="target">
             <view key="view" contentMode="scaleToFill" id="p1D-wK-ULl" customClass="CountryView" customModule="iCountries" customModuleProvider="target">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="dud-Cm-rrk">
-                        <rect key="frame" x="0.0" y="47" width="414" height="582"/>
+                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ac8-6G-ShA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <items>
+                            <navigationItem title="Информация о стране" id="FVy-Ed-IbS">
+                                <barButtonItem key="leftBarButtonItem" title="Назад" id="vrl-xN-6nc">
+                                    <connections>
+                                        <action selector="cancelTapped:" destination="ceH-2n-5h1" id="S61-2R-2QE"/>
+                                    </connections>
+                                </barButtonItem>
+                            </navigationItem>
+                        </items>
+                    </navigationBar>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="UbR-kk-Usb">
+                        <rect key="frame" x="0.0" y="335" width="414" height="350"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VOb-gU-tPI">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <subviews>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ac8-6G-ShA">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                        <items>
-                                            <navigationItem title="Информация о стране" id="FVy-Ed-IbS">
-                                                <barButtonItem key="leftBarButtonItem" title="Назад" id="vrl-xN-6nc">
-                                                    <connections>
-                                                        <action selector="cancelTapped:" destination="ceH-2n-5h1" id="S61-2R-2QE"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                            </navigationItem>
-                                        </items>
-                                    </navigationBar>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IGe-sq-aLW">
-                                <rect key="frame" x="0.0" y="78" width="414" height="200"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BFy-1u-Lgf">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
-                                    </imageView>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UbR-kk-Usb">
-                                <rect key="frame" x="0.0" y="312" width="414" height="270"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="НАЗВАНИЕ СТРАНЫ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHY-vp-s5O">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="TrA-Ba-24d"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СТОЛИЦА" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEy-OZ-9k8">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="ojn-KG-FUR"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВАЛЮТА" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbf-HX-9aQ">
-                                        <rect key="frame" x="0.0" y="100" width="414" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="PkA-2R-JGV"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЯЗЫКИ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPy-tR-cgM">
-                                        <rect key="frame" x="0.0" y="150" width="414" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="fe5-bq-m6Q"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="МАТЕРИК" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFr-iW-QEm">
-                                        <rect key="frame" x="0.0" y="200" width="414" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="rfc-Tb-SDZ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="НАСЕЛЕНИЕ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXE-4j-HAH">
-                                        <rect key="frame" x="0.0" y="250" width="414" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="fLy-ez-h1z"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="НАЗВАНИЕ СТРАНЫ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHY-vp-s5O">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="15"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СТОЛИЦА" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEy-OZ-9k8">
+                                <rect key="frame" x="0.0" y="67" width="414" height="15"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВАЛЮТА" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbf-HX-9aQ">
+                                <rect key="frame" x="0.0" y="134" width="414" height="15"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЯЗЫКИ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPy-tR-cgM">
+                                <rect key="frame" x="0.0" y="201" width="414" height="15"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="МАТЕРИК" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFr-iW-QEm">
+                                <rect key="frame" x="0.0" y="268" width="414" height="15"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="НАСЕЛЕНИЕ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXE-4j-HAH">
+                                <rect key="frame" x="0.0" y="335" width="414" height="15"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                     </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wgu-d7-qZP">
+                        <rect key="frame" x="10" y="44" width="394" height="200"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="200" id="3NV-B9-R6N"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="2IA-My-eSL"/>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="dud-Cm-rrk" firstAttribute="top" secondItem="p1D-wK-ULl" secondAttribute="top" constant="47" id="3Rs-xR-qPQ"/>
-                    <constraint firstItem="dud-Cm-rrk" firstAttribute="leading" secondItem="2IA-My-eSL" secondAttribute="leading" id="EV1-HL-Aq3"/>
-                    <constraint firstAttribute="trailing" secondItem="dud-Cm-rrk" secondAttribute="trailing" id="lCt-W1-cxw"/>
+                    <constraint firstItem="Ac8-6G-ShA" firstAttribute="trailing" secondItem="2IA-My-eSL" secondAttribute="trailing" id="0hg-eh-Bl9"/>
+                    <constraint firstItem="2IA-My-eSL" firstAttribute="trailing" secondItem="UbR-kk-Usb" secondAttribute="trailing" id="GaU-ha-Rvw"/>
+                    <constraint firstItem="Ac8-6G-ShA" firstAttribute="top" secondItem="2IA-My-eSL" secondAttribute="top" id="H96-HW-kbG"/>
+                    <constraint firstItem="UbR-kk-Usb" firstAttribute="leading" secondItem="2IA-My-eSL" secondAttribute="leading" id="MaW-PA-zQA"/>
+                    <constraint firstItem="Wgu-d7-qZP" firstAttribute="top" secondItem="Ac8-6G-ShA" secondAttribute="bottom" id="NpE-do-dGD"/>
+                    <constraint firstItem="UbR-kk-Usb" firstAttribute="top" secondItem="Wgu-d7-qZP" secondAttribute="bottom" constant="91" id="RW7-ue-avD"/>
+                    <constraint firstItem="Wgu-d7-qZP" firstAttribute="leading" secondItem="2IA-My-eSL" secondAttribute="leading" constant="10" id="V8b-fX-bJp"/>
+                    <constraint firstItem="Ac8-6G-ShA" firstAttribute="leading" secondItem="2IA-My-eSL" secondAttribute="leading" id="tZL-H9-i2B"/>
+                    <constraint firstItem="2IA-My-eSL" firstAttribute="trailing" secondItem="Wgu-d7-qZP" secondAttribute="trailing" constant="10" id="vTl-I3-srZ"/>
                 </constraints>
             </view>
             <connections>
@@ -112,11 +88,11 @@
                 <outlet property="currencyName" destination="Gbf-HX-9aQ" id="tYS-fz-AKU"/>
                 <outlet property="languagesName" destination="IPy-tR-cgM" id="gKx-IE-cN9"/>
                 <outlet property="nameCountry" destination="YHY-vp-s5O" id="VaR-PC-nwX"/>
-                <outlet property="picturesCountry" destination="BFy-1u-Lgf" id="Yrm-Yc-g4R"/>
+                <outlet property="picturesCountry" destination="Wgu-d7-qZP" id="OIC-t2-6f0"/>
                 <outlet property="population" destination="kXE-4j-HAH" id="dLf-BO-8Lv"/>
                 <outlet property="subregionName" destination="jFr-iW-QEm" id="4oZ-XG-NyU"/>
             </connections>
-            <point key="canvasLocation" x="798.46153846153845" y="132.93838862559241"/>
+            <point key="canvasLocation" x="795.6521739130435" y="132.06521739130434"/>
         </viewController>
     </objects>
 </document>

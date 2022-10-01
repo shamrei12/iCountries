@@ -48,7 +48,6 @@ class SessionManager {
             let main = try JSONDecoder().decode([WelcomeElement].self, from: data)
             return main
         } catch {
-            print("Error")
             return nil
         }
     }

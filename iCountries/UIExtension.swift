@@ -15,3 +15,10 @@ extension UIViewController {
         return nib.instantiate(withOwner: self, options: nil)[0] as! Self
     }
 }
+extension UIView {
+    static func instantiate() -> Self {
+        let nibName = String(describing: self)
+        let nib = UINib(nibName: nibName, bundle: nil)
+        return nib.instantiate(withOwner: self, options: nil)[0] as! Self
+    }
+}

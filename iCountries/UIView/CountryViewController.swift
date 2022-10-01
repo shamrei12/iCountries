@@ -8,6 +8,7 @@
 import UIKit
 
 class CountryViewController: UIViewController {
+    
     @IBOutlet weak var picturesCountry: UIImageView!
     @IBOutlet weak var nameCountry: UILabel!
     @IBOutlet weak var capitalName: UILabel!
@@ -42,10 +43,10 @@ class CountryViewController: UIViewController {
     func setupCountryInformation(country: WelcomeElement?) {
         guard let country = country else { return }
         self.nameCountry.text = "Название страны: \(country.translations["rus"]?.official ?? "Неизвестно")"
-        self.capitalName.text = "Столица: \(country.capital?[0] ?? "NO")"
+        self.capitalName.text = "Столица: \(country.capital?[0] ?? "Неизвестно")"
         self.languagesName.text = "Языки: \(stringFormationLanguage(languages: country.languages))"
-        self.population.text = "Население: \(country.population)"
-        self.subregionName.text = "Субрегион: \(country.subregion ?? "No")"
+        self.population.text = "Население: \(countFormater(population: country.population))"
+        self.subregionName.text = "Субрегион: \(country.subregion ?? "Неизвестно")"
         self.currencyName.text = "Валюта: \(stringFormatingCurrencies(currencies: country.currencies))"
     }
     
@@ -65,11 +66,17 @@ class CountryViewController: UIViewController {
         
     }
     
+    func countFormater(population: Int) -> String {
+//        guard let population = population else { return "Неизвестно" }
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .ordinal
+        return "\(numberFormatter.string(for: population) ?? "Не установлено")"
+    }
     func stringFormatingCurrencies(currencies: [String: [String:String]]?) -> String {
-        guard let currencies = currencies else { return "NO"}
+        guard let currencies = currencies else { return "Неизвестно"}
         var stringCurrencies: String = ""
         for value in currencies {
-            stringCurrencies += "\(value.value["name"]!)(\(value.value["symbol"]!)) "
+            stringCurrencies += "\(value.value["name"]!)(\(value.value["symbol"] ?? "Неизвестно")) "
         }
         return stringCurrencies
     }

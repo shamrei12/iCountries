@@ -79,7 +79,6 @@ extension CountriesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.filterCountries.removeAll()
         guard searchText != "" || searchText != " " else {
-            print("Empty")
             return
         }
         
@@ -87,7 +86,6 @@ extension CountriesViewController: UISearchBarDelegate {
             let text = searchText.lowercased()
             let isArrayContain = item.name.lowercased().range(of: text)
             if isArrayContain != nil {
-                print("Search Complite")
                 filterCountries.append(item)
             }
         }

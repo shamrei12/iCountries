@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import AVFoundation
+import AudioToolbox
 class QuizView: UIView {
      
     @IBOutlet weak var countryFlags: UIImageView!
@@ -15,21 +16,20 @@ class QuizView: UIView {
     @IBOutlet weak var buttonTwo: UIButton!
     @IBOutlet weak var buttonThree: UIButton!
     @IBOutlet weak var buttonFour: UIButton!
-    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var trueScore: UILabel!
+    @IBOutlet weak var falseScore: UILabel!
     @IBOutlet weak var timer: UILabel!
     var stopwatch = Timer()
-    var seconds: Int = 0
-    
-    
+    var seconds: Int = 0    
     var quizGame: QuizGame?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         quizGame = QuizGame()
         downloadQuiz()
+        
     }
     
-
     func radomiser(count: Int) -> Int {
         
         return Int.random(in: 0...count - 1)
@@ -58,7 +58,6 @@ class QuizView: UIView {
                     countryFlags.layer.cornerRadius = 20
                     makeChoice(countries: countriesToQuiz!)
                     createTimer()
-                    
                 }
             }
         }
@@ -80,17 +79,18 @@ class QuizView: UIView {
      }
     
     func makeScene() {
-        buttonOne.layer.borderWidth = 2
-        buttonOne.layer.borderColor = UIColor.clear.cgColor
+        buttonOne.layer.backgroundColor = UIColor.systemBlue.cgColor
         buttonOne.isEnabled = true
-        buttonTwo.layer.borderWidth = 2
-        buttonTwo.layer.borderColor = UIColor.clear.cgColor
+
+
+        buttonTwo.layer.backgroundColor = UIColor.systemBlue.cgColor
         buttonTwo.isEnabled = true
-        buttonThree.layer.borderWidth = 2
-        buttonThree.layer.borderColor = UIColor.clear.cgColor
+        
+        buttonThree.layer.backgroundColor = UIColor.systemBlue.cgColor
         buttonThree.isEnabled = true
-        buttonFour.layer.borderWidth = 2
-        buttonFour.layer.borderColor = UIColor.clear.cgColor
+        
+
+        buttonFour.layer.backgroundColor = UIColor.systemBlue.cgColor
         buttonFour.isEnabled = true
     }
     
@@ -103,49 +103,47 @@ class QuizView: UIView {
 
     }
     
-    func greenBorder(button: UIButton) {
-        button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.green.cgColor
+    func greenBackground(button: UIButton) {
+        button.layer.backgroundColor = UIColor.systemGreen.cgColor
+        button.titleLabel?.textColor = UIColor.white
     }
     
-    func redBorder(button: UIButton) {
-        button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.red.cgColor
+    func redBackground(button: UIButton) {
+        button.layer.backgroundColor = UIColor.systemRed.cgColor
+        button.titleLabel?.textColor = UIColor.white
     }
 
     func checkTrueAnswer() {
         if buttonOne.currentTitle == quizGame?.answer {
-            buttonOne.layer.borderWidth = 2
-            buttonOne.layer.borderColor = UIColor.green.cgColor
+            buttonOne.layer.backgroundColor = UIColor.green.cgColor
         }
         else if buttonTwo.currentTitle == quizGame?.answer {
-            buttonTwo.layer.borderWidth = 2
-            buttonTwo.layer.borderColor = UIColor.green.cgColor
+            buttonTwo.layer.backgroundColor = UIColor.green.cgColor
         }
         else if buttonThree.currentTitle == quizGame?.answer {
-            buttonThree.layer.borderWidth = 2
-            buttonThree.layer.borderColor = UIColor.green.cgColor
+            buttonThree.layer.backgroundColor = UIColor.green.cgColor
         }
         else if buttonFour.currentTitle == quizGame?.answer {
-            buttonFour.layer.borderWidth = 2
-            buttonFour.layer.borderColor = UIColor.green.cgColor
+            buttonFour.layer.backgroundColor = UIColor.green.cgColor
         }
     }
     @IBAction func clickedButton(_ sender: UIButton) {
         
         if sender.currentTitle == quizGame?.answer {
             quizGame?.trueAnswer()
-            score.text = "\(quizGame?.scoreGame ?? 0)"
-            greenBorder(button: sender)
+            trueScore.text = "\(quizGame?.scoreTrue ?? 0)"
+            greenBackground(button: sender)
             cancelScene()
+            AudioServicesPlaySystemSound(1000)
             stopwatch.invalidate()
             
         } else {
             quizGame?.falseAnswer()
-            score.text = "\(quizGame?.scoreGame ?? 0)"
-            redBorder(button: sender)
+            falseScore.text = "\(quizGame?.scoreFalse ?? 0)"
+            redBackground(button: sender)
             cancelScene()
             checkTrueAnswer()
+            AudioServicesPlaySystemSound(1109)
             stopwatch.invalidate()
         }
         downloadQuiz()

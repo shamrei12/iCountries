@@ -12,10 +12,4 @@ class CountryView: UIView {
         super.awakeFromNib()
         
     }
-    
-//    func updateUIElement() {
-//        SessionManager.shared.countryRequest(common: country, dataResponse: { [self] WelcomeElement in
-//            
-//        })
-//    }
 }
