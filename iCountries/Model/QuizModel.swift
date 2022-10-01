@@ -16,6 +16,11 @@ struct QuizGame {
         let reshuflCoutries = [countryOne, countryTwo, countryThree, countryTrue].shuffled()
         return reshuflCoutries
     }
+    func radomiser(count: Int) -> Int {
+        
+        return Int.random(in: 0...count - 1)
+        
+    }
     mutating func trueAnswer() {
         scoreTrue += 1
     }

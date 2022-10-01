@@ -54,6 +54,8 @@ extension CountriesViewController: UITableViewDataSource {
                     cell.countryFlags.image = image
                 }
             }
+            cell.countryName.lineBreakMode = .byCharWrapping
+            cell.countryName.numberOfLines = 2
             cell.countryName.text = filterCountries[indexPath.row].name
         } else {
             DispatchQueue.global().async { [self] in

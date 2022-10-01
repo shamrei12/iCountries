@@ -8,7 +8,8 @@
 import UIKit
 import AVFoundation
 import AudioToolbox
-class QuizView: UIView {
+
+class QuizView: UIView, UIAlertViewDelegate {
      
     @IBOutlet weak var countryFlags: UIImageView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -19,6 +20,8 @@ class QuizView: UIView {
     @IBOutlet weak var trueScore: UILabel!
     @IBOutlet weak var falseScore: UILabel!
     @IBOutlet weak var timer: UILabel!
+    @IBOutlet weak var showNameCountry: UIButton!
+    
     var stopwatch = Timer()
     var seconds: Int = 0    
     var quizGame: QuizGame?
@@ -39,7 +42,8 @@ class QuizView: UIView {
     func downloadQuiz() {
         spinner.startAnimating()
         SessionManager.shared.countriesRequest { countries in
-            let country = self.radomiser(count: countries.count)
+            let countryCount = countries.count
+            let country = self.quizGame?.radomiser(count: countryCount) ?? 0
             let countryTrue = countries[country].translations["rus"]?.common ?? ""
             self.quizGame?.answer = countryTrue
             DispatchQueue.global().async { [self] in
@@ -51,7 +55,7 @@ class QuizView: UIView {
                     self.countryFlags.image = image
                     self.spinner.stopAnimating()
                     self.spinner.hidesWhenStopped = true
-                    let countriesToQuiz = quizGame?.makeChoiceCountry(countryOne: countries[radomiser(count: countries.count)].translations["rus"]?.common ?? "", countryTwo: countries[radomiser(count: countries.count)].translations["rus"]?.common ?? "", countryThree: countries[radomiser(count: countries.count)].translations["rus"]?.common ?? "", countryTrue: countryTrue)
+                    let countriesToQuiz = quizGame?.makeChoiceCountry(countryOne: countries[radomiser(count:countryCount)].translations["rus"]?.common ?? "", countryTwo: countries[radomiser(count: countryCount)].translations["rus"]?.common ?? "", countryThree: countries[radomiser(count: countryCount)].translations["rus"]?.common ?? "", countryTrue: countryTrue)
                     makeScene()
                     countryFlags.layer.borderWidth = 5
                     countryFlags.layer.borderColor = UIColor.black.cgColor
@@ -81,17 +85,20 @@ class QuizView: UIView {
     func makeScene() {
         buttonOne.layer.backgroundColor = UIColor.systemBlue.cgColor
         buttonOne.isEnabled = true
+        buttonOne.isHidden = false
 
 
         buttonTwo.layer.backgroundColor = UIColor.systemBlue.cgColor
         buttonTwo.isEnabled = true
+        buttonTwo.isHidden = false
         
         buttonThree.layer.backgroundColor = UIColor.systemBlue.cgColor
         buttonThree.isEnabled = true
-        
+        buttonThree.isHidden = false
 
         buttonFour.layer.backgroundColor = UIColor.systemBlue.cgColor
         buttonFour.isEnabled = true
+        buttonFour.isHidden = false
     }
     
     func cancelScene() {
@@ -101,6 +108,27 @@ class QuizView: UIView {
         buttonFour.isEnabled = false
         
 
+    }
+    @IBAction func dropOne() {
+        for _ in 0...3 {
+            if buttonOne.currentTitle != quizGame?.answer {
+                buttonOne.isHidden = true
+                break
+            }
+            else if buttonTwo.currentTitle != quizGame?.answer {
+                buttonTwo.isHidden = true
+                break
+            }
+            else if buttonThree.currentTitle != quizGame?.answer {
+                buttonThree.isHidden = true
+                break
+            }
+            else if buttonFour.currentTitle != quizGame?.answer {
+                buttonFour.isHidden = true
+                break
+            }
+        }
+        seconds += 5
     }
     
     func greenBackground(button: UIButton) {
@@ -114,6 +142,7 @@ class QuizView: UIView {
     }
 
     func checkTrueAnswer() {
+        
         if buttonOne.currentTitle == quizGame?.answer {
             buttonOne.layer.backgroundColor = UIColor.green.cgColor
         }
@@ -127,6 +156,14 @@ class QuizView: UIView {
             buttonFour.layer.backgroundColor = UIColor.green.cgColor
         }
     }
+    
+    
+    @IBAction func showNameCountry (_ sender: UIButton) {
+        checkTrueAnswer()
+        seconds += 10
+    }
+    
+    
     @IBAction func clickedButton(_ sender: UIButton) {
         
         if sender.currentTitle == quizGame?.answer {
