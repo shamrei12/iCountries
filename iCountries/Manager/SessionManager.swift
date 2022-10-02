@@ -17,13 +17,16 @@ class SessionManager {
         let dataTask = session.dataTask(with: baseURL!) { (data, response, error) in
             guard error == nil else { return }
             guard let data = data else { return }
-            let responseData = self.parseJSON(data: data)
-            DispatchQueue.main.async {
-                dataResponse(responseData!)
+            if let responseData = self.parseJSON(data: data) {
+                print(responseData)
+                DispatchQueue.main.async {
+                    dataResponse(responseData)
+                }
             }
         }
         dataTask.resume()
     }
+    
     func countryRequest(common: String, dataResponse: @escaping ([WelcomeElement]) -> Void) {
         
       let urlString = "https://restcountries.com/v3.1/name/"
@@ -34,10 +37,11 @@ class SessionManager {
         let dataTask = session.dataTask(with: baseURL!) { (data, response, error) in
             guard error == nil else { return }
             guard let data = data else { return }
-            let responseData = self.parseJSON(data: data)
-
-            DispatchQueue.main.async {
-                dataResponse(responseData!)
+            if let responseData = self.parseJSON(data: data) {
+                print(responseData)
+                DispatchQueue.main.async {
+                    dataResponse(responseData)
+                }
             }
         }
         dataTask.resume()
