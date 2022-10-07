@@ -77,6 +77,7 @@ extension CountriesViewController: UITableViewDataSource {
         return 70
     }
 }
+
 extension CountriesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.filterCountries.removeAll()
@@ -95,20 +96,23 @@ extension CountriesViewController: UISearchBarDelegate {
         if searchBar.text == "" {
             isSearching = false
             tableView.reloadData()
+        } else if searchBar.text == " " {
+            isSearching = false
+            tableView.reloadData()
         } else {
             isSearching = true
             tableView.reloadData()
         }
-                
+        
     }
 }
 
 class CountriesViewController: UIViewController {
     
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private var searchBar: UISearchBar!
+    @IBOutlet weak private var spinner: UIActivityIndicatorView!
+    @IBOutlet weak private var tableView: UITableView!
     
     
     private var countries: [CountriesProtocol] = [] {
@@ -116,12 +120,15 @@ class CountriesViewController: UIViewController {
             countries.sort{ $0.name < $1.name }
         }
     }
+    
     private var filterCountries: [CountriesProtocol] = [] {
         didSet {
             countries.sort{ $0.name < $1.name }
         }
     }
+    
     var isSearching = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchBar.delegate = self

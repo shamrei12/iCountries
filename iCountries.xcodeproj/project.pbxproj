@@ -19,6 +19,8 @@
 		D87E409928D4C5020050B5DF /* CountryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87E409728D4C5020050B5DF /* CountryViewController.xib */; };
 		D87E409B28D4CE320050B5DF /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87E409A28D4CE320050B5DF /* CountryView.swift */; };
 		D87E409D28D4D00F0050B5DF /* UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87E409C28D4D00F0050B5DF /* UIExtension.swift */; };
+		D886025928E9DF490040F1C2 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D886025828E9DF490040F1C2 /* AlertView.xib */; };
+		D886025B28E9E2E50040F1C2 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D886025A28E9E2E50040F1C2 /* AlertView.swift */; };
 		D894B9D828D0DE7200ACB289 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9D728D0DE7200ACB289 /* AppDelegate.swift */; };
 		D894B9DA28D0DE7200ACB289 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9D928D0DE7200ACB289 /* SceneDelegate.swift */; };
 		D894B9E128D0DE7400ACB289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D894B9E028D0DE7400ACB289 /* Assets.xcassets */; };
@@ -29,6 +31,7 @@
 		D894B9F428D0E7CE00ACB289 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9F328D0E7CE00ACB289 /* SessionManager.swift */; };
 		D894B9F628D0EA4200ACB289 /* ShowCountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9F528D0EA4200ACB289 /* ShowCountryModel.swift */; };
 		D898CD2B28DF63B7000C5024 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898CD2A28DF63B7000C5024 /* TimeManager.swift */; };
+		D8E237D428F009FB00935484 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E237D328F009FB00935484 /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,8 @@
 		D87E409728D4C5020050B5DF /* CountryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryViewController.xib; sourceTree = "<group>"; };
 		D87E409A28D4CE320050B5DF /* CountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryView.swift; sourceTree = "<group>"; };
 		D87E409C28D4D00F0050B5DF /* UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtension.swift; sourceTree = "<group>"; };
+		D886025828E9DF490040F1C2 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
+		D886025A28E9E2E50040F1C2 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		D894B9D428D0DE7200ACB289 /* iCountries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCountries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D894B9D728D0DE7200ACB289 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D894B9D928D0DE7200ACB289 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +61,7 @@
 		D894B9F328D0E7CE00ACB289 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		D894B9F528D0EA4200ACB289 /* ShowCountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCountryModel.swift; sourceTree = "<group>"; };
 		D898CD2A28DF63B7000C5024 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
+		D8E237D328F009FB00935484 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,8 @@
 				D87E409A28D4CE320050B5DF /* CountryView.swift */,
 				D82C8C1C28DDC5740059795C /* QuizViewController.swift */,
 				D875DF2128DE06B9009EDE1D /* QuizView.swift */,
+				D886025828E9DF490040F1C2 /* AlertView.xib */,
+				D886025A28E9E2E50040F1C2 /* AlertView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -135,6 +143,7 @@
 				D894B9EB28D0DED100ACB289 /* WelcomeElement.swift */,
 				D87E409F28D4D1C10050B5DF /* Manager */,
 				D87E409C28D4D00F0050B5DF /* UIExtension.swift */,
+				D8E237D328F009FB00935484 /* Protocols.swift */,
 			);
 			path = iCountries;
 			sourceTree = "<group>";
@@ -198,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D894B9E428D0DE7400ACB289 /* LaunchScreen.storyboard in Resources */,
+				D886025928E9DF490040F1C2 /* AlertView.xib in Resources */,
 				D82C8C1B28DCB1E80059795C /* MenuViewController.xib in Resources */,
 				D87E409928D4C5020050B5DF /* CountryViewController.xib in Resources */,
 				D894B9E128D0DE7400ACB289 /* Assets.xcassets in Resources */,
@@ -227,7 +237,9 @@
 				D894B9F428D0E7CE00ACB289 /* SessionManager.swift in Sources */,
 				D894B9EC28D0DED100ACB289 /* WelcomeElement.swift in Sources */,
 				D894B9DA28D0DE7200ACB289 /* SceneDelegate.swift in Sources */,
+				D886025B28E9E2E50040F1C2 /* AlertView.swift in Sources */,
 				D83F128E28DF361F000D2859 /* QuizModel.swift in Sources */,
+				D8E237D428F009FB00935484 /* Protocols.swift in Sources */,
 				D894B9F028D0DF5D00ACB289 /* CountriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

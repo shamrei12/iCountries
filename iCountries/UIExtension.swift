@@ -16,9 +16,9 @@ extension UIViewController {
     }
 }
 extension UIView {
-    static func instantiate() -> Self {
-        let nibName = String(describing: self)
-        let nib = UINib(nibName: nibName, bundle: nil)
-        return nib.instantiate(withOwner: self, options: nil)[0] as! Self
+    class func loadFromNib<T:UIView>() -> T {
+        return Bundle.main.loadNibNamed(String(describing: T.self), owner: self, options: nil)![0] as! T
     }
 }
+
+

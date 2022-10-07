@@ -18,7 +18,6 @@ class SessionManager {
             guard error == nil else { return }
             guard let data = data else { return }
             if let responseData = self.parseJSON(data: data) {
-                print(responseData)
                 DispatchQueue.main.async {
                     dataResponse(responseData)
                 }
@@ -38,7 +37,6 @@ class SessionManager {
             guard error == nil else { return }
             guard let data = data else { return }
             if let responseData = self.parseJSON(data: data) {
-                print(responseData)
                 DispatchQueue.main.async {
                     dataResponse(responseData)
                 }

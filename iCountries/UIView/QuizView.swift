@@ -9,37 +9,63 @@ import UIKit
 import AVFoundation
 import AudioToolbox
 
+
+
+extension QuizView: AlertDelegate {
+    
+    func leftAlertButton() {
+        alertView.removeFromSuperview()
+        menu?.backMenu()
+    }
+    
+    func rightAlertButton() {
+        alertView.removeFromSuperview()
+        downloadQuiz()
+        quizGame?.scoreTrue = 0
+        quizGame?.scoreFalse = 0
+        seconds = 0
+    }
+}
+
 class QuizView: UIView, UIAlertViewDelegate {
+    private var alertView: AlertView!
+    var menu: BackMenu?
+    @IBOutlet weak private var countryFlags: UIImageView!
+    @IBOutlet weak private var spinner: UIActivityIndicatorView!
+    @IBOutlet weak private var buttonOne: UIButton!
+    @IBOutlet weak private var buttonTwo: UIButton!
+    @IBOutlet weak private var buttonThree: UIButton!
+    @IBOutlet weak private var buttonFour: UIButton!
+    @IBOutlet weak private var trueScore: UILabel!
+    @IBOutlet weak private var falseScore: UILabel!
+    @IBOutlet weak private var timer: UILabel!
+    @IBOutlet weak private var showNameCountry: UIButton!
     
-    @IBOutlet weak var countryFlags: UIImageView!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    @IBOutlet weak var buttonOne: UIButton!
-    @IBOutlet weak var buttonTwo: UIButton!
-    @IBOutlet weak var buttonThree: UIButton!
-    @IBOutlet weak var buttonFour: UIButton!
-    @IBOutlet weak var trueScore: UILabel!
-    @IBOutlet weak var falseScore: UILabel!
-    @IBOutlet weak var timer: UILabel!
-    @IBOutlet weak var showNameCountry: UIButton!
-    
-    var stopwatch = Timer()
-    var seconds: Int = 0
-    var quizGame: QuizGame?
+    private var stopwatch = Timer()
+    private var seconds: Int = 0
+    private var quizGame: QuizGame?
+    private var count: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
         quizGame = QuizGame()
         downloadQuiz()
-        
     }
     
+    func setAlert() {
+        alertView = AlertView.loadFromNib()
+        alertView.delegate = self
+        addSubview(alertView)
+        alertView.center = self.center
+    }
+    
+    
     func radomiser(count: Int) -> Int {
-        
         return Int.random(in: 0...count - 1)
-        
     }
     
     func downloadQuiz() {
+        
         spinner.startAnimating()
         SessionManager.shared.countriesRequest { countries in
             let countryCount = countries.count
@@ -83,10 +109,10 @@ class QuizView: UIView, UIAlertViewDelegate {
     }
     
     func makeScene() {
+        count = 0
         buttonOne.layer.backgroundColor = UIColor.systemBlue.cgColor
         buttonOne.isEnabled = true
         buttonOne.isHidden = false
-        
         
         buttonTwo.layer.backgroundColor = UIColor.systemBlue.cgColor
         buttonTwo.isEnabled = true
@@ -106,29 +132,34 @@ class QuizView: UIView, UIAlertViewDelegate {
         buttonTwo.isEnabled = false
         buttonThree.isEnabled = false
         buttonFour.isEnabled = false
-        
-        
     }
+    
+    
     @IBAction func dropOne() {
-        for _ in 0...3 {
-            if buttonOne.currentTitle != quizGame?.answer {
+        while count < 2 {
+            if buttonOne.currentTitle != quizGame?.answer && buttonOne.isHidden != true {
                 buttonOne.isHidden = true
-                break
+                count += 1
             }
-            else if buttonTwo.currentTitle != quizGame?.answer {
+            else if buttonTwo.currentTitle != quizGame?.answer && buttonTwo.isHidden != true {
                 buttonTwo.isHidden = true
-                break
+                count += 1
             }
-            else if buttonThree.currentTitle != quizGame?.answer {
+            else if buttonThree.currentTitle != quizGame?.answer && buttonThree.isHidden != true {
                 buttonThree.isHidden = true
-                break
+                count += 1
             }
-            else if buttonFour.currentTitle != quizGame?.answer {
+            else if buttonFour.currentTitle != quizGame?.answer && buttonFour.isHidden != true {
                 buttonFour.isHidden = true
-                break
+                count += 1
             }
         }
-        seconds += 5
+        
+        if count == 2 {
+            seconds += 5
+            count += 1
+        }
+        
     }
     
     func greenBackground(button: UIButton) {
@@ -171,6 +202,13 @@ class QuizView: UIView, UIAlertViewDelegate {
         seconds += 10
     }
     
+    func checkResult() {
+        if quizGame?.scoreTrue == 2 {
+            setAlert()
+        } else {
+            downloadQuiz()
+        }
+    }
     
     @IBAction func clickedButton(_ sender: UIButton) {
         
@@ -181,6 +219,7 @@ class QuizView: UIView, UIAlertViewDelegate {
             cancelScene()
             AudioServicesPlaySystemSound(1000)
             stopwatch.invalidate()
+            checkResult()
             
         } else {
             quizGame?.falseAnswer()
@@ -190,8 +229,9 @@ class QuizView: UIView, UIAlertViewDelegate {
             cancelScene()
             AudioServicesPlaySystemSound(1109)
             stopwatch.invalidate()
+            checkResult()
         }
-        downloadQuiz()
+        
     }
     
     func makeChoice(countries: [String]) {
