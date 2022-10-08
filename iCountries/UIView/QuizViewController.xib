@@ -35,16 +35,16 @@
                         <rect key="frame" x="0.0" y="103" width="430" height="50"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="X10-H6-Fy6">
-                                <rect key="frame" x="0.0" y="0.0" width="215" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="143.33333333333334" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbJ-ud-Sp3">
-                                        <rect key="frame" x="0.0" y="0.0" width="107.66666666666667" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="71.666666666666671" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemGreenColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHt-EP-kMm">
-                                        <rect key="frame" x="107.66666666666669" y="0.0" width="107.33333333333331" height="50"/>
+                                        <rect key="frame" x="71.666666666666657" y="0.0" width="71.666666666666657" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
@@ -55,11 +55,14 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nu6-BE-vyK">
-                                <rect key="frame" x="215" y="0.0" width="215" height="50"/>
+                                <rect key="frame" x="143.33333333333331" y="0.0" width="143.33333333333331" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3hearts" translatesAutoresizingMaskIntoConstraints="NO" id="Kij-of-dqH">
+                                <rect key="frame" x="286.66666666666669" y="0.0" width="143.33333333333331" height="50"/>
+                            </imageView>
                         </subviews>
                     </stackView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Tr-fN-DqF">
@@ -194,6 +197,7 @@
                     <outlet property="buttonTwo" destination="nx9-xq-I4Y" id="Suo-y8-Kqs"/>
                     <outlet property="countryFlags" destination="1Tr-fN-DqF" id="EVH-rs-loW"/>
                     <outlet property="falseScore" destination="VHt-EP-kMm" id="dyA-gN-H1d"/>
+                    <outlet property="healthShow" destination="Kij-of-dqH" id="cmj-21-H80"/>
                     <outlet property="showNameCountry" destination="d6C-Gu-qMp" id="7lf-n6-hMr"/>
                     <outlet property="spinner" destination="E4z-uw-ljc" id="0rL-QH-Yum"/>
                     <outlet property="timer" destination="Nu6-BE-vyK" id="dUV-nW-3oD"/>
@@ -204,6 +208,7 @@
         </viewController>
     </objects>
     <resources>
+        <image name="3hearts" width="1640" height="664"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -20,6 +20,11 @@ class AlertView: UIView {
         super.awakeFromNib()
     }
     
+    func makeText() {
+        delegate?.makeText()
+        
+    }
+    
     @IBAction func cancelGame(_ sender: UIButton) {
         delegate?.leftAlertButton()
         

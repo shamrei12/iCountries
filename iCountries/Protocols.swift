@@ -10,6 +10,7 @@ import Foundation
 protocol AlertDelegate {
     func leftAlertButton()
     func rightAlertButton()
+    func makeText()
 }
 
 protocol BackMenu {

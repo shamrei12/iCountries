@@ -9,9 +9,11 @@ import UIKit
 import AVFoundation
 import AudioToolbox
 
-
-
 extension QuizView: AlertDelegate {
+    
+    func makeText() {
+        alertView.userResult.text = quizGame.makeUserResult()
+    }
     
     func leftAlertButton() {
         alertView.removeFromSuperview()
@@ -20,10 +22,11 @@ extension QuizView: AlertDelegate {
     
     func rightAlertButton() {
         alertView.removeFromSuperview()
+        let image = UIImage(named: "\(quizGame.createNamePicture())")
+        healthShow.image = image
         downloadQuiz()
-        quizGame?.scoreTrue = 0
-        quizGame?.scoreFalse = 0
-        seconds = 0
+        makeScene()
+        quizGame.clearMode()
     }
 }
 
@@ -40,10 +43,10 @@ class QuizView: UIView, UIAlertViewDelegate {
     @IBOutlet weak private var falseScore: UILabel!
     @IBOutlet weak private var timer: UILabel!
     @IBOutlet weak private var showNameCountry: UIButton!
-    
+    @IBOutlet weak private var healthShow: UIImageView!
     private var stopwatch = Timer()
-    private var seconds: Int = 0
-    private var quizGame: QuizGame?
+    private var seconds: Int = 150
+    private var quizGame: QuizGame!
     private var count: Int = 0
     
     override func awakeFromNib() {
@@ -57,11 +60,7 @@ class QuizView: UIView, UIAlertViewDelegate {
         alertView.delegate = self
         addSubview(alertView)
         alertView.center = self.center
-    }
-    
-    
-    func radomiser(count: Int) -> Int {
-        return Int.random(in: 0...count - 1)
+        makeText()
     }
     
     func downloadQuiz() {
@@ -81,17 +80,15 @@ class QuizView: UIView, UIAlertViewDelegate {
                     self.countryFlags.image = image
                     self.spinner.stopAnimating()
                     self.spinner.hidesWhenStopped = true
-                    let countriesToQuiz = quizGame?.makeChoiceCountry(countryOne: countries[radomiser(count:countryCount)].translations["rus"]?.common ?? "", countryTwo: countries[radomiser(count: countryCount)].translations["rus"]?.common ?? "", countryThree: countries[radomiser(count: countryCount)].translations["rus"]?.common ?? "", countryTrue: countryTrue)
+                    let countriesToQuiz = quizGame?.makeChoiceCountry(countryOne: countries[(quizGame?.radomiser(count: countryCount))!].translations["rus"]?.common ?? "", countryTwo: countries[(quizGame?.radomiser(count: countryCount))!].translations["rus"]?.common ?? "", countryThree: countries[(quizGame?.radomiser(count: countryCount))!].translations["rus"]?.common ?? "", countryTrue: countryTrue)
                     makeScene()
-                    countryFlags.layer.borderWidth = 5
-                    countryFlags.layer.borderColor = UIColor.black.cgColor
-                    countryFlags.layer.cornerRadius = 20
                     makeChoice(countries: countriesToQuiz!)
+                    countryFlags.layer.borderColor = UIColor.black.cgColor
+                    countryFlags.layer.borderWidth = 1
                     createTimer()
                 }
             }
         }
-        
     }
     
     func createTimer() {
@@ -103,9 +100,12 @@ class QuizView: UIView, UIAlertViewDelegate {
     }
     
     @objc func updateTimer() {
-        seconds += 1
+        seconds -= 1
+        if seconds == 0 {
+            stopwatch.invalidate()
+            endGame()
+        }
         timer.text = TimeManager.shared.convertToMinutes(seconds: seconds)
-        
     }
     
     func makeScene() {
@@ -134,7 +134,6 @@ class QuizView: UIView, UIAlertViewDelegate {
         buttonFour.isEnabled = false
     }
     
-    
     @IBAction func dropOne() {
         while count < 2 {
             if buttonOne.currentTitle != quizGame?.answer && buttonOne.isHidden != true {
@@ -159,7 +158,6 @@ class QuizView: UIView, UIAlertViewDelegate {
             seconds += 5
             count += 1
         }
-        
     }
     
     func greenBackground(button: UIButton) {
@@ -173,65 +171,73 @@ class QuizView: UIView, UIAlertViewDelegate {
     }
     
     func checkTrueAnswer() {
-        
         if buttonOne.currentTitle == quizGame?.answer {
             buttonOne.layer.backgroundColor = UIColor.systemGreen.cgColor
             buttonOne.titleLabel?.textColor = UIColor.black
-            
         }
         else if buttonTwo.currentTitle == quizGame?.answer {
             buttonTwo.layer.backgroundColor = UIColor.systemGreen.cgColor
             buttonTwo.titleLabel?.textColor = UIColor.black
-            
         }
         else if buttonThree.currentTitle == quizGame?.answer {
             buttonThree.layer.backgroundColor = UIColor.systemGreen.cgColor
             buttonThree.titleLabel?.textColor = UIColor.black
-            
         }
         else if buttonFour.currentTitle == quizGame?.answer {
             buttonFour.layer.backgroundColor = UIColor.systemGreen.cgColor
             buttonFour.titleLabel?.textColor = UIColor.black
-            
         }
     }
-    
     
     @IBAction func showNameCountry (_ sender: UIButton) {
         checkTrueAnswer()
         seconds += 10
     }
     
-    func checkResult() {
-        if quizGame?.scoreTrue == 2 {
+    func endGame() {
+        if quizGame.checkEndGame() || seconds == 0 {
             setAlert()
         } else {
             downloadQuiz()
         }
     }
     
+    func addTime() {
+        if quizGame.addTime() {
+            seconds += 60
+        }
+    }
+    
     @IBAction func clickedButton(_ sender: UIButton) {
-        
         if sender.currentTitle == quizGame?.answer {
+            addTime()
             quizGame?.trueAnswer()
-            trueScore.text = "\(quizGame?.scoreTrue ?? 0)"
+            trueScore.text = "\(quizGame?.showTrueScore() ?? "0")"
             greenBackground(button: sender)
             cancelScene()
             AudioServicesPlaySystemSound(1000)
             stopwatch.invalidate()
-            checkResult()
-            
+            quizGame.checkTrueStrike()
+            let image = UIImage(named: "\(quizGame.createNamePicture())")
+            healthShow.image = image
+            downloadQuiz()
         } else {
             quizGame?.falseAnswer()
-            falseScore.text = "\(quizGame?.scoreFalse ?? 0)"
+            falseScore.text = "\(quizGame?.showFalseScore() ?? "0")"
             redBackground(button: sender)
             checkTrueAnswer()
             cancelScene()
             AudioServicesPlaySystemSound(1109)
             stopwatch.invalidate()
-            checkResult()
+            quizGame.checkfalseStrike()
+            let image = UIImage(named: "\(quizGame.createNamePicture())")
+            healthShow.image = image
+            if quizGame.checkEndGame() {
+                endGame()
+            } else {
+                downloadQuiz()
+            }
         }
-        
     }
     
     func makeChoice(countries: [String]) {
