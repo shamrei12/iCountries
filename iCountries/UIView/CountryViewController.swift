@@ -34,8 +34,6 @@ class CountryViewController: UIViewController {
                     self.picturesCountry.image = image
                 }
             }
-            
-
             setupCountryInformation(country: welcomeElement.first)
         })
     }

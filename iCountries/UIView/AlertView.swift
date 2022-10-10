@@ -32,6 +32,5 @@ class AlertView: UIView {
     
     @IBAction func restartGame(_ sender: UIButton) {
         delegate?.rightAlertButton()
-        
     }
 }

@@ -43,11 +43,13 @@ struct QuizGame {
         self.trueStrike += 1
         self.falseStrike = 0
     }
+    
     mutating func falseAnswer() {
         self.scoreFalse += 1
         self.falseStrike += 1
         self.trueStrike = 0
     }
+    
     func createNamePicture() -> String {
         return "\(self.heart)hearts.png"
     }
@@ -63,11 +65,11 @@ struct QuizGame {
         }
     }
     mutating func addTime() -> Bool {
-        if trueCount == 5 {
+        if trueCount == 4 {
             self.trueCount = 0
             return true
         } else {
-             return false
+            return false
         }
     }
     
@@ -94,7 +96,9 @@ struct QuizGame {
     func showTrueScore() -> String {
         return "\(scoreTrue)"
     }
+    
     func showFalseScore() -> String {
         return "\(scoreFalse)"
     }
+    
 }

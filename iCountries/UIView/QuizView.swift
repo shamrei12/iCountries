@@ -27,6 +27,8 @@ extension QuizView: AlertDelegate {
         downloadQuiz()
         makeScene()
         quizGame.clearMode()
+        clearUI()
+        seconds = 10
     }
 }
 
@@ -45,7 +47,7 @@ class QuizView: UIView, UIAlertViewDelegate {
     @IBOutlet weak private var showNameCountry: UIButton!
     @IBOutlet weak private var healthShow: UIImageView!
     private var stopwatch = Timer()
-    private var seconds: Int = 150
+    private var seconds: Int = 10
     private var quizGame: QuizGame!
     private var count: Int = 0
     
@@ -56,6 +58,7 @@ class QuizView: UIView, UIAlertViewDelegate {
     }
     
     func setAlert() {
+        stopwatch.invalidate()
         alertView = AlertView.loadFromNib()
         alertView.delegate = self
         addSubview(alertView)
@@ -77,6 +80,7 @@ class QuizView: UIView, UIAlertViewDelegate {
                 let image = UIImage(data: data, scale: 5.0)
                 
                 DispatchQueue.main.async { [self] in
+                    createTimer()
                     self.countryFlags.image = image
                     self.spinner.stopAnimating()
                     self.spinner.hidesWhenStopped = true
@@ -85,12 +89,12 @@ class QuizView: UIView, UIAlertViewDelegate {
                     makeChoice(countries: countriesToQuiz!)
                     countryFlags.layer.borderColor = UIColor.black.cgColor
                     countryFlags.layer.borderWidth = 1
-                    createTimer()
                 }
             }
         }
     }
     
+    // MARK: - Timer
     func createTimer() {
         stopwatch = Timer.scheduledTimer(timeInterval: 1,
                                          target: self,
@@ -101,12 +105,22 @@ class QuizView: UIView, UIAlertViewDelegate {
     
     @objc func updateTimer() {
         seconds -= 1
-        if seconds == 0 {
-            stopwatch.invalidate()
+        if seconds <= 0 {
             endGame()
         }
         timer.text = TimeManager.shared.convertToMinutes(seconds: seconds)
     }
+    
+    func endGame() {
+        if quizGame.checkEndGame() || seconds <= 0 {
+            setAlert()
+            cancelScene()
+        } else {
+            downloadQuiz()
+        }
+    }
+    
+    // MARK: - Scene
     
     func makeScene() {
         count = 0
@@ -134,30 +148,9 @@ class QuizView: UIView, UIAlertViewDelegate {
         buttonFour.isEnabled = false
     }
     
-    @IBAction func dropOne() {
-        while count < 2 {
-            if buttonOne.currentTitle != quizGame?.answer && buttonOne.isHidden != true {
-                buttonOne.isHidden = true
-                count += 1
-            }
-            else if buttonTwo.currentTitle != quizGame?.answer && buttonTwo.isHidden != true {
-                buttonTwo.isHidden = true
-                count += 1
-            }
-            else if buttonThree.currentTitle != quizGame?.answer && buttonThree.isHidden != true {
-                buttonThree.isHidden = true
-                count += 1
-            }
-            else if buttonFour.currentTitle != quizGame?.answer && buttonFour.isHidden != true {
-                buttonFour.isHidden = true
-                count += 1
-            }
-        }
-        
-        if count == 2 {
-            seconds += 5
-            count += 1
-        }
+    func clearUI() {
+        trueScore.text = "0"
+        falseScore.text = "0"
     }
     
     func greenBackground(button: UIButton) {
@@ -189,22 +182,32 @@ class QuizView: UIView, UIAlertViewDelegate {
         }
     }
     
-    @IBAction func showNameCountry (_ sender: UIButton) {
-        checkTrueAnswer()
-        seconds += 10
-    }
     
-    func endGame() {
-        if quizGame.checkEndGame() || seconds == 0 {
-            setAlert()
-        } else {
-            downloadQuiz()
+    // MARK: - LogicGame
+    
+    @IBAction func dropOne() {
+        while count < 2 {
+            if buttonOne.currentTitle != quizGame?.answer && buttonOne.isHidden != true {
+                buttonOne.isHidden = true
+                count += 1
+            }
+            else if buttonTwo.currentTitle != quizGame?.answer && buttonTwo.isHidden != true {
+                buttonTwo.isHidden = true
+                count += 1
+            }
+            else if buttonThree.currentTitle != quizGame?.answer && buttonThree.isHidden != true {
+                buttonThree.isHidden = true
+                count += 1
+            }
+            else if buttonFour.currentTitle != quizGame?.answer && buttonFour.isHidden != true {
+                buttonFour.isHidden = true
+                count += 1
+            }
         }
-    }
-    
-    func addTime() {
-        if quizGame.addTime() {
-            seconds += 60
+        
+        if count == 2 {
+            seconds -= 5
+            count += 1
         }
     }
     
@@ -245,5 +248,18 @@ class QuizView: UIView, UIAlertViewDelegate {
         buttonTwo.setTitle("\(countries[1])", for: .normal)
         buttonThree.setTitle("\(countries[2])", for: .normal)
         buttonFour.setTitle("\(countries[3])", for: .normal)
+    }
+    
+    // MARK: - HelpAnswer
+    
+    @IBAction func showNameCountry (_ sender: UIButton) {
+        checkTrueAnswer()
+        seconds -= 10
+    }
+    
+    func addTime() {
+        if quizGame.addTime() {
+            seconds += 30
+        }
     }
 }
