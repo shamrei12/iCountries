@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="ipad12_9" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -12,11 +12,11 @@
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <viewController id="ceH-2n-5h1" customClass="CountryViewController" customModule="iCountries" customModuleProvider="target">
             <view key="view" contentMode="scaleToFill" id="p1D-wK-ULl" customClass="CountryView" customModule="iCountries" customModuleProvider="target">
-                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ac8-6G-ShA">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="50"/>
                         <items>
                             <navigationItem title="Информация о стране" id="FVy-Ed-IbS">
                                 <barButtonItem key="leftBarButtonItem" title="Назад" id="vrl-xN-6nc">
@@ -28,61 +28,63 @@
                         </items>
                     </navigationBar>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wgu-d7-qZP">
-                        <rect key="frame" x="10" y="103" width="373" height="200"/>
+                        <rect key="frame" x="10" y="90" width="1004" height="866"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="3NV-B9-R6N"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="Ggl-Ga-6Km"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="UbR-kk-Usb">
-                        <rect key="frame" x="0.0" y="418" width="393" height="350"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="UbR-kk-Usb">
+                        <rect key="frame" x="0.0" y="1056" width="1024" height="290"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="НАЗВАНИЕ СТРАНЫ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHY-vp-s5O">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="748" text="НАЗВАНИЕ СТРАНЫ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHY-vp-s5O">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="15"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СТОЛИЦА" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEy-OZ-9k8">
-                                <rect key="frame" x="0.0" y="67" width="393" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="СТОЛИЦА" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEy-OZ-9k8">
+                                <rect key="frame" x="0.0" y="55" width="1024" height="15"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВАЛЮТА" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbf-HX-9aQ">
-                                <rect key="frame" x="0.0" y="134" width="393" height="15"/>
+                                <rect key="frame" x="0.0" y="110" width="1024" height="15"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЯЗЫКИ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPy-tR-cgM">
-                                <rect key="frame" x="0.0" y="201" width="393" height="15"/>
+                                <rect key="frame" x="0.0" y="165" width="1024" height="15"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="МАТЕРИК" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFr-iW-QEm">
-                                <rect key="frame" x="0.0" y="268" width="393" height="15"/>
+                                <rect key="frame" x="0.0" y="220" width="1024" height="15"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="НАСЕЛЕНИЕ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXE-4j-HAH">
-                                <rect key="frame" x="0.0" y="335" width="393" height="15"/>
+                                <rect key="frame" x="0.0" y="275" width="1024" height="15"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="HOj-Zg-lnv"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="2IA-My-eSL"/>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="Ac8-6G-ShA" firstAttribute="trailing" secondItem="2IA-My-eSL" secondAttribute="trailing" id="0hg-eh-Bl9"/>
-                    <constraint firstItem="2IA-My-eSL" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UbR-kk-Usb" secondAttribute="bottom" constant="50" id="3Re-m8-hl4"/>
-                    <constraint firstItem="UbR-kk-Usb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Wgu-d7-qZP" secondAttribute="bottom" constant="115" id="5lA-Xd-tY4"/>
-                    <constraint firstItem="2IA-My-eSL" firstAttribute="trailing" secondItem="UbR-kk-Usb" secondAttribute="trailing" id="GaU-ha-Rvw"/>
-                    <constraint firstItem="Ac8-6G-ShA" firstAttribute="top" secondItem="2IA-My-eSL" secondAttribute="top" id="H96-HW-kbG"/>
-                    <constraint firstItem="Wgu-d7-qZP" firstAttribute="top" secondItem="Ac8-6G-ShA" secondAttribute="bottom" id="NpE-do-dGD"/>
-                    <constraint firstItem="UbR-kk-Usb" firstAttribute="trailing" secondItem="2IA-My-eSL" secondAttribute="trailing" id="Rli-H6-52t"/>
-                    <constraint firstItem="Wgu-d7-qZP" firstAttribute="leading" secondItem="2IA-My-eSL" secondAttribute="leading" constant="10" id="V8b-fX-bJp"/>
-                    <constraint firstItem="Ac8-6G-ShA" firstAttribute="leading" secondItem="2IA-My-eSL" secondAttribute="leading" id="tZL-H9-i2B"/>
-                    <constraint firstItem="UbR-kk-Usb" firstAttribute="leading" secondItem="2IA-My-eSL" secondAttribute="leading" id="tkh-sH-Vn9"/>
-                    <constraint firstItem="2IA-My-eSL" firstAttribute="trailing" secondItem="Wgu-d7-qZP" secondAttribute="trailing" constant="10" id="vTl-I3-srZ"/>
+                    <constraint firstItem="UbR-kk-Usb" firstAttribute="top" secondItem="Wgu-d7-qZP" secondAttribute="bottom" constant="100" id="0OU-oo-Q8o"/>
+                    <constraint firstItem="2IA-My-eSL" firstAttribute="trailing" secondItem="Wgu-d7-qZP" secondAttribute="trailing" constant="10" id="4Se-0p-5yI"/>
+                    <constraint firstItem="Wgu-d7-qZP" firstAttribute="leading" secondItem="2IA-My-eSL" secondAttribute="leading" constant="10" id="7QX-YN-oEK"/>
+                    <constraint firstItem="UbR-kk-Usb" firstAttribute="trailing" secondItem="2IA-My-eSL" secondAttribute="trailing" id="M8D-AQ-nPx"/>
+                    <constraint firstItem="2IA-My-eSL" firstAttribute="bottom" secondItem="UbR-kk-Usb" secondAttribute="bottom" constant="20" id="NkF-Zc-PU3"/>
+                    <constraint firstItem="Ac8-6G-ShA" firstAttribute="trailing" secondItem="2IA-My-eSL" secondAttribute="trailing" id="Tua-Pz-MaW"/>
+                    <constraint firstItem="UbR-kk-Usb" firstAttribute="leading" secondItem="2IA-My-eSL" secondAttribute="leading" id="WeK-Cp-hzy"/>
+                    <constraint firstItem="Wgu-d7-qZP" firstAttribute="top" secondItem="Ac8-6G-ShA" secondAttribute="bottom" constant="20" id="dEs-WH-XOD"/>
+                    <constraint firstItem="Ac8-6G-ShA" firstAttribute="top" secondItem="2IA-My-eSL" secondAttribute="top" id="hB6-u1-dwD"/>
+                    <constraint firstItem="Ac8-6G-ShA" firstAttribute="leading" secondItem="2IA-My-eSL" secondAttribute="leading" id="xyW-rT-i6B"/>
                 </constraints>
             </view>
             <connections>
@@ -94,7 +96,7 @@
                 <outlet property="population" destination="kXE-4j-HAH" id="dLf-BO-8Lv"/>
                 <outlet property="subregionName" destination="jFr-iW-QEm" id="4oZ-XG-NyU"/>
             </connections>
-            <point key="canvasLocation" x="795.6521739130435" y="132.06521739130434"/>
+            <point key="canvasLocation" x="795.38461538461536" y="131.51658767772511"/>
         </viewController>
     </objects>
 </document>
