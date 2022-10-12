@@ -28,7 +28,10 @@ class CountryViewController: UIViewController {
             DispatchQueue.global().async {
                 let url = URL(string: welcomeElement[0].flags.png!)
                 let data = try! Data(contentsOf: url!)
-                let image = UIImage(data: data)
+                var image = UIImage(data: data)
+                if image == nil {
+                    image = UIImage(named: "3hearts.png")
+                }
                 DispatchQueue.main.async {
                     
                     self.picturesCountry.image = image

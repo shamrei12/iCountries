@@ -213,8 +213,8 @@ class QuizView: UIView, UIAlertViewDelegate {
     
     @IBAction func clickedButton(_ sender: UIButton) {
         if sender.currentTitle == quizGame?.answer {
+            quizGame.checkAnswer(true)
             addTime()
-            quizGame?.trueAnswer()
             trueScore.text = "\(quizGame?.showTrueScore() ?? "0")"
             greenBackground(button: sender)
             cancelScene()
@@ -225,7 +225,7 @@ class QuizView: UIView, UIAlertViewDelegate {
             healthShow.image = image
             downloadQuiz()
         } else {
-            quizGame?.falseAnswer()
+            quizGame.checkAnswer(false)
             falseScore.text = "\(quizGame?.showFalseScore() ?? "0")"
             redBackground(button: sender)
             checkTrueAnswer()
@@ -235,6 +235,7 @@ class QuizView: UIView, UIAlertViewDelegate {
             quizGame.checkfalseStrike()
             let image = UIImage(named: "\(quizGame.createNamePicture())")
             healthShow.image = image
+            
             if quizGame.checkEndGame() {
                 endGame()
             } else {

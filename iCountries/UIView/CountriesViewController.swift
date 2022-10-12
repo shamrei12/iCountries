@@ -49,8 +49,9 @@ extension CountriesViewController: UITableViewDataSource {
             DispatchQueue.global().async { [self] in
                 let url = URL(string: filterCountries[indexPath.row].picture)
                 let data = try! Data(contentsOf: url!)
+                let image = UIImage(data: data, scale: 5.0)
                 DispatchQueue.main.async {
-                    let image = UIImage(data: data, scale: 5.0)
+                    
                     cell.countryFlags.image = image
                 }
             }
@@ -61,8 +62,9 @@ extension CountriesViewController: UITableViewDataSource {
             DispatchQueue.global().async { [self] in
                 let url = URL(string: countries[indexPath.row].picture)
                 let data = try! Data(contentsOf: url!)
+                let image = UIImage(data: data, scale: 5.0)
                 DispatchQueue.main.async {
-                    let image = UIImage(data: data, scale: 5.0)
+                    
                     cell.countryFlags.image = image
                 }
             }
