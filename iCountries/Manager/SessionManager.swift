@@ -28,8 +28,8 @@ class SessionManager {
     
     func countryRequest(common: String, dataResponse: @escaping ([WelcomeElement]) -> Void) {
         
-      let urlString = "https://restcountries.com/v3.1/name/"
-        var baseURL = URL(string: urlString)
+      let urlString = "https://restcountries.com/v3.1/alpha/"
+        var baseURL = URL(string: urlString.capitalizingFirstLetter())
         baseURL!.appendPathComponent("\(common)")
         let sessionConfiguration = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfiguration)

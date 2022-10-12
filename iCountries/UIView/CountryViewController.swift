@@ -33,7 +33,6 @@ class CountryViewController: UIViewController {
                     image = UIImage(named: "3hearts.png")
                 }
                 DispatchQueue.main.async {
-                    
                     self.picturesCountry.image = image
                 }
             }
@@ -70,7 +69,7 @@ class CountryViewController: UIViewController {
     func countFormater(population: Int) -> String {
 //        guard let population = population else { return "Неизвестно" }
         let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .ordinal
+        numberFormatter.numberStyle = .decimal
         return "\(numberFormatter.string(for: population) ?? "Не установлено")"
     }
     func stringFormatingCurrencies(currencies: [String: [String:String]]?) -> String {

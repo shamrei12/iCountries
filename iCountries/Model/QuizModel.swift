@@ -10,13 +10,14 @@ import Foundation
 struct QuizGame {
     private var scoreTrue = 0
     private var scoreFalse = 0
-    var answer: String = ""
     private var heart = 3
     private var countMistake = 0
     private var trueStrike = 0
     private var falseStrike = 0
     private var badCount = 0
     private var trueCount = 0
+    var answer: String = ""
+    var seconds: Int = 150
     
     func makeChoiceCountry(countryOne: String, countryTwo: String, countryThree: String, countryTrue: String) -> [String] {
         let reshuflCoutries = [countryOne, countryTwo, countryThree, countryTrue].shuffled()
@@ -48,11 +49,13 @@ struct QuizGame {
             self.trueStrike += 1
             self.falseStrike = 0
             self.trueCount += 1
+            addTime()
             checkTrueStrike()
         } else {
             self.scoreFalse += 1
             self.falseStrike += 1
             self.trueStrike = 0
+            self.trueCount = 0
             checkfalseStrike()
         }
     }
@@ -69,12 +72,10 @@ struct QuizGame {
         }
     }
     
-    mutating func addTime() -> Bool {
+    mutating func addTime() {
         if trueCount == 4 {
+            seconds += 30
             trueCount = 0
-            return true
-        } else {
-            return false
         }
     }
     
@@ -92,6 +93,10 @@ struct QuizGame {
             heart -= 1
             badCount += 1
         }
+    }
+    
+    mutating func showTrueAnswer() {
+        seconds -= 30
     }
     
     func makeUserResult() -> String {

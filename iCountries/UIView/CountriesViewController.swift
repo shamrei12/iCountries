@@ -37,9 +37,9 @@ extension CountriesViewController: UITableViewDataSource {
         //        countryVC.country = name
         countryVC.modalPresentationStyle = .fullScreen
         if isSearching {
-            countryVC.updateUIElements(country: filterCountries[indexPath.row].common)
+            countryVC.updateUIElements(country: filterCountries[indexPath.row].cca)
         } else {
-            countryVC.updateUIElements(country: countries[indexPath.row].common)
+            countryVC.updateUIElements(country: countries[indexPath.row].cca)
         }
         present(countryVC, animated: false)
     }
@@ -145,9 +145,9 @@ class CountriesViewController: UIViewController {
     }
     
     func showCountries() {
-        SessionManager.shared.countriesRequest { [self] WelcomeElement in
-            for country in 0...WelcomeElement.count - 1 {
-                countries.append(Countries(languages: WelcomeElement[country].languages ?? ["":""], name: WelcomeElement[country].translations["rus"]?.common ?? "", population: WelcomeElement[country].population, capital: WelcomeElement[country].capital?[0] as? String ?? "", picture: WelcomeElement[country].flags.png!, common: WelcomeElement[country].name.common.lowercased()))
+        SessionManager.shared.countriesRequest { [self] welcomeElement in
+            for country in 0...welcomeElement.count - 1 {
+                countries.append(Countries(languages: welcomeElement[country].languages ?? ["":""], name: welcomeElement[country].translations["rus"]?.official ?? "", population: welcomeElement[country].population, capital: welcomeElement[country].capital?[0] as? String ?? "", picture: welcomeElement[country].flags.png!, common: welcomeElement[country].name.common.lowercased(), cca: welcomeElement[country].cca2))
             }
             tableView.reloadData()
         }

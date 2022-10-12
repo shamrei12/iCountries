@@ -13,6 +13,7 @@ protocol CountriesProtocol {
     var capital: String { get set }
     var picture: String { get set}
     var common: String { get set }
+    var cca: String {get set}
     var languages: [String: String]? { get set }
 }
 
@@ -23,6 +24,7 @@ struct Countries: CountriesProtocol {
     var capital: String
     var picture: String
     var common: String
+    var cca: String
 }
 
 

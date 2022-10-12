@@ -28,7 +28,7 @@ extension QuizView: AlertDelegate {
         makeScene()
         quizGame.clearMode()
         clearUI()
-        seconds = 10
+        quizGame.seconds = 150
     }
 }
 
@@ -47,7 +47,6 @@ class QuizView: UIView, UIAlertViewDelegate {
     @IBOutlet weak private var showNameCountry: UIButton!
     @IBOutlet weak private var healthShow: UIImageView!
     private var stopwatch = Timer()
-    private var seconds: Int = 10
     private var quizGame: QuizGame!
     private var count: Int = 0
     
@@ -104,15 +103,15 @@ class QuizView: UIView, UIAlertViewDelegate {
     }
     
     @objc func updateTimer() {
-        seconds -= 1
-        if seconds <= 0 {
+        quizGame.seconds -= 1
+        if quizGame.seconds <= 0 {
             endGame()
         }
-        timer.text = TimeManager.shared.convertToMinutes(seconds: seconds)
+        timer.text = TimeManager.shared.convertToMinutes(seconds: quizGame.seconds)
     }
     
     func endGame() {
-        if quizGame.checkEndGame() || seconds <= 0 {
+        if quizGame.checkEndGame() || quizGame.seconds <= 0 {
             setAlert()
             cancelScene()
         } else {
@@ -206,7 +205,7 @@ class QuizView: UIView, UIAlertViewDelegate {
         }
         
         if count == 2 {
-            seconds -= 5
+            quizGame.seconds -= 5
             count += 1
         }
     }
@@ -214,7 +213,6 @@ class QuizView: UIView, UIAlertViewDelegate {
     @IBAction func clickedButton(_ sender: UIButton) {
         if sender.currentTitle == quizGame?.answer {
             quizGame.checkAnswer(true)
-            addTime()
             trueScore.text = "\(quizGame?.showTrueScore() ?? "0")"
             greenBackground(button: sender)
             cancelScene()
@@ -255,12 +253,7 @@ class QuizView: UIView, UIAlertViewDelegate {
     
     @IBAction func showNameCountry (_ sender: UIButton) {
         checkTrueAnswer()
-        seconds -= 10
+        quizGame.showTrueAnswer()
     }
-    
-    func addTime() {
-        if quizGame.addTime() {
-            seconds += 30
-        }
-    }
+
 }
