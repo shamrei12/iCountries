@@ -17,6 +17,8 @@ class CountryViewController: UIViewController {
     @IBOutlet weak var subregionName: UILabel!
     @IBOutlet weak var currencyName: UILabel!
     @IBOutlet weak var area: UILabel!
+    @IBOutlet weak var timeZone: UILabel!
+    @IBOutlet weak var domain: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +52,8 @@ class CountryViewController: UIViewController {
         self.subregionName.text = "Субрегион: \(country.subregion ?? "Неизвестно")"
         self.currencyName.text = "Валюта: \(stringFormatingCurrencies(currencies: country.currencies))"
         self.area.text = "Площадь: \(countFormater(population: country.area)) кв. км"
+        self.timeZone.text = "Временая зона: \(stringFormatingTime(timeZone: country.timezones))"
+        self.domain.text = "Возможные домены: \(stringFormatingDomain(domains: country.tld))"
     }
     
     func stringFormationLanguage(languages: [String: String]?) -> String {
@@ -65,7 +69,6 @@ class CountryViewController: UIViewController {
             }
             return stringLanguages
         }
-        
     }
     
     func countFormater(population: Int) -> String {
@@ -89,6 +92,24 @@ class CountryViewController: UIViewController {
             stringCurrencies += "\(value.value["name"]!)(\(value.value["symbol"] ?? "Неизвестно")) "
         }
         return stringCurrencies
+    }
+    
+    func stringFormatingTime(timeZone: [String]?) -> String {
+        guard let timeZone = timeZone else { return "Неизвестно"}
+        var timeZoneString: String = ""
+        for value in timeZone {
+            timeZoneString += " \(value)"
+        }
+        return timeZoneString
+    }
+    
+    func stringFormatingDomain(domains: [String]?) -> String {
+        guard let domains = domains else { return "Неизвестно"}
+        var domainString: String = ""
+        for value in domains {
+            domainString += " \(value)"
+        }
+        return domainString
     }
     
     @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
