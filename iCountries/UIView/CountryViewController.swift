@@ -16,6 +16,7 @@ class CountryViewController: UIViewController {
     @IBOutlet weak var population: UILabel!
     @IBOutlet weak var subregionName: UILabel!
     @IBOutlet weak var currencyName: UILabel!
+    @IBOutlet weak var area: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,7 @@ class CountryViewController: UIViewController {
         self.population.text = "Население: \(countFormater(population: country.population))"
         self.subregionName.text = "Субрегион: \(country.subregion ?? "Неизвестно")"
         self.currencyName.text = "Валюта: \(stringFormatingCurrencies(currencies: country.currencies))"
+        self.area.text = "Площадь: \(countFormater(population: country.area)) кв. км"
     }
     
     func stringFormationLanguage(languages: [String: String]?) -> String {
@@ -72,6 +74,14 @@ class CountryViewController: UIViewController {
         numberFormatter.numberStyle = .decimal
         return "\(numberFormatter.string(for: population) ?? "Не установлено")"
     }
+    
+    func countFormater(population: Double) -> String {
+//        guard let population = population else { return "Неизвестно" }
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return "\(numberFormatter.string(for: population) ?? "Не установлено")"
+    }
+    
     func stringFormatingCurrencies(currencies: [String: [String:String]]?) -> String {
         guard let currencies = currencies else { return "Неизвестно"}
         var stringCurrencies: String = ""

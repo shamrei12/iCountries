@@ -147,7 +147,7 @@ class CountriesViewController: UIViewController {
     func showCountries() {
         SessionManager.shared.countriesRequest { [self] welcomeElement in
             for country in 0...welcomeElement.count - 1 {
-                countries.append(Countries(languages: welcomeElement[country].languages ?? ["":""], name: welcomeElement[country].translations["rus"]?.official ?? "", population: welcomeElement[country].population, capital: welcomeElement[country].capital?[0] as? String ?? "", picture: welcomeElement[country].flags.png!, common: welcomeElement[country].name.common.lowercased(), cca: welcomeElement[country].cca2))
+                countries.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "",   picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
             }
             tableView.reloadData()
         }
