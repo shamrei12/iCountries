@@ -46,7 +46,6 @@ class CountryViewController: UIViewController {
     func setupCountryInformation(country: WelcomeElement?) {
         guard let country = country else { return }
         self.nameCountry.text = "Название страны: \(country.translations["rus"]?.official ?? "Неизвестно")"
-        self.nameCountry.numberOfLines = 4
         self.capitalName.text = "Столица: \(country.capital?[0] ?? "Неизвестно")"
         self.languagesName.text = "Языки: \(stringFormationLanguage(languages: country.languages))"
         self.population.text = "Население: \(countFormater(population: country.population))"
