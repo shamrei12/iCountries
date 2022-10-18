@@ -10,7 +10,6 @@ import AVFoundation
 import AudioToolbox
 
 extension QuizView: AlertDelegate {
-    
     func makeText() {
         alertView.userResult.text = quizGame.makeUserResult()
     }
@@ -49,7 +48,11 @@ class QuizView: UIView, UIAlertViewDelegate {
     private var stopwatch = Timer()
     private var quizGame: QuizGame!
     private var count: Int = 0
-    
+    private var images: UIImage? {
+        didSet {
+            
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         quizGame = QuizGame()
@@ -66,7 +69,6 @@ class QuizView: UIView, UIAlertViewDelegate {
     }
     
     func downloadQuiz() {
-        
         spinner.startAnimating()
         SessionManager.shared.countriesRequest { countries in
             let countryCount = countries.count
@@ -77,7 +79,6 @@ class QuizView: UIView, UIAlertViewDelegate {
                 let url = URL(string: countries[country].flags.png!)
                 let data = try! Data(contentsOf: url!)
                 let image = UIImage(data: data, scale: 5.0)
-                
                 DispatchQueue.main.async { [self] in
                     createTimer()
                     self.countryFlags.image = image
@@ -118,26 +119,15 @@ class QuizView: UIView, UIAlertViewDelegate {
             downloadQuiz()
         }
     }
-    
     // MARK: - Scene
-    
     func makeScene() {
         count = 0
-        buttonOne.layer.backgroundColor = UIColor.systemBlue.cgColor
-        buttonOne.isEnabled = true
-        buttonOne.isHidden = false
-        
-        buttonTwo.layer.backgroundColor = UIColor.systemBlue.cgColor
-        buttonTwo.isEnabled = true
-        buttonTwo.isHidden = false
-        
-        buttonThree.layer.backgroundColor = UIColor.systemBlue.cgColor
-        buttonThree.isEnabled = true
-        buttonThree.isHidden = false
-        
-        buttonFour.layer.backgroundColor = UIColor.systemBlue.cgColor
-        buttonFour.isEnabled = true
-        buttonFour.isHidden = false
+        let massButton = [buttonOne, buttonTwo, buttonThree, buttonFour]
+        for button in massButton {
+            button?.layer.backgroundColor = UIColor.systemBlue.cgColor
+            button?.isEnabled = true
+            button?.isHidden = false
+        }
     }
     
     func cancelScene() {
@@ -180,33 +170,20 @@ class QuizView: UIView, UIAlertViewDelegate {
             buttonFour.titleLabel?.textColor = UIColor.black
         }
     }
-    
-    
     // MARK: - LogicGame
     
     @IBAction func dropOne() {
-        while count < 2 {
-            if buttonOne.currentTitle != quizGame?.answer && buttonOne.isHidden != true {
-                buttonOne.isHidden = true
-                count += 1
-            }
-            else if buttonTwo.currentTitle != quizGame?.answer && buttonTwo.isHidden != true {
-                buttonTwo.isHidden = true
-                count += 1
-            }
-            else if buttonThree.currentTitle != quizGame?.answer && buttonThree.isHidden != true {
-                buttonThree.isHidden = true
-                count += 1
-            }
-            else if buttonFour.currentTitle != quizGame?.answer && buttonFour.isHidden != true {
-                buttonFour.isHidden = true
-                count += 1
-            }
-        }
         
-        if count == 2 {
-            quizGame.seconds -= 5
-            count += 1
+        let massButton = [buttonOne, buttonTwo, buttonThree, buttonFour]
+        for button in massButton {
+            if button?.currentTitle != quizGame?.answer {
+                count += 1
+                button?.isHidden = true
+                if count == 2 {
+                    quizGame.seconds -= 5
+                    break
+                }
+            }
         }
     }
     
@@ -248,12 +225,10 @@ class QuizView: UIView, UIAlertViewDelegate {
         buttonThree.setTitle("\(countries[2])", for: .normal)
         buttonFour.setTitle("\(countries[3])", for: .normal)
     }
-    
     // MARK: - HelpAnswer
     
     @IBAction func showNameCountry (_ sender: UIButton) {
         checkTrueAnswer()
         quizGame.showTrueAnswer()
     }
-
 }

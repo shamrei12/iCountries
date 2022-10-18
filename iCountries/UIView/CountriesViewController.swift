@@ -27,7 +27,6 @@ extension CountriesViewController: UITableViewDataSource {
         } else {
             cell = CountryTableViewCell()
         }
-        
         return configure(cell: cell, for: indexPath)
     }
     
@@ -51,7 +50,6 @@ extension CountriesViewController: UITableViewDataSource {
                 let data = try! Data(contentsOf: url!)
                 let image = UIImage(data: data, scale: 5.0)
                 DispatchQueue.main.async {
-                    
                     cell.countryFlags.image = image
                 }
             }
@@ -64,7 +62,6 @@ extension CountriesViewController: UITableViewDataSource {
                 let data = try! Data(contentsOf: url!)
                 let image = UIImage(data: data, scale: 5.0)
                 DispatchQueue.main.async {
-                    
                     cell.countryFlags.image = image
                 }
             }
@@ -148,8 +145,8 @@ class CountriesViewController: UIViewController {
         SessionManager.shared.countriesRequest { [self] welcomeElement in
             for country in 0...welcomeElement.count - 1 {
                 countries.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "",   picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
+                }
             }
             tableView.reloadData()
         }
     }
-}
