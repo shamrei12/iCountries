@@ -132,8 +132,8 @@ class CountriesViewController: UIViewController {
         super.viewDidLoad()
         self.searchBar.delegate = self
         tableView.register(UINib(nibName: "CountryTableViewCell", bundle: nil), forCellReuseIdentifier: "CountryTableViewCell")
-        showCountries()
         spinner.startAnimating()
+        showCountries()
     }
     
     

@@ -48,11 +48,7 @@ class QuizView: UIView, UIAlertViewDelegate {
     private var stopwatch = Timer()
     private var quizGame: QuizGame!
     private var count: Int = 0
-    private var images: UIImage? {
-        didSet {
-            
-        }
-    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         quizGame = QuizGame()
