@@ -28,70 +28,70 @@
                         </items>
                     </navigationBar>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Alw-lH-Y7N">
-                        <rect key="frame" x="-10" y="88" width="454" height="1078"/>
+                        <rect key="frame" x="0.0" y="88" width="414" height="1078"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="120" translatesAutoresizingMaskIntoConstraints="NO" id="P4c-Vg-voc">
-                                <rect key="frame" x="20" y="40" width="394" height="803"/>
+                                <rect key="frame" x="20" y="40" width="376" height="803"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wgu-d7-qZP">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="376" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="Ggl-Ga-6Km"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="UbR-kk-Usb">
-                                        <rect key="frame" x="0.0" y="320" width="394" height="483"/>
+                                        <rect key="frame" x="0.0" y="320" width="376" height="483"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="748" text="НАЗВАНИЕ СТРАНЫ" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHY-vp-s5O">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="15"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="376" height="15"/>
                                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="СТОЛИЦА" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEy-OZ-9k8">
-                                                <rect key="frame" x="0.0" y="58.666666666666686" width="394" height="15"/>
+                                                <rect key="frame" x="0.0" y="58.666666666666686" width="376" height="15"/>
                                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВАЛЮТА" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbf-HX-9aQ">
-                                                <rect key="frame" x="0.0" y="117" width="394" height="15"/>
+                                                <rect key="frame" x="0.0" y="117" width="376" height="15"/>
                                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЯЗЫКИ" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPy-tR-cgM">
-                                                <rect key="frame" x="0.0" y="175.66666666666663" width="394" height="15"/>
+                                                <rect key="frame" x="0.0" y="175.66666666666663" width="376" height="15"/>
                                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="МАТЕРИК" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFr-iW-QEm">
-                                                <rect key="frame" x="0.0" y="234" width="394" height="15"/>
+                                                <rect key="frame" x="0.0" y="234" width="376" height="15"/>
                                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="НАСЕЛЕНИЕ" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXE-4j-HAH">
-                                                <rect key="frame" x="0.0" y="292.66666666666663" width="394" height="15"/>
+                                                <rect key="frame" x="0.0" y="292.66666666666663" width="376" height="15"/>
                                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIz-T8-AbN">
-                                                <rect key="frame" x="0.0" y="351" width="394" height="15"/>
+                                                <rect key="frame" x="0.0" y="351" width="376" height="15"/>
                                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZE-SQ-Rfj">
-                                                <rect key="frame" x="0.0" y="409.66666666666663" width="394" height="15"/>
+                                                <rect key="frame" x="0.0" y="409.66666666666663" width="376" height="15"/>
                                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Add-qA-qlY">
-                                                <rect key="frame" x="0.0" y="468" width="394" height="15"/>
+                                                <rect key="frame" x="0.0" y="468" width="376" height="15"/>
                                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -118,8 +118,8 @@
                 <viewLayoutGuide key="safeArea" id="2IA-My-eSL"/>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Alw-lH-Y7N" secondAttribute="trailing" constant="-30" id="2tG-w5-xJ7"/>
-                    <constraint firstItem="Alw-lH-Y7N" firstAttribute="leading" secondItem="p1D-wK-ULl" secondAttribute="leading" constant="-10" id="QoK-fT-aAv"/>
+                    <constraint firstAttribute="trailing" secondItem="Alw-lH-Y7N" secondAttribute="trailing" id="2tG-w5-xJ7"/>
+                    <constraint firstItem="Alw-lH-Y7N" firstAttribute="leading" secondItem="p1D-wK-ULl" secondAttribute="leading" id="QoK-fT-aAv"/>
                     <constraint firstItem="Ac8-6G-ShA" firstAttribute="trailing" secondItem="2IA-My-eSL" secondAttribute="trailing" id="Tua-Pz-MaW"/>
                     <constraint firstItem="Ac8-6G-ShA" firstAttribute="top" secondItem="2IA-My-eSL" secondAttribute="top" id="hB6-u1-dwD"/>
                     <constraint firstItem="Alw-lH-Y7N" firstAttribute="top" secondItem="Ac8-6G-ShA" secondAttribute="bottom" id="jMQ-Zi-YtK"/>
