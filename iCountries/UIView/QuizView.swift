@@ -32,8 +32,6 @@ extension QuizView: AlertDelegate {
 }
 
 class QuizView: UIView, UIAlertViewDelegate {
-    private var alertView: AlertView!
-    var menu: BackMenu?
     @IBOutlet weak private var countryFlags: UIImageView!
     @IBOutlet weak private var spinner: UIActivityIndicatorView!
     @IBOutlet weak private var buttonOne: UIButton!
@@ -47,8 +45,9 @@ class QuizView: UIView, UIAlertViewDelegate {
     @IBOutlet weak private var healthShow: UIImageView!
     private var stopwatch = Timer()
     private var quizGame: QuizGame!
-    private var count: Int = 0
-
+    private var alertView: AlertView!
+    var menu: BackMenu?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         quizGame = QuizGame()
@@ -89,7 +88,6 @@ class QuizView: UIView, UIAlertViewDelegate {
             }
         }
     }
-    
     // MARK: - Timer
     func createTimer() {
         stopwatch = Timer.scheduledTimer(timeInterval: 1,
@@ -117,7 +115,7 @@ class QuizView: UIView, UIAlertViewDelegate {
     }
     // MARK: - Scene
     func makeScene() {
-        count = 0
+        quizGame.count = 0
         let massButton = [buttonOne, buttonTwo, buttonThree, buttonFour]
         for button in massButton {
             button?.layer.backgroundColor = UIColor.systemBlue.cgColor
@@ -173,9 +171,9 @@ class QuizView: UIView, UIAlertViewDelegate {
         let massButton = [buttonOne, buttonTwo, buttonThree, buttonFour]
         for button in massButton {
             if button?.currentTitle != quizGame?.answer {
-                count += 1
+                quizGame.count += 1
                 button?.isHidden = true
-                if count == 2 {
+                if quizGame.count == 2 {
                     quizGame.seconds -= 5
                     break
                 }

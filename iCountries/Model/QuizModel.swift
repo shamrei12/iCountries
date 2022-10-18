@@ -18,6 +18,7 @@ struct QuizGame {
     private var trueCount = 0
     var answer: String = ""
     var seconds: Int = 150
+    var count: Int = 0
     
     func makeChoiceCountry(countryOne: String, countryTwo: String, countryThree: String, countryTrue: String) -> [String] {
         let reshuflCoutries = [countryOne, countryTwo, countryThree, countryTrue].shuffled()
