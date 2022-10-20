@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 import AudioToolbox
+import Kingfisher
 
 extension QuizView: AlertDelegate {
     func makeText() {
@@ -72,11 +73,12 @@ class QuizView: UIView, UIAlertViewDelegate {
             self.quizGame?.answer = countryTrue
             DispatchQueue.global().async { [self] in
                 let url = URL(string: countries[country].flags.png!)
-                let data = try! Data(contentsOf: url!)
-                let image = UIImage(data: data, scale: 5.0)
+                guard let url = url else { return }
+                let resource = ImageResource(downloadURL: url, cacheKey: countries[country].flags.png)
                 DispatchQueue.main.async { [self] in
+                    self.countryFlags.kf.indicatorType = .activity
                     createTimer()
-                    self.countryFlags.image = image
+                    self.countryFlags.kf.setImage(with: resource)
                     self.spinner.stopAnimating()
                     self.spinner.hidesWhenStopped = true
                     let countriesToQuiz = quizGame?.makeChoiceCountry(countryOne: countries[(quizGame?.radomiser(count: countryCount))!].translations["rus"]?.common ?? "", countryTwo: countries[(quizGame?.radomiser(count: countryCount))!].translations["rus"]?.common ?? "", countryThree: countries[(quizGame?.radomiser(count: countryCount))!].translations["rus"]?.common ?? "", countryTrue: countryTrue)

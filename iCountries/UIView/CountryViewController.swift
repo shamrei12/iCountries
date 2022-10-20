@@ -21,7 +21,6 @@ class CountryViewController: UIViewController {
     @IBOutlet weak var timeZone: UILabel!
     @IBOutlet weak var domain: UILabel!
     @IBOutlet weak var spiner: UIActivityIndicatorView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,12 +31,11 @@ class CountryViewController: UIViewController {
         SessionManager.shared.countryRequest(common: country, dataResponse: { [self] welcomeElement in
             
             DispatchQueue.global().async {
-//                let resurse = ImageResource(downloadURL: URL(string: welcomeElement[0].flags.png!, cacheKey: welcomeElement[0].flags.png))
+                let resurse = ImageResource(downloadURL: URL(string: welcomeElement[0].flags.png!)!, cacheKey: welcomeElement[0].flags.png)
                 DispatchQueue.main.async {
-                    
-                    self.picturesCountry.kf.setImage(with: URL(string: welcomeElement[0].flags.png!), placeholder: nil, options: [.transition(.fade(0.7))])
-                    spiner.stopAnimating()
-                    spiner.hidesWhenStopped = true
+                    self.picturesCountry.kf.setImage(with: resurse, placeholder: nil, options: [.onlyFromCache])
+                    self.spiner.stopAnimating()
+                    self.spiner.hidesWhenStopped = true
                 }
             }
             setupCountryInformation(country: welcomeElement.first)

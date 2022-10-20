@@ -34,8 +34,6 @@ extension CountriesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let countryVC = CountryViewController.instantiate()
-        //        var name = countries[indexPath.row].common
-        //        countryVC.country = name
         countryVC.modalPresentationStyle = .fullScreen
         if isSearching {
             countryVC.updateUIElements(country: filterCountries[indexPath.row].cca)
@@ -48,9 +46,9 @@ extension CountriesViewController: UITableViewDataSource {
     private func configure(cell: CountryTableViewCell, for indexPath: IndexPath) -> CountryTableViewCell {
         if isSearching {
             DispatchQueue.global().async { [self] in
-//                let resurse = ImageResource(downloadURL: URL(string: filterCountries[indexPath.row].picture)!, cacheKey: filterCountries[indexPath.row].picture)
+           let resurse = ImageResource(downloadURL: URL(string: filterCountries[indexPath.row].picture)!, cacheKey: filterCountries[indexPath.row].picture)
                 DispatchQueue.main.async {
-                    cell.countryFlags.kf.setImage(with: URL(string: self.filterCountries[indexPath.row].picture), placeholder: nil, options: [.transition(.fade(0.7))])
+                    cell.countryFlags.kf.setImage(with: resurse)
                 }
             }
             cell.countryName.lineBreakMode = .byCharWrapping
@@ -61,9 +59,7 @@ extension CountriesViewController: UITableViewDataSource {
             DispatchQueue.global().async { [self] in
                 let resurse = ImageResource(downloadURL: URL(string: countries[indexPath.row].picture)!, cacheKey: countries[indexPath.row].picture)
                 DispatchQueue.main.async {
-                    
-//                    cell.countryFlags.image = image
-                    cell.countryFlags.kf.setImage(with: resurse, placeholder: nil, options: [.transition(.fade(0.7))])
+                    cell.countryFlags.kf.setImage(with: resurse)
                 }
             }
             cell.countryName.text = countries[indexPath.row].name
