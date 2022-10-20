@@ -48,7 +48,7 @@ extension CountriesViewController: UITableViewDataSource {
     private func configure(cell: CountryTableViewCell, for indexPath: IndexPath) -> CountryTableViewCell {
         if isSearching {
             DispatchQueue.global().async { [self] in
-                let resurse = ImageResource(downloadURL: URL(string: filterCountries[indexPath.row].picture)!, cacheKey: filterCountries[indexPath.row].picture)
+//                let resurse = ImageResource(downloadURL: URL(string: filterCountries[indexPath.row].picture)!, cacheKey: filterCountries[indexPath.row].picture)
                 DispatchQueue.main.async {
                     cell.countryFlags.kf.setImage(with: URL(string: self.filterCountries[indexPath.row].picture), placeholder: nil, options: [.transition(.fade(0.7))])
                 }

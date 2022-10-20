@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CountryViewController: UIViewController {
     
@@ -19,6 +20,7 @@ class CountryViewController: UIViewController {
     @IBOutlet weak var area: UILabel!
     @IBOutlet weak var timeZone: UILabel!
     @IBOutlet weak var domain: UILabel!
+    @IBOutlet weak var spiner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,17 +28,16 @@ class CountryViewController: UIViewController {
     }
     
     func updateUIElements(country: String) {
+        spiner.startAnimating()
         SessionManager.shared.countryRequest(common: country, dataResponse: { [self] welcomeElement in
             
             DispatchQueue.global().async {
-                let url = URL(string: welcomeElement[0].flags.png!)
-                let data = try! Data(contentsOf: url!)
-                var image = UIImage(data: data)
-                if image == nil {
-                    image = UIImage(named: "3hearts.png")
-                }
+//                let resurse = ImageResource(downloadURL: URL(string: welcomeElement[0].flags.png!, cacheKey: welcomeElement[0].flags.png))
                 DispatchQueue.main.async {
-                    self.picturesCountry.image = image
+                    
+                    self.picturesCountry.kf.setImage(with: URL(string: welcomeElement[0].flags.png!), placeholder: nil, options: [.transition(.fade(0.7))])
+                    spiner.stopAnimating()
+                    spiner.hidesWhenStopped = true
                 }
             }
             setupCountryInformation(country: welcomeElement.first)
