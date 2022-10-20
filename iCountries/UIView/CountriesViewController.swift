@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 extension CountriesViewController: UITableViewDelegate {
     
@@ -47,25 +48,22 @@ extension CountriesViewController: UITableViewDataSource {
     private func configure(cell: CountryTableViewCell, for indexPath: IndexPath) -> CountryTableViewCell {
         if isSearching {
             DispatchQueue.global().async { [self] in
-                let url = URL(string: filterCountries[indexPath.row].picture)
-                let data = try! Data(contentsOf: url!)
-                let image = UIImage(data: data, scale: 5.0)
+                let resurse = ImageResource(downloadURL: URL(string: filterCountries[indexPath.row].picture)!, cacheKey: filterCountries[indexPath.row].picture)
                 DispatchQueue.main.async {
-                    
-                    cell.countryFlags.image = image
+                    cell.countryFlags.kf.setImage(with: URL(string: self.filterCountries[indexPath.row].picture), placeholder: nil, options: [.transition(.fade(0.7))])
                 }
             }
             cell.countryName.lineBreakMode = .byCharWrapping
             cell.countryName.numberOfLines = 2
             cell.countryName.text = filterCountries[indexPath.row].name
         } else {
+            
             DispatchQueue.global().async { [self] in
-                let url = URL(string: countries[indexPath.row].picture)
-                let data = try! Data(contentsOf: url!)
-                let image = UIImage(data: data, scale: 5.0)
+                let resurse = ImageResource(downloadURL: URL(string: countries[indexPath.row].picture)!, cacheKey: countries[indexPath.row].picture)
                 DispatchQueue.main.async {
                     
-                    cell.countryFlags.image = image
+//                    cell.countryFlags.image = image
+                    cell.countryFlags.kf.setImage(with: resurse, placeholder: nil, options: [.transition(.fade(0.7))])
                 }
             }
             cell.countryName.text = countries[indexPath.row].name
