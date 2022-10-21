@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class CountryViewController: UIViewController {
-    
+    let cache = ImageCache.default
     @IBOutlet weak var picturesCountry: UIImageView!
     @IBOutlet weak var nameCountry: UILabel!
     @IBOutlet weak var capitalName: UILabel!
@@ -23,17 +23,22 @@ class CountryViewController: UIViewController {
     @IBOutlet weak var spiner: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        picturesCountry.layer.borderColor = UIColor.black.cgColor
+        picturesCountry.layer.borderWidth = 1
     }
     
     func updateUIElements(country: String) {
         spiner.startAnimating()
         SessionManager.shared.countryRequest(common: country, dataResponse: { [self] welcomeElement in
-            
-            DispatchQueue.global().async {
-                let resurse = ImageResource(downloadURL: URL(string: welcomeElement[0].flags.png!)!, cacheKey: welcomeElement[0].flags.png)
-                DispatchQueue.main.async {
-                    self.picturesCountry.kf.setImage(with: resurse, placeholder: nil, options: [.onlyFromCache])
+            DispatchQueue.global().async { [self] in
+                let resourse = ImageResource(downloadURL: URL(string: welcomeElement[0].flags.png!)!)
+                let url = URL(string: welcomeElement[0].flags.png!)
+                DispatchQueue.main.async { [self] in
+                    if cache.isCached(forKey: welcomeElement[0].flags.png!) {
+                        self.picturesCountry.kf.setImage(with: resourse, options: [.onlyFromCache])
+                    } else {
+                        self.picturesCountry.kf.setImage(with: url,options: [.transition(.fade(0.5))])
+                    }
                     self.spiner.stopAnimating()
                     self.spiner.hidesWhenStopped = true
                 }
@@ -71,18 +76,19 @@ class CountryViewController: UIViewController {
     }
     
     func countFormater(population: Int) -> String {
-//        guard let population = population else { return "Неизвестно" }
+        //        guard let population = population else { return "Неизвестно" }
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         return "\(numberFormatter.string(for: population) ?? "Не установлено")"
     }
     
     func countFormater(population: Double) -> String {
-//        guard let population = population else { return "Неизвестно" }
+        //        guard let population = population else { return "Неизвестно" }
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         return "\(numberFormatter.string(for: population) ?? "Не установлено")"
     }
+    
     
     func stringFormatingCurrencies(currencies: [String: [String:String]]?) -> String {
         guard let currencies = currencies else { return "Неизвестно"}

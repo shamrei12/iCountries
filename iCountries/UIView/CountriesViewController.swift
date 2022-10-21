@@ -57,9 +57,15 @@ extension CountriesViewController: UITableViewDataSource {
         } else {
             
             DispatchQueue.global().async { [self] in
-                let resurse = ImageResource(downloadURL: URL(string: countries[indexPath.row].picture)!, cacheKey: countries[indexPath.row].picture)
+                let resourse = ImageResource(downloadURL: URL(string: countries[indexPath.row].picture)!, cacheKey: countries[indexPath.row].picture)
+                let url = URL(string: countries[indexPath.row].picture)!
                 DispatchQueue.main.async {
-                    cell.countryFlags.kf.setImage(with: resurse)
+                    if cache.isCached(forKey: countries[indexPath.row].picture) {
+                        cell.countryFlags.kf.setImage(with: resourse, options: [.onlyFromCache])
+                    } else {
+                        cell.countryFlags.kf.setImage(with: url,options: [.transition(.fade(0.5))])
+                    }
+
                 }
             }
             cell.countryName.text = countries[indexPath.row].name
@@ -105,7 +111,7 @@ extension CountriesViewController: UISearchBarDelegate {
 
 class CountriesViewController: UIViewController {
     
-    
+    let cache = ImageCache.default
     @IBOutlet weak private var searchBar: UISearchBar!
     @IBOutlet weak private var spinner: UIActivityIndicatorView!
     @IBOutlet weak private var tableView: UITableView!
@@ -127,6 +133,8 @@ class CountriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cache.memoryStorage.config.totalCostLimit = 10 * 1024 * 1024
+        cache.memoryStorage.config.countLimit = 10
         self.searchBar.delegate = self
         tableView.register(UINib(nibName: "CountryTableViewCell", bundle: nil), forCellReuseIdentifier: "CountryTableViewCell")
         showCountries()
