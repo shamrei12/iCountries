@@ -13,37 +13,39 @@ class SessionManager {
     func countriesRequest(dataResponse: @escaping ([WelcomeElement]) -> Void) {
         let urlString = "https://restcountries.com/v3.1/all"
         let baseURL = URL(string: urlString)
-        let sessionConfiguration = URLSessionConfiguration.default
-        let session = URLSession(configuration: sessionConfiguration)
-        let dataTask = session.dataTask(with: baseURL!) { (data, response, error) in
-            guard error == nil else { return }
-            guard let data = data else { return }
-            if let responseData = self.parseJSON(data: data) {
-                DispatchQueue.main.async {
-                    dataResponse(responseData)
+        request(urlString).responseJSON { [self] response in
+            guard let data = response.data else { return }
+            let json = parseJSON(data: data)
+            switch response.result {
+            case .success(let value):
+                if let json = json {
+                    DispatchQueue.main.async {
+                        dataResponse(json)
+                    }
                 }
+            case .failure(let error):
+                print(error)
             }
         }
-        dataTask.resume()
     }
     
     func countryRequest(common: String, dataResponse: @escaping ([WelcomeElement]) -> Void) {
         
-        let urlString = "https://restcountries.com/v3.1/alpha/"
-        var baseURL = URL(string: urlString.capitalizingFirstLetter())
-        baseURL!.appendPathComponent("\(common)")
-        let sessionConfiguration = URLSessionConfiguration.default
-        let session = URLSession(configuration: sessionConfiguration)
-        let dataTask = session.dataTask(with: baseURL!) { (data, response, error) in
-            guard error == nil else { return }
-            guard let data = data else { return }
-            if let responseData = self.parseJSON(data: data) {
-                DispatchQueue.main.async {
-                    dataResponse(responseData)
+        let urlString = "https://restcountries.com/v3.1/alpha/\(common)"
+        request(urlString).responseJSON { [self] response in
+            guard let data = response.data else { return }
+            let json = parseJSON(data: data)
+            switch response.result {
+            case .success(let value):
+                if let json = json {
+                    DispatchQueue.main.async {
+                        dataResponse(json)
+                    }
                 }
+            case .failure(let error):
+                print(error)
             }
         }
-        dataTask.resume()
     }
     
     func parseJSON(data: Data) -> [WelcomeElement]? {
@@ -55,3 +57,4 @@ class SessionManager {
         }
     }
 }
+
