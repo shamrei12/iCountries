@@ -12,12 +12,11 @@ class SessionManager {
     
     func countriesRequest(dataResponse: @escaping ([WelcomeElement]) -> Void) {
         let urlString = "https://restcountries.com/v3.1/all"
-        let baseURL = URL(string: urlString)
         request(urlString).responseJSON { [self] response in
             guard let data = response.data else { return }
             let json = parseJSON(data: data)
             switch response.result {
-            case .success(let value):
+            case .success:
                 if let json = json {
                     DispatchQueue.main.async {
                         dataResponse(json)
@@ -36,7 +35,7 @@ class SessionManager {
             guard let data = response.data else { return }
             let json = parseJSON(data: data)
             switch response.result {
-            case .success(let value):
+            case .success:
                 if let json = json {
                     DispatchQueue.main.async {
                         dataResponse(json)
