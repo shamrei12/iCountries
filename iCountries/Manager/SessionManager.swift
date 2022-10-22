@@ -1,4 +1,5 @@
 import Foundation
+import Alamofire
 
 
 class SessionManager {
@@ -28,7 +29,7 @@ class SessionManager {
     
     func countryRequest(common: String, dataResponse: @escaping ([WelcomeElement]) -> Void) {
         
-      let urlString = "https://restcountries.com/v3.1/alpha/"
+        let urlString = "https://restcountries.com/v3.1/alpha/"
         var baseURL = URL(string: urlString.capitalizingFirstLetter())
         baseURL!.appendPathComponent("\(common)")
         let sessionConfiguration = URLSessionConfiguration.default

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		264F5CC2F51E9E237C9F5CFD /* Pods_iCountries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB19A8C819317D11BB60A0C /* Pods_iCountries.framework */; };
 		D82C8C1A28DCB1E80059795C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C8C1828DCB1E80059795C /* MenuViewController.swift */; };
 		D82C8C1B28DCB1E80059795C /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D82C8C1928DCB1E80059795C /* MenuViewController.xib */; };
 		D82C8C1E28DDC5740059795C /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C8C1C28DDC5740059795C /* QuizViewController.swift */; };
@@ -31,11 +32,15 @@
 		D894B9F428D0E7CE00ACB289 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9F328D0E7CE00ACB289 /* SessionManager.swift */; };
 		D894B9F628D0EA4200ACB289 /* ShowCountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9F528D0EA4200ACB289 /* ShowCountryModel.swift */; };
 		D898CD2B28DF63B7000C5024 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898CD2A28DF63B7000C5024 /* TimeManager.swift */; };
+		D8AFED7C2903ECE10043CC88 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D8AFED7B2903ECE10043CC88 /* Podfile */; };
 		D8B813172900908600C368C1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D8B813162900908600C368C1 /* Kingfisher */; };
 		D8E237D428F009FB00935484 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E237D328F009FB00935484 /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5ADE583AC6DF207018AC0AEB /* Pods-iCountries.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCountries.debug.xcconfig"; path = "Target Support Files/Pods-iCountries/Pods-iCountries.debug.xcconfig"; sourceTree = "<group>"; };
+		9E1FAC2BD99BEFFA363F41D3 /* Pods-iCountries.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCountries.release.xcconfig"; path = "Target Support Files/Pods-iCountries/Pods-iCountries.release.xcconfig"; sourceTree = "<group>"; };
+		ACB19A8C819317D11BB60A0C /* Pods_iCountries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iCountries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D82C8C1828DCB1E80059795C /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		D82C8C1928DCB1E80059795C /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		D82C8C1C28DDC5740059795C /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +67,7 @@
 		D894B9F328D0E7CE00ACB289 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		D894B9F528D0EA4200ACB289 /* ShowCountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCountryModel.swift; sourceTree = "<group>"; };
 		D898CD2A28DF63B7000C5024 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
+		D8AFED7B2903ECE10043CC88 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		D8E237D328F009FB00935484 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,12 +77,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8B813172900908600C368C1 /* Kingfisher in Frameworks */,
+				264F5CC2F51E9E237C9F5CFD /* Pods_iCountries.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B5AD36CD1564FAF972BCC59 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5ADE583AC6DF207018AC0AEB /* Pods-iCountries.debug.xcconfig */,
+				9E1FAC2BD99BEFFA363F41D3 /* Pods-iCountries.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8E9B27C3B5FFC0A1BCAB4D48 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACB19A8C819317D11BB60A0C /* Pods_iCountries.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D87E409528D245660050B5DF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,8 +145,11 @@
 		D894B9CB28D0DE7200ACB289 = {
 			isa = PBXGroup;
 			children = (
+				D8AFED7B2903ECE10043CC88 /* Podfile */,
 				D894B9D628D0DE7200ACB289 /* iCountries */,
 				D894B9D528D0DE7200ACB289 /* Products */,
+				2B5AD36CD1564FAF972BCC59 /* Pods */,
+				8E9B27C3B5FFC0A1BCAB4D48 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,9 +185,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D894B9E828D0DE7400ACB289 /* Build configuration list for PBXNativeTarget "iCountries" */;
 			buildPhases = (
+				D0D4E599F5F095DDAACB7880 /* [CP] Check Pods Manifest.lock */,
 				D894B9D028D0DE7200ACB289 /* Sources */,
 				D894B9D128D0DE7200ACB289 /* Frameworks */,
 				D894B9D228D0DE7200ACB289 /* Resources */,
+				54AE064D337DBC0C74CBE6E0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -198,7 +228,7 @@
 			);
 			mainGroup = D894B9CB28D0DE7200ACB289;
 			packageReferences = (
-				D8B813152900908600C368C1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				D8B813152900908600C368C1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
 			);
 			productRefGroup = D894B9D528D0DE7200ACB289 /* Products */;
 			projectDirPath = "";
@@ -220,12 +250,55 @@
 				D87E409928D4C5020050B5DF /* CountryViewController.xib in Resources */,
 				D894B9E128D0DE7400ACB289 /* Assets.xcassets in Resources */,
 				D82C8C1F28DDC5740059795C /* QuizViewController.xib in Resources */,
+				D8AFED7C2903ECE10043CC88 /* Podfile in Resources */,
 				D894B9EE28D0DF1500ACB289 /* CountriesViewController.xib in Resources */,
 				D87063B628D75B3E009F224A /* CountryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		54AE064D337DBC0C74CBE6E0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iCountries/Pods-iCountries-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iCountries/Pods-iCountries-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iCountries/Pods-iCountries-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0D4E599F5F095DDAACB7880 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iCountries-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D894B9D028D0DE7200ACB289 /* Sources */ = {
@@ -382,6 +455,7 @@
 		};
 		D894B9E928D0DE7400ACB289 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5ADE583AC6DF207018AC0AEB /* Pods-iCountries.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -409,6 +483,7 @@
 		};
 		D894B9EA28D0DE7400ACB289 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E1FAC2BD99BEFFA363F41D3 /* Pods-iCountries.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -458,7 +533,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D8B813152900908600C368C1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		D8B813152900908600C368C1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -471,7 +546,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		D8B813162900908600C368C1 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D8B813152900908600C368C1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = D8B813152900908600C368C1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
