@@ -39,6 +39,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wgu-d7-qZP">
                                         <rect key="frame" x="0.0" y="0.0" width="376" height="200"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="376" id="1SB-3p-TYc"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="Ggl-Ga-6Km"/>
                                         </constraints>
                                     </imageView>
@@ -103,14 +104,12 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Wgu-d7-qZP" firstAttribute="leading" relation="lessThanOrEqual" secondItem="P4c-Vg-voc" secondAttribute="leading" constant="10" id="QDJ-KA-rjc"/>
                                     <constraint firstAttribute="height" constant="803" id="VyJ-Vl-udD"/>
-                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Wgu-d7-qZP" secondAttribute="trailing" constant="10" id="s8g-Cw-qfD"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="P4c-Vg-voc" firstAttribute="width" relation="lessThanOrEqual" secondItem="QLs-Ht-dNN" secondAttribute="width" multiplier="0.907834" id="3eP-pn-FxL"/>
+                            <constraint firstItem="P4c-Vg-voc" firstAttribute="width" secondItem="QLs-Ht-dNN" secondAttribute="width" multiplier="0.907834" id="3eP-pn-FxL"/>
                             <constraint firstItem="P4c-Vg-voc" firstAttribute="trailing" secondItem="A0R-w0-tdm" secondAttribute="trailing" id="9H6-Rh-pJC"/>
                             <constraint firstItem="P4c-Vg-voc" firstAttribute="bottom" secondItem="A0R-w0-tdm" secondAttribute="bottom" id="CrK-JH-wOm"/>
                             <constraint firstItem="P4c-Vg-voc" firstAttribute="leading" secondItem="A0R-w0-tdm" secondAttribute="leading" constant="20" id="DEi-tN-ns8"/>
@@ -126,11 +125,14 @@
                     <constraint firstAttribute="trailing" secondItem="Alw-lH-Y7N" secondAttribute="trailing" id="2tG-w5-xJ7"/>
                     <constraint firstItem="Alw-lH-Y7N" firstAttribute="leading" secondItem="p1D-wK-ULl" secondAttribute="leading" id="QoK-fT-aAv"/>
                     <constraint firstItem="Ac8-6G-ShA" firstAttribute="trailing" secondItem="2IA-My-eSL" secondAttribute="trailing" id="Tua-Pz-MaW"/>
+                    <constraint firstItem="hKY-9r-SN7" firstAttribute="leading" secondItem="2IA-My-eSL" secondAttribute="leading" constant="197" id="Ugb-ts-BQZ"/>
+                    <constraint firstItem="Alw-lH-Y7N" firstAttribute="leading" secondItem="2IA-My-eSL" secondAttribute="leading" id="fDG-yW-JvV"/>
                     <constraint firstItem="Ac8-6G-ShA" firstAttribute="top" secondItem="2IA-My-eSL" secondAttribute="top" id="hB6-u1-dwD"/>
                     <constraint firstItem="hKY-9r-SN7" firstAttribute="centerX" secondItem="p1D-wK-ULl" secondAttribute="centerX" id="hi6-7i-afr"/>
                     <constraint firstItem="Alw-lH-Y7N" firstAttribute="top" secondItem="Ac8-6G-ShA" secondAttribute="bottom" id="jMQ-Zi-YtK"/>
                     <constraint firstItem="2IA-My-eSL" firstAttribute="bottom" secondItem="Alw-lH-Y7N" secondAttribute="bottom" id="qbP-mz-laQ"/>
                     <constraint firstItem="hKY-9r-SN7" firstAttribute="centerY" secondItem="p1D-wK-ULl" secondAttribute="centerY" id="s3t-to-Ij7"/>
+                    <constraint firstItem="Alw-lH-Y7N" firstAttribute="trailing" secondItem="2IA-My-eSL" secondAttribute="trailing" id="tfx-lR-QiD"/>
                     <constraint firstItem="Ac8-6G-ShA" firstAttribute="leading" secondItem="2IA-My-eSL" secondAttribute="leading" id="xyW-rT-i6B"/>
                 </constraints>
             </view>
