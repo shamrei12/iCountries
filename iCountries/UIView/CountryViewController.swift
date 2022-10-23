@@ -21,26 +21,27 @@ class CountryViewController: UIViewController {
     @IBOutlet weak var timeZone: UILabel!
     @IBOutlet weak var domain: UILabel!
     @IBOutlet weak var spiner: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        picturesCountry.layer.borderColor = UIColor.black.cgColor
-        picturesCountry.layer.borderWidth = 1
     }
     
     func updateUIElements(country: String) {
         spiner.startAnimating()
         SessionManager.shared.countryRequest(common: country, dataResponse: { [self] welcomeElement in
             DispatchQueue.global().async { [self] in
-                let resourse = ImageResource(downloadURL: URL(string: welcomeElement[0].flags.png!)!)
                 let url = URL(string: welcomeElement[0].flags.png!)
                 DispatchQueue.main.async { [self] in
                     if cache.isCached(forKey: welcomeElement[0].flags.png!) {
-                        self.picturesCountry.kf.setImage(with: resourse, options: [.onlyFromCache])
+                        self.picturesCountry.kf.setImage(with: url, options: [.onlyFromCache])
                     } else {
                         self.picturesCountry.kf.setImage(with: url,options: [.transition(.fade(0.5))])
+                        let resourse = ImageResource(downloadURL: URL(string: welcomeElement[0].flags.png!)!)
                     }
                     self.spiner.stopAnimating()
                     self.spiner.hidesWhenStopped = true
+                    picturesCountry.layer.borderColor = UIColor.black.cgColor
+                    picturesCountry.layer.borderWidth = 1
                 }
             }
             setupCountryInformation(country: welcomeElement.first)
