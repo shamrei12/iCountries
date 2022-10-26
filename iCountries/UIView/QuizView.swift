@@ -79,12 +79,7 @@ class QuizView: UIView, UIAlertViewDelegate {
                 DispatchQueue.main.async { [self] in
                     self.countryFlags.kf.indicatorType = .activity
                     createTimer()
-                    if cache.isCached(forKey: countries[country].flags.png!) {
-                        self.countryFlags.kf.setImage(with: resource, options: [.onlyFromCache])
-                    } else {
-                        self.countryFlags.kf.setImage(with: url,options: [.transition(.fade(0.5))])
-                    }
-                    
+                        self.countryFlags.kf.setImage(with: resource)
                     self.spinner.stopAnimating()
                     self.spinner.hidesWhenStopped = true
                     let countriesToQuiz = quizGame?.makeChoiceCountry(countryOne: countries[(quizGame?.radomiser(count: countryCount))!].translations["rus"]?.common ?? "", countryTwo: countries[(quizGame?.radomiser(count: countryCount))!].translations["rus"]?.common ?? "", countryThree: countries[(quizGame?.radomiser(count: countryCount))!].translations["rus"]?.common ?? "", countryTrue: countryTrue)

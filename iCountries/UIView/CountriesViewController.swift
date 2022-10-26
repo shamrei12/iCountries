@@ -60,12 +60,7 @@ extension CountriesViewController: UITableViewDataSource {
                 let resourse = ImageResource(downloadURL: URL(string: countries[indexPath.row].picture)!, cacheKey: countries[indexPath.row].picture)
                 let url = URL(string: countries[indexPath.row].picture)!
                 DispatchQueue.main.async {
-                    if cache.isCached(forKey: countries[indexPath.row].picture) {
-                        cell.countryFlags.kf.setImage(with: resourse, options: [.onlyFromCache])
-                    } else {
-                        cell.countryFlags.kf.setImage(with: url,options: [.transition(.fade(0.5))])
-                    }
-
+                        cell.countryFlags.kf.setImage(with: resourse)
                 }
             }
             cell.countryName.text = countries[indexPath.row].name
@@ -77,6 +72,13 @@ extension CountriesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == pageNumber * 20 {
+            pageNumber += 1
+            print(pageNumber)
+        }
     }
 }
 
@@ -105,12 +107,11 @@ extension CountriesViewController: UISearchBarDelegate {
             isSearching = true
             tableView.reloadData()
         }
-        
     }
 }
 
 class CountriesViewController: UIViewController {
-    
+    var pageNumber = 1
     let cache = ImageCache.default
     @IBOutlet weak private var searchBar: UISearchBar!
     @IBOutlet weak private var spinner: UIActivityIndicatorView!
@@ -149,7 +150,7 @@ class CountriesViewController: UIViewController {
     func showCountries() {
         SessionManager.shared.countriesRequest { [self] welcomeElement in
             for country in 0...welcomeElement.count - 1 {
-                countries.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "",   picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
+                countries.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "", picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
             }
             tableView.reloadData()
         }
