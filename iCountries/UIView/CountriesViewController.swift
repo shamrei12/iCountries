@@ -107,7 +107,7 @@ extension CountriesViewController: UITableViewDataSource {
     func loadMoreData() {
         if !self.isLoading {
             self.isLoading = true
-            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
+            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(3)) {
                 self.pageNumberStart = self.pageNumberEnd + 1
                 self.pageNumberEnd += 20
                 self.showCountries()
@@ -128,7 +128,7 @@ extension CountriesViewController: UISearchBarDelegate {
             return
         }
         
-        for item in countries {
+        for item in allCountryForSearch {
             let text = searchText.lowercased()
             let isArrayContain = item.name.lowercased().range(of: text)
             if isArrayContain != nil {
@@ -168,6 +168,11 @@ class CountriesViewController: UIViewController {
     ////        }
     //    }
     
+    private var allCountryForSearch: [CountriesProtocol] = [] {
+        didSet {
+            allCountryForSearch.sort{ $0.name < $1.name }
+        }
+    }
     private var filterCountries: [CountriesProtocol] = [] {
         didSet {
             countries.sort{ $0.name < $1.name }
@@ -182,6 +187,7 @@ class CountriesViewController: UIViewController {
         tableView.register(UINib(nibName: "CountryTableViewCell", bundle: nil), forCellReuseIdentifier: "CountryTableViewCell")
         tableView.register(UINib(nibName: "LoadTableViewCell", bundle: nil), forCellReuseIdentifier: "LoadTableViewCell")
         showCountries()
+        allCountries()
     }
     
     
@@ -191,10 +197,21 @@ class CountriesViewController: UIViewController {
     
     func showCountries() {
         SessionManager.shared.countriesRequest { [self] welcomeElement in
-            for country in pageNumberStart...pageNumberEnd {
-                countries.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "", picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
-            }
+
+                for country in pageNumberStart...pageNumberEnd {
+                    countries.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "", picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
+                }
             tableView.reloadData()
+        }
+    }
+    
+    func allCountries() {
+        SessionManager.shared.countriesRequest { [self] welcomeElement in
+            DispatchQueue.global().async {
+                for country in 0...welcomeElement.count - 1 {
+                    allCountryForSearch.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "", picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
+                }
+            }
         }
     }
 }
