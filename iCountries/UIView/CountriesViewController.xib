@@ -44,21 +44,15 @@
                             </navigationItem>
                         </items>
                     </navigationBar>
-                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="HeX-Uy-mQF">
-                        <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
-                    </activityIndicatorView>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="hHQ-OU-ld8"/>
                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 <constraints>
                     <constraint firstItem="TAp-ET-EkS" firstAttribute="top" secondItem="hHQ-OU-ld8" secondAttribute="top" id="3b3-RS-so9"/>
-                    <constraint firstItem="HeX-Uy-mQF" firstAttribute="centerX" secondItem="c9a-Nz-a3s" secondAttribute="centerX" id="6pw-y3-IxE"/>
                     <constraint firstItem="0AP-3a-E6Q" firstAttribute="leading" secondItem="hHQ-OU-ld8" secondAttribute="leading" id="70A-s1-1W8"/>
-                    <constraint firstItem="HeX-Uy-mQF" firstAttribute="centerY" secondItem="c9a-Nz-a3s" secondAttribute="centerY" id="Cwe-fz-X2h"/>
                     <constraint firstItem="0AP-3a-E6Q" firstAttribute="top" secondItem="mzt-As-TTq" secondAttribute="bottom" id="EgC-m7-E5b"/>
                     <constraint firstItem="mzt-As-TTq" firstAttribute="leading" secondItem="hHQ-OU-ld8" secondAttribute="leading" id="G2t-CO-plF"/>
                     <constraint firstItem="hHQ-OU-ld8" firstAttribute="trailing" secondItem="0AP-3a-E6Q" secondAttribute="trailing" id="Mh0-SR-wG6"/>
-                    <constraint firstItem="HeX-Uy-mQF" firstAttribute="centerY" secondItem="c9a-Nz-a3s" secondAttribute="centerY" id="S3y-mD-uW1"/>
                     <constraint firstItem="TAp-ET-EkS" firstAttribute="top" secondItem="hHQ-OU-ld8" secondAttribute="top" id="cfq-SO-3qk"/>
                     <constraint firstItem="TAp-ET-EkS" firstAttribute="trailing" secondItem="hHQ-OU-ld8" secondAttribute="trailing" id="e0w-sR-BQ4"/>
                     <constraint firstItem="mzt-As-TTq" firstAttribute="trailing" secondItem="hHQ-OU-ld8" secondAttribute="trailing" id="e75-lr-djZ"/>
@@ -72,7 +66,6 @@
             <connections>
                 <outlet property="navigationItem" destination="TAp-ET-EkS" id="Y16-eY-edo"/>
                 <outlet property="searchBar" destination="mzt-As-TTq" id="7CU-8r-Chl"/>
-                <outlet property="spinner" destination="HeX-Uy-mQF" id="Sp9-c8-jBO"/>
                 <outlet property="tableView" destination="0AP-3a-E6Q" id="SwG-b9-kWh"/>
             </connections>
             <point key="canvasLocation" x="-136.23188405797103" y="132.58928571428572"/>

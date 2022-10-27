@@ -32,16 +32,10 @@ class CountryViewController: UIViewController {
             DispatchQueue.global().async { [self] in
                 let url = URL(string: welcomeElement[0].flags.png!)
                 DispatchQueue.main.async { [self] in
-                    if cache.isCached(forKey: welcomeElement[0].flags.png!) {
-                        self.picturesCountry.kf.setImage(with: url, options: [.onlyFromCache])
-                    } else {
-                        self.picturesCountry.kf.setImage(with: url,options: [.transition(.fade(0.5))])
-                        let resourse = ImageResource(downloadURL: URL(string: welcomeElement[0].flags.png!)!)
-                    }
+                    let resourse = ImageResource(downloadURL: url!)
+                    self.picturesCountry.kf.setImage(with: resourse)
                     self.spiner.stopAnimating()
                     self.spiner.hidesWhenStopped = true
-                    picturesCountry.layer.borderColor = UIColor.black.cgColor
-                    picturesCountry.layer.borderWidth = 1
                 }
             }
             setupCountryInformation(country: welcomeElement.first)
