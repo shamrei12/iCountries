@@ -13,6 +13,8 @@
 		D82C8C1E28DDC5740059795C /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C8C1C28DDC5740059795C /* QuizViewController.swift */; };
 		D82C8C1F28DDC5740059795C /* QuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D82C8C1D28DDC5740059795C /* QuizViewController.xib */; };
 		D83F128E28DF361F000D2859 /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F128D28DF361F000D2859 /* QuizModel.swift */; };
+		D85A0EB82909AA400093CA78 /* LoadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85A0EB62909AA400093CA78 /* LoadTableViewCell.swift */; };
+		D85A0EB92909AA400093CA78 /* LoadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85A0EB72909AA400093CA78 /* LoadTableViewCell.xib */; };
 		D87063B528D75B3E009F224A /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87063B328D75B3E009F224A /* CountryTableViewCell.swift */; };
 		D87063B628D75B3E009F224A /* CountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87063B428D75B3E009F224A /* CountryTableViewCell.xib */; };
 		D875DF2228DE06B9009EDE1D /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D875DF2128DE06B9009EDE1D /* QuizView.swift */; };
@@ -46,6 +48,8 @@
 		D82C8C1C28DDC5740059795C /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		D82C8C1D28DDC5740059795C /* QuizViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizViewController.xib; sourceTree = "<group>"; };
 		D83F128D28DF361F000D2859 /* QuizModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
+		D85A0EB62909AA400093CA78 /* LoadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadTableViewCell.swift; sourceTree = "<group>"; };
+		D85A0EB72909AA400093CA78 /* LoadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadTableViewCell.xib; sourceTree = "<group>"; };
 		D87063B328D75B3E009F224A /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		D87063B428D75B3E009F224A /* CountryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryTableViewCell.xib; sourceTree = "<group>"; };
 		D875DF2128DE06B9009EDE1D /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
@@ -90,7 +94,6 @@
 				5ADE583AC6DF207018AC0AEB /* Pods-iCountries.debug.xcconfig */,
 				9E1FAC2BD99BEFFA363F41D3 /* Pods-iCountries.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -129,6 +132,8 @@
 				D875DF2128DE06B9009EDE1D /* QuizView.swift */,
 				D886025828E9DF490040F1C2 /* AlertView.xib */,
 				D886025A28E9E2E50040F1C2 /* AlertView.swift */,
+				D85A0EB62909AA400093CA78 /* LoadTableViewCell.swift */,
+				D85A0EB72909AA400093CA78 /* LoadTableViewCell.xib */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -228,7 +233,7 @@
 			);
 			mainGroup = D894B9CB28D0DE7200ACB289;
 			packageReferences = (
-				D8B813152900908600C368C1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
+				D8B813152900908600C368C1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = D894B9D528D0DE7200ACB289 /* Products */;
 			projectDirPath = "";
@@ -247,6 +252,7 @@
 				D894B9E428D0DE7400ACB289 /* LaunchScreen.storyboard in Resources */,
 				D886025928E9DF490040F1C2 /* AlertView.xib in Resources */,
 				D82C8C1B28DCB1E80059795C /* MenuViewController.xib in Resources */,
+				D85A0EB92909AA400093CA78 /* LoadTableViewCell.xib in Resources */,
 				D87E409928D4C5020050B5DF /* CountryViewController.xib in Resources */,
 				D894B9E128D0DE7400ACB289 /* Assets.xcassets in Resources */,
 				D82C8C1F28DDC5740059795C /* QuizViewController.xib in Resources */,
@@ -320,6 +326,7 @@
 				D894B9DA28D0DE7200ACB289 /* SceneDelegate.swift in Sources */,
 				D886025B28E9E2E50040F1C2 /* AlertView.swift in Sources */,
 				D83F128E28DF361F000D2859 /* QuizModel.swift in Sources */,
+				D85A0EB82909AA400093CA78 /* LoadTableViewCell.swift in Sources */,
 				D8E237D428F009FB00935484 /* Protocols.swift in Sources */,
 				D894B9F028D0DF5D00ACB289 /* CountriesViewController.swift in Sources */,
 			);
@@ -533,7 +540,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D8B813152900908600C368C1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
+		D8B813152900908600C368C1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -546,7 +553,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		D8B813162900908600C368C1 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D8B813152900908600C368C1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
+			package = D8B813152900908600C368C1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */

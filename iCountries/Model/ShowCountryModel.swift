@@ -14,7 +14,7 @@ protocol CountriesProtocol {
     var cca: String { get set}
 }
 
-struct Countries: CountriesProtocol {
+struct Countries: CountriesProtocol, Hashable {
     var name: String
     var picture: String
 //    var common: String
