@@ -39,7 +39,6 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wgu-d7-qZP">
                                         <rect key="frame" x="0.0" y="0.0" width="376" height="350"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="376" id="1SB-3p-TYc"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="Ggl-Ga-6Km"/>
                                         </constraints>
                                     </imageView>

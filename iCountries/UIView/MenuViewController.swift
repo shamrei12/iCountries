@@ -20,7 +20,7 @@ class MenuViewController: UIViewController {
     }
 
     @IBAction func tappedListCountry(_ sender: UIButton) {
-        let countryVC = CountriesViewController.instantiate()
+        let countryVC = CollectionViewController.instantiate()
         //        var name = countries[indexPath.row].common
         //        countryVC.country = name
         countryVC.modalPresentationStyle = .fullScreen
