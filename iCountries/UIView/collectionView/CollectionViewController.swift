@@ -23,7 +23,7 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == endIndex && !self.isLoadingCollection && ((self.countriesCollection.count - 1) + self.endIndex < (self.allCountriesCollection.count - 1)) {
             loadMoreData()
-        } else if indexPath.row == endIndex && !self.isLoadingCollection && ((self.countriesCollection.count - 1) + self.endIndex > (self.allCountriesCollection.count - 1)) {
+        } else if (indexPath.row == endIndex && !self.isLoadingCollection && ((self.countriesCollection.count - 1) + self.endIndex > (self.allCountriesCollection.count - 1))) || serchingCollection {
             loadEndData()
         }
     }
@@ -50,12 +50,11 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDe
                 self.endIndex = self.allCountriesCollection.count - 1
                 print(self.endIndex)
                 DispatchQueue.main.async {
-                    if self.endIndex == self.allCountriesCollection.count - 1 {
+                    if self.endIndex == self.allCountriesCollection.count - 1 || self.serchingCollection {
                         self.isLoadingCollection = false
                         self.loadingView?.activityIndicator.stopAnimating()
                         self.loadingView?.activityIndicator.hidesWhenStopped = true
                         self.loadingView?.isHidden = true
-                        
                     } else {
                         self.listCountries()
                         self.isLoadingCollection = false
