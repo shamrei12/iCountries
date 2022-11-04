@@ -11,58 +11,83 @@ import Kingfisher
 
 extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-            if kind == UICollectionView.elementKindSectionFooter {
-                let aFooterView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CollectionReusableView", for: indexPath) as! CollectionReusableView
-                loadingView = aFooterView
-                loadingView?.backgroundColor = UIColor.clear
-                return aFooterView
-            }
-            return UICollectionReusableView()
+        if kind == UICollectionView.elementKindSectionFooter {
+            let aFooterView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CollectionReusableView", for: indexPath) as! CollectionReusableView
+            loadingView = aFooterView
+            loadingView?.backgroundColor = UIColor.clear
+            return aFooterView
         }
+        return UICollectionReusableView()
+    }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-            if indexPath.row == endIndex && !self.isLoadingCollection {
-                loadMoreData()
-            }
+        if indexPath.row == endIndex && !self.isLoadingCollection && ((self.countriesCollection.count - 1) + self.endIndex < (self.allCountriesCollection.count - 1)) {
+            loadMoreData()
+        } else if indexPath.row == endIndex && !self.isLoadingCollection && ((self.countriesCollection.count - 1) + self.endIndex > (self.allCountriesCollection.count - 1)) {
+            loadEndData()
         }
-
-        func loadMoreData() {
-            if !self.isLoadingCollection {
-                self.isLoadingCollection = true
-                DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
-                    self.startIndex = self.endIndex + 1
-                    self.endIndex += 18
-                    
-                    DispatchQueue.main.async {
-                        self.listCountries()
-                        self.isLoadingCollection = false
-                    }
+    }
+    
+    func loadMoreData() {
+        if !self.isLoadingCollection {
+            self.isLoadingCollection = true
+            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
+                self.startIndex = self.endIndex + 1
+                self.endIndex += 98
+                DispatchQueue.main.async {
+                    self.listCountries()
+                    self.isLoadingCollection = false
                 }
             }
         }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-            if self.isLoadingCollection {
-                return CGSize.zero
-            } else {
-                return CGSize(width: collectionView.bounds.size.width, height: 55)
+    }
+    
+    func loadEndData() {
+        if !self.isLoadingCollection {
+            self.isLoadingCollection = true
+            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
+                self.startIndex = self.endIndex + 1
+                self.endIndex = self.allCountriesCollection.count - 1
+                print(self.endIndex)
+                DispatchQueue.main.async {
+                    if self.endIndex == self.allCountriesCollection.count - 1 {
+                        self.isLoadingCollection = false
+                        self.loadingView?.activityIndicator.stopAnimating()
+                        self.loadingView?.activityIndicator.hidesWhenStopped = true
+                        self.loadingView?.isHidden = true
+                        
+                    } else {
+                        self.listCountries()
+                        self.isLoadingCollection = false
+                    }
+                 
+                }
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        if self.isLoadingCollection {
+            return CGSize.zero
+        } else {
+            return CGSize(width: collectionView.bounds.size.width, height: 55)
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
-            if elementKind == UICollectionView.elementKindSectionFooter {
-                self.loadingView?.activityIndicator.startAnimating()
-            }
+        if elementKind == UICollectionView.elementKindSectionFooter {
+            self.loadingView?.activityIndicator.startAnimating()
         }
-
-        func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
-            if elementKind == UICollectionView.elementKindSectionFooter {
-                self.loadingView?.activityIndicator.stopAnimating()
-            }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
+        if elementKind == UICollectionView.elementKindSectionFooter {
+            self.loadingView?.activityIndicator.stopAnimating()
         }
+    }
 }
-    
-    
+
+
 
 
 extension CollectionViewController: UICollectionViewDataSource {
@@ -147,8 +172,6 @@ extension CollectionViewController: UISearchBarDelegate {
             collectionView.reloadData()
         }
     }
-    
-
 }
 
 class CollectionViewController: UIViewController {
@@ -164,11 +187,11 @@ class CollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        allCountries()
         collectionView.register(UINib(nibName: "CountriesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CountriesCollectionViewCell")
         let loadingReusableNib = UINib(nibName: "CollectionReusableView", bundle: nil)
         collectionView.register(loadingReusableNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "CollectionReusableView")
-        listCountries()
-        allCountries()
+        
         
     }
     
@@ -179,19 +202,21 @@ class CollectionViewController: UIViewController {
     private var allCountriesCollection: [CountriesProtocol] = []
     
     func allCountries() {
-        DispatchQueue.main.async {
+        DispatchQueue.global().async {
             SessionManager.shared.countriesRequest { [self] welcomeElement in
                 for country in 0...welcomeElement.count - 1 {
                     allCountriesCollection.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "", picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
                 }
             }
+            self.listCountries()
         }
     }
     
     func listCountries() {
         SessionManager.shared.countriesRequest { [self] welcomeElement in
             for country in startIndex...endIndex {
-                countriesCollection.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "", picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
+                //                countriesCollection.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "", picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
+                countriesCollection.append(allCountriesCollection[country])
             }
             collectionView.reloadData()
         }
