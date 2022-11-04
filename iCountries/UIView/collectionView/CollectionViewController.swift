@@ -21,9 +21,12 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == endIndex && !self.endList {
+        if indexPath.row == filterCollection.count - 1 && serchingCollection {
+            self.loadingView?.isHidden = true
+        } else if indexPath.row == endIndex && !self.endList {
             loadMoreData()
         }
+
     }
     
     func loadMoreData() {
@@ -154,8 +157,8 @@ extension CollectionViewController: UISearchBarDelegate {
             serchingCollection = false
             collectionView.reloadData()
         } else if searchBar.text == " " {
-            collectionView.reloadData()
             serchingCollection = false
+            collectionView.reloadData()
         } else {
             serchingCollection = true
             collectionView.reloadData()
@@ -203,7 +206,6 @@ class CollectionViewController: UIViewController {
     func listCountries() {
         for country in startIndex...endIndex {
             countriesCollection.append(allCountriesCollection[country])
-            print(country)
         }
         collectionView.reloadData()
     }

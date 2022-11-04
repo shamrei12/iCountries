@@ -132,7 +132,6 @@ extension CountriesViewController: UISearchBarDelegate {
             let isArrayContain = item.name.lowercased().range(of: text)
             if isArrayContain != nil {
                 filterCountries.append(item as! Countries)
-                print(filterCountries)
             }
         }
         
