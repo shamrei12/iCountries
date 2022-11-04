@@ -24,6 +24,12 @@
 		D87E409D28D4D00F0050B5DF /* UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87E409C28D4D00F0050B5DF /* UIExtension.swift */; };
 		D886025928E9DF490040F1C2 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D886025828E9DF490040F1C2 /* AlertView.xib */; };
 		D886025B28E9E2E50040F1C2 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D886025A28E9E2E50040F1C2 /* AlertView.swift */; };
+		D88C8411290E63DA004E0540 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D88C840F290E63DA004E0540 /* CollectionViewController.xib */; };
+		D88C8414290E640B004E0540 /* CountriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88C8412290E640B004E0540 /* CountriesCollectionViewCell.swift */; };
+		D88C8415290E640B004E0540 /* CountriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D88C8413290E640B004E0540 /* CountriesCollectionViewCell.xib */; };
+		D88C8419290E740E004E0540 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88C8418290E740E004E0540 /* CollectionViewController.swift */; };
+		D88C841C290ECA6F004E0540 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88C841A290ECA6F004E0540 /* CollectionReusableView.swift */; };
+		D88C841D290ECA6F004E0540 /* CollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D88C841B290ECA6F004E0540 /* CollectionReusableView.xib */; };
 		D894B9D828D0DE7200ACB289 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9D728D0DE7200ACB289 /* AppDelegate.swift */; };
 		D894B9DA28D0DE7200ACB289 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9D928D0DE7200ACB289 /* SceneDelegate.swift */; };
 		D894B9E128D0DE7400ACB289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D894B9E028D0DE7400ACB289 /* Assets.xcassets */; };
@@ -59,6 +65,12 @@
 		D87E409C28D4D00F0050B5DF /* UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtension.swift; sourceTree = "<group>"; };
 		D886025828E9DF490040F1C2 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		D886025A28E9E2E50040F1C2 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		D88C840F290E63DA004E0540 /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
+		D88C8412290E640B004E0540 /* CountriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		D88C8413290E640B004E0540 /* CountriesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountriesCollectionViewCell.xib; sourceTree = "<group>"; };
+		D88C8418290E740E004E0540 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		D88C841A290ECA6F004E0540 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
+		D88C841B290ECA6F004E0540 /* CollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionReusableView.xib; sourceTree = "<group>"; };
 		D894B9D428D0DE7200ACB289 /* iCountries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCountries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D894B9D728D0DE7200ACB289 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D894B9D928D0DE7200ACB289 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +83,7 @@
 		D894B9F328D0E7CE00ACB289 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		D894B9F528D0EA4200ACB289 /* ShowCountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCountryModel.swift; sourceTree = "<group>"; };
 		D898CD2A28DF63B7000C5024 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
-		D8AFED7B2903ECE10043CC88 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		D8AFED7B2903ECE10043CC88 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D8E237D328F009FB00935484 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +129,7 @@
 		D87E409E28D4D1A10050B5DF /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				D88C840D290E63B7004E0540 /* collectionView */,
 				D82C8C1928DCB1E80059795C /* MenuViewController.xib */,
 				D87063B428D75B3E009F224A /* CountryTableViewCell.xib */,
 				D894B9E228D0DE7400ACB289 /* LaunchScreen.storyboard */,
@@ -145,6 +158,19 @@
 				D898CD2A28DF63B7000C5024 /* TimeManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		D88C840D290E63B7004E0540 /* collectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D88C840F290E63DA004E0540 /* CollectionViewController.xib */,
+				D88C8418290E740E004E0540 /* CollectionViewController.swift */,
+				D88C8412290E640B004E0540 /* CountriesCollectionViewCell.swift */,
+				D88C8413290E640B004E0540 /* CountriesCollectionViewCell.xib */,
+				D88C841A290ECA6F004E0540 /* CollectionReusableView.swift */,
+				D88C841B290ECA6F004E0540 /* CollectionReusableView.xib */,
+			);
+			path = collectionView;
 			sourceTree = "<group>";
 		};
 		D894B9CB28D0DE7200ACB289 = {
@@ -254,8 +280,11 @@
 				D82C8C1B28DCB1E80059795C /* MenuViewController.xib in Resources */,
 				D85A0EB92909AA400093CA78 /* LoadTableViewCell.xib in Resources */,
 				D87E409928D4C5020050B5DF /* CountryViewController.xib in Resources */,
+				D88C8411290E63DA004E0540 /* CollectionViewController.xib in Resources */,
 				D894B9E128D0DE7400ACB289 /* Assets.xcassets in Resources */,
+				D88C8415290E640B004E0540 /* CountriesCollectionViewCell.xib in Resources */,
 				D82C8C1F28DDC5740059795C /* QuizViewController.xib in Resources */,
+				D88C841D290ECA6F004E0540 /* CollectionReusableView.xib in Resources */,
 				D8AFED7C2903ECE10043CC88 /* Podfile in Resources */,
 				D894B9EE28D0DF1500ACB289 /* CountriesViewController.xib in Resources */,
 				D87063B628D75B3E009F224A /* CountryTableViewCell.xib in Resources */,
@@ -312,9 +341,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D894B9F628D0EA4200ACB289 /* ShowCountryModel.swift in Sources */,
+				D88C841C290ECA6F004E0540 /* CollectionReusableView.swift in Sources */,
 				D87E409828D4C5020050B5DF /* CountryViewController.swift in Sources */,
 				D894B9D828D0DE7200ACB289 /* AppDelegate.swift in Sources */,
 				D82C8C1E28DDC5740059795C /* QuizViewController.swift in Sources */,
+				D88C8419290E740E004E0540 /* CollectionViewController.swift in Sources */,
 				D875DF2228DE06B9009EDE1D /* QuizView.swift in Sources */,
 				D87E409D28D4D00F0050B5DF /* UIExtension.swift in Sources */,
 				D82C8C1A28DCB1E80059795C /* MenuViewController.swift in Sources */,
@@ -327,6 +358,7 @@
 				D886025B28E9E2E50040F1C2 /* AlertView.swift in Sources */,
 				D83F128E28DF361F000D2859 /* QuizModel.swift in Sources */,
 				D85A0EB82909AA400093CA78 /* LoadTableViewCell.swift in Sources */,
+				D88C8414290E640B004E0540 /* CountriesCollectionViewCell.swift in Sources */,
 				D8E237D428F009FB00935484 /* Protocols.swift in Sources */,
 				D894B9F028D0DF5D00ACB289 /* CountriesViewController.swift in Sources */,
 			);
@@ -469,6 +501,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 285RFT4HL7;
+				FUSE_BUILD_SCRIPT_PHASES = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iCountries/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -497,6 +530,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 285RFT4HL7;
+				FUSE_BUILD_SCRIPT_PHASES = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iCountries/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

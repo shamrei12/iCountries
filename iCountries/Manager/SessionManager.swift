@@ -29,7 +29,6 @@ class SessionManager {
     }
     
     func countryRequest(common: String, dataResponse: @escaping ([WelcomeElement]) -> Void) {
-        
         let urlString = "https://restcountries.com/v3.1/alpha/\(common)"
         request(urlString).responseJSON { [self] response in
             guard let data = response.data else { return }

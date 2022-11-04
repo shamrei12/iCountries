@@ -3,4 +3,5 @@ use_frameworks!
 
 target 'iCountries' do
     pod 'Alamofire'
+    pod 'SwiftLint'
 end

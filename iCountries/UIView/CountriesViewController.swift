@@ -69,7 +69,6 @@ extension CountriesViewController: UITableViewDataSource {
                         cell.countryFlags.kf.setImage(with: resurse)
                         cell.countryName.text = self.filterCountries[indexPath.row].name
                     }
-                    
                 }
                 return cell
             } else {
@@ -197,7 +196,6 @@ class CountriesViewController: UIViewController {
     
     func showCountries() {
         SessionManager.shared.countriesRequest { [self] welcomeElement in
-
                 for country in pageNumberStart...pageNumberEnd {
                     countries.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "", picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
                 }
@@ -207,7 +205,7 @@ class CountriesViewController: UIViewController {
     
     func allCountries() {
         SessionManager.shared.countriesRequest { [self] welcomeElement in
-            DispatchQueue.global().async {
+            DispatchQueue.global().async { [self] in
                 for country in 0...welcomeElement.count - 1 {
                     allCountryForSearch.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "", picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
                 }
