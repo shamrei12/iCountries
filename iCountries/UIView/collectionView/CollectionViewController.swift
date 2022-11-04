@@ -21,10 +21,8 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == endIndex && !self.isLoadingCollection && ((self.countriesCollection.count - 1) + self.endIndex < (self.allCountriesCollection.count - 1)) {
+        if indexPath.row == endIndex && !self.endList {
             loadMoreData()
-        } else if (indexPath.row == endIndex && !self.isLoadingCollection && ((self.countriesCollection.count - 1) + self.endIndex > (self.allCountriesCollection.count - 1))) || serchingCollection {
-            loadEndData()
         }
     }
     
@@ -32,25 +30,18 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDe
         if !self.isLoadingCollection {
             self.isLoadingCollection = true
             DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
-                self.startIndex = self.endIndex + 1
-                self.endIndex += 29
-                DispatchQueue.main.async {
-                    self.listCountries()
-                    self.isLoadingCollection = false
+                if self.endIndex + self.countCountries <= self.allCountriesCollection.count - 1 {
+                    self.startIndex = self.endIndex + 1
+                    self.endIndex += self.countCountries
+                } else {
+                        self.startIndex = self.endIndex + 1
+                        self.endIndex = self.allCountriesCollection.count - 1
+                        self.endList = true
                 }
-            }
-        }
-    }
-    
-    func loadEndData() {
-        if !self.isLoadingCollection {
-            self.isLoadingCollection = true
-            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
-                self.startIndex = self.endIndex + 1
-                self.endIndex = self.allCountriesCollection.count - 1
-                print(self.endIndex)
+                
                 DispatchQueue.main.async {
-                    if self.endIndex == self.allCountriesCollection.count - 1 || self.serchingCollection {
+                    if self.endIndex ==  self.allCountriesCollection.count - 1  {
+                        self.listCountries()
                         self.isLoadingCollection = false
                         self.loadingView?.activityIndicator.stopAnimating()
                         self.loadingView?.activityIndicator.hidesWhenStopped = true
@@ -59,7 +50,6 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDe
                         self.listCountries()
                         self.isLoadingCollection = false
                     }
-                    
                 }
             }
         }
@@ -174,6 +164,8 @@ extension CollectionViewController: UISearchBarDelegate {
 }
 
 class CollectionViewController: UIViewController {
+    private var endList = false
+    private var countCountries = 29
     var loadingView: CollectionReusableView?
     private var isLoadingCollection = false
     private var allCountriesCollection: [CountriesProtocol] = []
@@ -191,31 +183,31 @@ class CollectionViewController: UIViewController {
         collectionView.register(UINib(nibName: "CountriesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CountriesCollectionViewCell")
         let loadingReusableNib = UINib(nibName: "CollectionReusableView", bundle: nil)
         collectionView.register(loadingReusableNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "CollectionReusableView")
-       
     }
     
     @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: false)
     }
     
- 
+    
     
     func allCountries() {
-            SessionManager.shared.countriesRequest { [self] welcomeElement in
-                for country in 0...welcomeElement.count - 1 {
-                    allCountriesCollection.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "", picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
-                }
+        SessionManager.shared.countriesRequest { [self] welcomeElement in
+            for country in 0...welcomeElement.count - 1 {
+                allCountriesCollection.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "", picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
+            }
             self.listCountries()
         }
     }
     
     func listCountries() {
-            for country in startIndex...endIndex {
-                countriesCollection.append(allCountriesCollection[country])
-            }
-            collectionView.reloadData()
+        for country in startIndex...endIndex {
+            countriesCollection.append(allCountriesCollection[country])
+            print(country)
         }
-
+        collectionView.reloadData()
+    }
+    
 }
 
 
