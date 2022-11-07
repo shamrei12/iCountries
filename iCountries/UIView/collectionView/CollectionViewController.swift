@@ -7,6 +7,8 @@
 
 import UIKit
 import Kingfisher
+import SwiftUI
+import CoreData
 
 extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -20,9 +22,7 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == filterCollection.count - 1 && countries.serchingCollection {
-            self.loadingView?.isHidden = true
-        } else if indexPath.row == countries.endIndex && !countries.endList {
+        if indexPath.row == countries.endIndex && !countries.endList {
             loadMoreData()
         }
     }
@@ -161,6 +161,8 @@ extension CollectionViewController: UISearchBarDelegate {
 }
 
 class CollectionViewController: UIViewController {
+    var listCountriesCoreData: [CountriesProtocol] = []
+    private var name = [NSManagedObject]()
     @IBOutlet weak var searchBarCollection: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     var loadingView: CollectionReusableView?
@@ -169,14 +171,15 @@ class CollectionViewController: UIViewController {
     private var filterCollection: [CountriesProtocol] = []
     private var countries: CountriesModel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         countries = CountriesModel()
         allCountries()
+        listCountries()
         collectionView.register(UINib(nibName: "CountriesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CountriesCollectionViewCell")
         let loadingReusableNib = UINib(nibName: "CollectionReusableView", bundle: nil)
         collectionView.register(loadingReusableNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "CollectionReusableView")
-        
     }
     
     @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
@@ -184,17 +187,29 @@ class CollectionViewController: UIViewController {
     }
     
     func allCountries() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let fetchRequest: NSFetchRequest<CountriesCoreData>
+        fetchRequest = CountriesCoreData.fetchRequest()
+        let context = appDelegate.persistentContainer.viewContext
+        let objects = try! context.fetch(fetchRequest)
+        
         SessionManager.shared.countriesRequest { [self] welcomeElement in
             for country in 0...welcomeElement.count - 1 {
-                allCountriesCollection.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "", picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
+                allCountriesCollection.append(Countries(name: objects[country].name ?? "", picture: objects[country].picture ?? "", cca: objects[country].cca ?? ""))
             }
-            self.listCountries()
         }
     }
     
     func listCountries() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let fetchRequest: NSFetchRequest<CountriesCoreData>
+        fetchRequest = CountriesCoreData.fetchRequest()
+        let context = appDelegate.persistentContainer.viewContext
+        let objects = try! context.fetch(fetchRequest)
+        print(countries.startIndex)
+        print(countries.endIndex)
         for country in countries.startIndex...countries.endIndex {
-            countriesCollection.append(allCountriesCollection[country])
+            countriesCollection.append(Countries(name: objects[country].name ?? "", picture: objects[country].picture ?? "", cca: objects[country].cca ?? ""))
         }
         collectionView.reloadData()
     }
