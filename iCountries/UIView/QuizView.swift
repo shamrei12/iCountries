@@ -9,6 +9,7 @@ import UIKit
 import AVFoundation
 import AudioToolbox
 import Kingfisher
+import CoreData
 
 extension QuizView: AlertDelegate {
     func makeText() {
@@ -67,22 +68,28 @@ class QuizView: UIView, UIAlertViewDelegate {
     
     func downloadQuiz() {
         spinner.startAnimating()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let fetchRequest: NSFetchRequest<CountriesCoreData>
+        fetchRequest = CountriesCoreData.fetchRequest()
+        let context = appDelegate.persistentContainer.viewContext
+        let objects = try! context.fetch(fetchRequest)
         SessionManager.shared.countriesRequest { countries in
             let countryCount = countries.count
             let country = self.quizGame?.radomiser(count: countryCount) ?? 0
-            let countryTrue = countries[country].translations["rus"]?.common ?? ""
-            self.quizGame?.answer = countryTrue
+            let countryTrue = objects[country].name
+            self.quizGame?.answer = countryTrue ?? ""
+
             DispatchQueue.global().async { [self] in
                 let url = URL(string: countries[country].flags.png!)
                 guard let url = url else { return }
-                let resource = ImageResource(downloadURL: url, cacheKey: countries[country].flags.png)
+                let resource = ImageResource(downloadURL: url, cacheKey: objects[country].picture)
                 DispatchQueue.main.async { [self] in
                     self.countryFlags.kf.indicatorType = .activity
                     createTimer()
-                        self.countryFlags.kf.setImage(with: resource)
+                    self.countryFlags.kf.setImage(with: resource)
                     self.spinner.stopAnimating()
                     self.spinner.hidesWhenStopped = true
-                    let countriesToQuiz = quizGame?.makeChoiceCountry(countryOne: countries[(quizGame?.radomiser(count: countryCount))!].translations["rus"]?.common ?? "", countryTwo: countries[(quizGame?.radomiser(count: countryCount))!].translations["rus"]?.common ?? "", countryThree: countries[(quizGame?.radomiser(count: countryCount))!].translations["rus"]?.common ?? "", countryTrue: countryTrue)
+                    let countriesToQuiz = quizGame?.makeChoiceCountry(countryOne: objects[(quizGame?.radomiser(count: countryCount))!].name ?? "", countryTwo: objects[(quizGame?.radomiser(count: countryCount))!].name ?? "", countryThree: objects[(quizGame?.radomiser(count: countryCount))!].name ?? "", countryTrue: countryTrue ?? "")
                     makeScene()
                     makeChoice(countries: countriesToQuiz!)
                     countryFlags.layer.borderColor = UIColor.black.cgColor

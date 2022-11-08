@@ -14,36 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        SessionManager.shared.countriesRequest { welcomeElement in
-            for country in 0...welcomeElement.count - 1 {
-                saveCountries(welcomeElement[country].translations["rus"]?.official ?? "", welcomeElement[country].flags.png!, welcomeElement[country].cca2)
-            }
-        }
-        
-        func saveCountries(_ name: String,_ pictures: String, _ cca: String) {
-            
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.newBackgroundContext()
-    //        do {
-    //            try context.execute(NSBatchDeleteRequest(fetchRequest: NSFetchRequest(entityName: "CountriesCoreData")))
-    //            try context.save()
-    //        } catch let err {
-    //            print(err)
-    //        }
-            let entity = NSEntityDescription.entity(forEntityName: "CountriesCoreData", in: context)
-            let taskObject = NSManagedObject(entity: entity!, insertInto: context) as! CountriesCoreData
-            taskObject.name = name
-            taskObject.picture = pictures
-            taskObject.cca = cca
-            do {
-                try context.save()
-                print("Saved! Good Job!")
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+             print(urls[urls.count-1] as URL)
         return true
     }
     

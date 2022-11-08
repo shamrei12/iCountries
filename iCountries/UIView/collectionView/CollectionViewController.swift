@@ -30,7 +30,7 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDe
     func loadMoreData() {
         if !countries.isLoadingCollection {
             countries.isLoadingCollection = true
-            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) { [self] in
+            DispatchQueue.global().async { [self] in
                 if countries.endIndex + countries.countCountries <= self.allCountriesCollection.count - 1 {
                     countries.startIndex = countries.endIndex + 1
                     countries.endIndex += countries.countCountries
@@ -96,7 +96,6 @@ extension CollectionViewController: UICollectionViewDataSource {
             return countriesCollection.count
         }
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell: CountriesCollectionViewCell
@@ -171,12 +170,10 @@ class CollectionViewController: UIViewController {
     private var filterCollection: [CountriesProtocol] = []
     private var countries: CountriesModel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         countries = CountriesModel()
         allCountries()
-        listCountries()
         collectionView.register(UINib(nibName: "CountriesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CountriesCollectionViewCell")
         let loadingReusableNib = UINib(nibName: "CollectionReusableView", bundle: nil)
         collectionView.register(loadingReusableNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "CollectionReusableView")
@@ -197,7 +194,9 @@ class CollectionViewController: UIViewController {
             for country in 0...welcomeElement.count - 1 {
                 allCountriesCollection.append(Countries(name: objects[country].name ?? "", picture: objects[country].picture ?? "", cca: objects[country].cca ?? ""))
             }
+            self.listCountries()
         }
+        
     }
     
     func listCountries() {
@@ -206,8 +205,7 @@ class CollectionViewController: UIViewController {
         fetchRequest = CountriesCoreData.fetchRequest()
         let context = appDelegate.persistentContainer.viewContext
         let objects = try! context.fetch(fetchRequest)
-        print(countries.startIndex)
-        print(countries.endIndex)
+        print(objects.count)
         for country in countries.startIndex...countries.endIndex {
             countriesCollection.append(Countries(name: objects[country].name ?? "", picture: objects[country].picture ?? "", cca: objects[country].cca ?? ""))
         }
