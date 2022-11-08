@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 protocol CountriesProtocol {
     var name: String { get set }
@@ -14,7 +15,7 @@ protocol CountriesProtocol {
     var cca: String { get set}
 }
 
-struct Countries: CountriesProtocol, Hashable {
+struct Countries: CountriesProtocol, Hashable  {
     var name: String
     var picture: String
 //    var common: String

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -173,7 +173,7 @@
                     <constraint firstItem="z5f-Tf-RSy" firstAttribute="trailing" secondItem="1Tr-fN-DqF" secondAttribute="trailing" constant="10" id="KJt-Bo-G2X"/>
                     <constraint firstItem="E4z-uw-ljc" firstAttribute="centerX" secondItem="1cT-Od-ivO" secondAttribute="centerX" id="MG6-dt-fgc"/>
                     <constraint firstItem="z5f-Tf-RSy" firstAttribute="trailing" secondItem="dtB-7u-56V" secondAttribute="trailing" id="Q1c-ca-bqK"/>
-                    <constraint firstItem="z5f-Tf-RSy" firstAttribute="bottom" secondItem="fTb-nY-K7a" secondAttribute="bottom" constant="30" id="R8U-68-77d"/>
+                    <constraint firstItem="z5f-Tf-RSy" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="fTb-nY-K7a" secondAttribute="bottom" constant="30" id="R8U-68-77d"/>
                     <constraint firstItem="6sP-Qb-Wld" firstAttribute="leading" secondItem="1cT-Od-ivO" secondAttribute="leading" id="SUm-PA-sQQ"/>
                     <constraint firstItem="dtB-7u-56V" firstAttribute="top" secondItem="1Tr-fN-DqF" secondAttribute="bottom" constant="20" id="VZz-UC-bUI"/>
                     <constraint firstItem="z5f-Tf-RSy" firstAttribute="trailing" secondItem="fTb-nY-K7a" secondAttribute="trailing" id="Wu4-lf-iSv"/>

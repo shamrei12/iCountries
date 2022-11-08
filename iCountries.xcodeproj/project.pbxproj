@@ -41,6 +41,7 @@
 		D894B9F628D0EA4200ACB289 /* ShowCountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894B9F528D0EA4200ACB289 /* ShowCountryModel.swift */; };
 		D898CD2B28DF63B7000C5024 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898CD2A28DF63B7000C5024 /* TimeManager.swift */; };
 		D8A884B92915764D00F53431 /* iCountries.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8A884B72915764D00F53431 /* iCountries.xcdatamodeld */; };
+		D8A884BB2916794200F53431 /* CountriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A884BA2916794200F53431 /* CountriesModel.swift */; };
 		D8AFED7C2903ECE10043CC88 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D8AFED7B2903ECE10043CC88 /* Podfile */; };
 		D8B813172900908600C368C1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D8B813162900908600C368C1 /* Kingfisher */; };
 		D8E237D428F009FB00935484 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E237D328F009FB00935484 /* Protocols.swift */; };
@@ -85,6 +86,7 @@
 		D894B9F528D0EA4200ACB289 /* ShowCountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCountryModel.swift; sourceTree = "<group>"; };
 		D898CD2A28DF63B7000C5024 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		D8A884B82915764D00F53431 /* CountriesData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CountriesData.xcdatamodel; sourceTree = "<group>"; };
+		D8A884BA2916794200F53431 /* CountriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesModel.swift; sourceTree = "<group>"; };
 		D8AFED7B2903ECE10043CC88 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D8E237D328F009FB00935484 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +126,7 @@
 			children = (
 				D894B9F528D0EA4200ACB289 /* ShowCountryModel.swift */,
 				D83F128D28DF361F000D2859 /* QuizModel.swift */,
+				D8A884BA2916794200F53431 /* CountriesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				D87063B528D75B3E009F224A /* CountryTableViewCell.swift in Sources */,
 				D898CD2B28DF63B7000C5024 /* TimeManager.swift in Sources */,
 				D87E409B28D4CE320050B5DF /* CountryView.swift in Sources */,
+				D8A884BB2916794200F53431 /* CountriesModel.swift in Sources */,
 				D894B9F428D0E7CE00ACB289 /* SessionManager.swift in Sources */,
 				D894B9EC28D0DED100ACB289 /* WelcomeElement.swift in Sources */,
 				D894B9DA28D0DE7200ACB289 /* SceneDelegate.swift in Sources */,
