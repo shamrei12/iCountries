@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,7 +29,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="СПИСОК СТРАН">
-                                    <fontDescription key="titleFontDescription" name="Impact" family="Impact" pointSize="40"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="32"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="tappedListCountry:" destination="jxc-bL-K7M" eventType="touchUpInside" id="npq-mf-COE"/>
@@ -45,7 +45,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="ВИКТОРИНА">
-                                    <fontDescription key="titleFontDescription" name="Impact" family="Impact" pointSize="39"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="32"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="tappedQuiz:" destination="jxc-bL-K7M" eventType="touchUpInside" id="aFX-Gc-TaX"/>
@@ -53,33 +53,48 @@
                             </button>
                         </subviews>
                     </stackView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iContries_icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Ic-gv-R9i">
-                        <rect key="frame" x="0.0" y="150" width="390" height="300"/>
-                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKh-uH-VYg">
+                        <rect key="frame" x="69.666666666666671" y="405" width="250.66666666666663" height="34.333333333333314"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Загрузить данные о странах"/>
+                        <connections>
+                            <action selector="tappedDownload:" destination="jxc-bL-K7M" eventType="touchUpInside" id="DRD-iP-0ms"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Данные о странах загружены" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbV-rT-X6z">
+                        <rect key="frame" x="0.0" y="47" width="390" height="20.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" systemColor="systemGreenColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="e9u-Wj-OEm"/>
-                <color key="backgroundColor" red="0.95362593399999995" green="0.96042541640000001" blue="0.98082386359999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
-                    <constraint firstItem="7Ic-gv-R9i" firstAttribute="top" secondItem="e9u-Wj-OEm" secondAttribute="top" constant="103" id="81M-g1-Mw4"/>
-                    <constraint firstItem="7Ic-gv-R9i" firstAttribute="leading" secondItem="AhA-Rd-h6l" secondAttribute="leading" id="GGT-hk-1nM"/>
+                    <constraint firstItem="tbV-rT-X6z" firstAttribute="centerX" secondItem="0Ml-9b-sUe" secondAttribute="centerX" id="4Kt-IX-cDN"/>
+                    <constraint firstItem="tbV-rT-X6z" firstAttribute="top" secondItem="e9u-Wj-OEm" secondAttribute="top" id="AG4-Bk-YLk"/>
                     <constraint firstItem="e9u-Wj-OEm" firstAttribute="bottom" secondItem="AhA-Rd-h6l" secondAttribute="bottom" constant="100" id="HxZ-SO-5gV"/>
                     <constraint firstItem="e9u-Wj-OEm" firstAttribute="trailing" secondItem="AhA-Rd-h6l" secondAttribute="trailing" id="W6q-gm-KIn"/>
+                    <constraint firstItem="tbV-rT-X6z" firstAttribute="leading" secondItem="e9u-Wj-OEm" secondAttribute="leading" id="hqd-Sr-qiW"/>
+                    <constraint firstItem="MKh-uH-VYg" firstAttribute="centerY" secondItem="0Ml-9b-sUe" secondAttribute="centerY" id="oP5-78-5Ds"/>
                     <constraint firstItem="AhA-Rd-h6l" firstAttribute="leading" secondItem="e9u-Wj-OEm" secondAttribute="leading" id="pWi-GQ-Hpc"/>
-                    <constraint firstItem="AhA-Rd-h6l" firstAttribute="top" secondItem="7Ic-gv-R9i" secondAttribute="bottom" constant="70" id="vSL-jw-GPm"/>
-                    <constraint firstItem="7Ic-gv-R9i" firstAttribute="trailing" secondItem="AhA-Rd-h6l" secondAttribute="trailing" id="zwD-jq-AcE"/>
+                    <constraint firstItem="MKh-uH-VYg" firstAttribute="centerX" secondItem="0Ml-9b-sUe" secondAttribute="centerX" id="sg2-Hc-1m0"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="buttonCountries" destination="ZLT-BU-imj" id="C0F-ml-jPQ"/>
                 <outlet property="buttonQuiz" destination="kae-ep-kyH" id="eZT-fr-Vzh"/>
+                <outlet property="dataDownload" destination="MKh-uH-VYg" id="jdb-e6-ySV"/>
+                <outlet property="trueDownload" destination="tbV-rT-X6z" id="CCQ-kH-qaT"/>
             </connections>
             <point key="canvasLocation" x="-64.615384615384613" y="42.654028436018955"/>
         </viewController>
     </objects>
     <resources>
-        <image name="iContries_icon" width="170.66667175292969" height="170.66667175292969"/>
         <systemColor name="systemCyanColor">
             <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

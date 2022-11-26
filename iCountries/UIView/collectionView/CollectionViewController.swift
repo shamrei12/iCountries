@@ -205,7 +205,6 @@ class CollectionViewController: UIViewController {
         fetchRequest = CountriesCoreData.fetchRequest()
         let context = appDelegate.persistentContainer.viewContext
         let objects = try! context.fetch(fetchRequest)
-        print(objects.count)
         for country in countries.startIndex...countries.endIndex {
             countriesCollection.append(Countries(name: objects[country].name ?? "", picture: objects[country].picture ?? "", cca: objects[country].cca ?? ""))
         }

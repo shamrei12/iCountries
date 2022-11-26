@@ -13,46 +13,83 @@ class MenuViewController: UIViewController {
     private var storageKey = "checkValue"
     @IBOutlet var buttonCountries: UIButton!
     @IBOutlet var buttonQuiz: UIButton!
+    @IBOutlet weak var dataDownload: UIButton!
+    
+    @IBOutlet weak var trueDownload: UILabel!
+    
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        data()
+        trueDownload.layer.isHidden = true
+        dataDownload.layer.isHidden = true
+        checkDownload()
         buttonCountries.layer.cornerRadius = 10
         buttonQuiz.layer.cornerRadius = 10
     }
-
+    
+    func checkDownload() {
+        if (storage.object(forKey: storageKey) as? Bool)! {
+            trueDownload.layer.isHidden = false
+            dataDownload.layer.isHidden = true
+        } else {
+            trueDownload.layer.isHidden = true
+            dataDownload.layer.isHidden = false
+        }
+    }
+    
     @IBAction func tappedListCountry(_ sender: UIButton) {
         let countryVC = CollectionViewController.instantiate()
-        //        var name = countries[indexPath.row].common
-        //        countryVC.country = name
         countryVC.modalPresentationStyle = .fullScreen
         present(countryVC, animated: false)
     }
     
     @IBAction func tappedQuiz(_ sender: UIButton) {
-        if storage.object(forKey: storageKey) != nil {
+        if (storage.object(forKey: storageKey) as? Bool)! {
             let quizVC = QuizViewController.instantiate()
             quizVC.modalPresentationStyle = .fullScreen
             present(quizVC, animated: false)
         }
     }
     
+    @IBAction func tappedDownload(_ sender: UIButton) {
+        data()
+    }
+    
     func data() {
-        if storage.object(forKey: storageKey) == nil {
-            print(1)
             storage.set(true, forKey: storageKey)
-            if (storage.object(forKey: storageKey) != nil) == true {
-                print(2)
-                SessionManager.shared.countriesRequest { [self] welcomeElement in
-                    for country in 0...welcomeElement.count - 1 {
-                        saveCountries(welcomeElement[country].translations["rus"]?.official ?? "", welcomeElement[country].flags.png!, welcomeElement[country].cca2)
-                    }
+            SessionManager.shared.countriesRequest { [self] welcomeElement in
+                for country in 0...welcomeElement.count - 1 {
+                    saveCountries(welcomeElement[country].translations["rus"]?.official ?? "", welcomeElement[country].flags.png!, welcomeElement[country].cca2)
                 }
             }
         }
-
+    
+    func getDate(_ times: [String]) -> String {
+        var time: String = ""
+        var set: Set<String> = []
+        for i in times {
+            set.insert(TimeManager.shared.curentDate(i))
+        }
+        for j in set {
+            time += j
+            if set.count > 1 {
+                time += " "
+            }
+            
+        }
+        return time
     }
-
+    
+    func getTime(_ times: [String]) -> String {
+        var time: String = ""
+        for i in times {
+            time += TimeManager.shared.solstice(i)
+            time += " "
+        }
+        return time
+    }
     func saveCountries(_ name: String,_ pictures: String, _ cca: String) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.newBackgroundContext()
@@ -69,28 +106,29 @@ class MenuViewController: UIViewController {
         taskObject.cca = cca
         do {
             try context.save()
-            print("SUKA")
         } catch {
             print(error.localizedDescription)
         }
-        alletrtShow()
+        checkDownload()
     }
     
     
-    func alletrtShow() {
-        let alertController = UIAlertController(title: "Данные о странах загружены", message: "Нажмите ОК чтобы продолжить", preferredStyle: .alert)
+    func alletrtShow(_ text: String) {
+        let alertController = UIAlertController(title: text, message: "Нажмите ОК чтобы продолжить", preferredStyle: .alert)
         let cancelButton = UIAlertAction(title: "ОК", style: .cancel, handler: nil)
         alertController.addAction(cancelButton)
         self.present(alertController, animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+
