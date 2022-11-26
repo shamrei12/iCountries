@@ -30,7 +30,7 @@ class MenuViewController: UIViewController {
     }
     
     func checkDownload() {
-        if (storage.object(forKey: storageKey) as? Bool)! {
+        if trueResult() {
             trueDownload.layer.isHidden = false
             dataDownload.layer.isHidden = true
         } else {
@@ -40,21 +40,40 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func tappedListCountry(_ sender: UIButton) {
-        let countryVC = CollectionViewController.instantiate()
-        countryVC.modalPresentationStyle = .fullScreen
-        present(countryVC, animated: false)
+        if trueResult() {
+            let countryVC = CollectionViewController.instantiate()
+            countryVC.modalPresentationStyle = .fullScreen
+            present(countryVC, animated: false)
+        } else {
+                alletrtShow("Сначала загрузите данные о странах")
+        }
+
     }
     
     @IBAction func tappedQuiz(_ sender: UIButton) {
-        if (storage.object(forKey: storageKey) as? Bool)! {
+        if trueResult() {
             let quizVC = QuizViewController.instantiate()
             quizVC.modalPresentationStyle = .fullScreen
             present(quizVC, animated: false)
+        } else {
+            alletrtShow("Сначала загрузите данные о странах")
         }
     }
     
     @IBAction func tappedDownload(_ sender: UIButton) {
         data()
+    }
+    
+    func trueResult() -> Bool {
+        if storage.object(forKey: storageKey) != nil {
+            if (storage.object(forKey: storageKey) as? Bool)! {
+                return true
+            } else {
+                return false
+            }
+        } else {
+                return false
+        }
     }
     
     func data() {
