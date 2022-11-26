@@ -45,7 +45,6 @@ class SessionManager {
             }
         }
     }
-    
     func parseJSON(data: Data) -> [WelcomeElement]? {
         do {
             let main = try JSONDecoder().decode([WelcomeElement].self, from: data)

@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import CoreData
 
 extension CountriesViewController: UITableViewDelegate {
     
@@ -194,20 +195,27 @@ class CountriesViewController: UIViewController {
     }
     
     func showCountries() {
-        SessionManager.shared.countriesRequest { [self] welcomeElement in
-                for country in pageNumberStart...pageNumberEnd {
-                    countries.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "", picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
-                }
-            tableView.reloadData()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let fetchRequest: NSFetchRequest<CountriesCoreData>
+        fetchRequest = CountriesCoreData.fetchRequest()
+        let context = appDelegate.persistentContainer.viewContext
+        let objects = try! context.fetch(fetchRequest)
+        for country in pageNumberStart...pageNumberEnd {
+            countries.append(Countries(name: objects[country].name!, picture: objects[country].picture!, cca: objects[country].cca!))
         }
+        tableView.reloadData()
     }
     
     func allCountries() {
-        SessionManager.shared.countriesRequest { [self] welcomeElement in
-            DispatchQueue.global().async { [self] in
-                for country in 0...welcomeElement.count - 1 {
-                    allCountryForSearch.append(Countries(name: welcomeElement[country].translations["rus"]?.official ?? "", picture: welcomeElement[country].flags.png!, cca: welcomeElement[country].cca2))
-                }
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let fetchRequest: NSFetchRequest<CountriesCoreData>
+        fetchRequest = CountriesCoreData.fetchRequest()
+        let context = appDelegate.persistentContainer.viewContext
+        let objects = try! context.fetch(fetchRequest)
+        print(objects)
+        DispatchQueue.global().async { [self] in
+            for country in 0...objects.count - 1 {
+                allCountryForSearch.append(Countries(name: objects[country].name!, picture: objects[country].picture!, cca: objects[country].cca!))
             }
         }
     }

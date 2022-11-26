@@ -38,13 +38,10 @@ struct QuizGame {
         badCount = 0
         trueCount = 0
         heart = 3
-        print(heart)
-        print("clear mode")
+
     }
     
     func createNamePicture() -> String {
-        print(self.heart)
-        print("createNamePicture")
         return "\(self.heart)hearts.png"
     }
     
@@ -69,10 +66,8 @@ struct QuizGame {
         if trueStrike == 2 {
             if heart < 3 {
                 trueStrike = 0
-                print(self.heart)
                 self.heart += 1
-                print(self.heart)
-                print("checkTrueStrike")
+
             }
             if badCount > 0 {
                 badCount -= 1
@@ -83,8 +78,6 @@ struct QuizGame {
         if falseStrike == 2 {
             falseStrike = 0
             heart -= 1
-            print(self.heart)
-            print("checkfalseStrike")
             badCount += 1
         }
     }
